@@ -1,0 +1,14 @@
+{{disable comments}}
+{{disable sidebar}}
+
+<style type="text/css">
+
+  #page-body {
+    width: 780px;
+  }
+
+  a {
+    color: inherit;
+  }
+
+</style>

@@ -1,4 +1,4 @@
-resume
+Resume
 ======
 
-my resume
+Lucas Doyle's Resume
