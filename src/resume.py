@@ -1,4 +1,5 @@
 import json
+import sys
 
 def wrap(tag, text):
   return '<' + tag + '>' + text + '</' + tag + '>'
@@ -98,12 +99,81 @@ class text(Writer):
   def leadershipactivities(self, resume):
     return self.process_section('Student Leadership and Activities', resume.leadershipactivities)
 
+class markdown(Writer):
+  seperator = '=========='
+  
+  def header(self, resume):
+    s = '#' + resume.name() + '\n'
+    s += '###' + resume.me.email + '\n'
+    s += resume.me.cellphone + '\n'
+    s += resume.me.address.first + '\n'
+    s += resume.me.address.second + '\n'
+    s += resume.me.website.address + '\n\n'
+    return s
+    
+  def process_section(self, label, data):
+    s = '##' + label + '\n'
+    s += self.seperator
+    s += '\n\n'
+    
+    for thing in data:
+      s += '###' + thing.name + '\n'
+      try:
+        interval = thing.start + ' - ' + thing.end
+      except AttributeError:
+        interval = thing.start
+      s += ', '.join([thing.title, thing.where, interval]) + '\n'
+      try:
+        s += multiline_format(thing.description) + '\n\n'
+      except AttributeError:
+        for bullet in thing.bullets:
+          s += ' - ' + multiline_format(bullet, indent=3) + '\n'
+        s += '\n'
+    return s
+
+  def education(self, resume):
+    s = '##Education\n'
+    s += self.seperator
+    s += '\n\n'
+    
+    for school in resume.education:
+      s += '###' + school.name + '\n'
+      s += school.where + '. ' + school.start + ' - ' + school.end + '\n'
+      try:
+        s += school.degree + ', '
+      except AttributeError:
+        pass
+      s += 'GPA of ' + school.GPA + '\n\n'
+    return s
+  
+  def professional(self, resume):
+    return self.process_section('Professional', resume.professional)
+    
+  def projects(self, resume):
+    return self.process_section('Notable Projects and Open Source', resume.projects)
+
+  def skills(self, resume):
+    s = '##Technical Skills\n'
+    s += self.seperator
+    s += '\n\n'
+    
+    for skill in resume.skills:
+      s += '###' + skill.name + '\n'
+      s += multiline_format(skill.description) + '\n'
+      s += '\n'
+    return s
+
+  def leadershipactivities(self, resume):
+    return self.process_section('Student Leadership and Activities', resume.leadershipactivities)
+
 if __name__ == "__main__":
   f = open('resume.json')
   resume = json.loads(f.read(), object_hook=lambda o : Resume(**o))
   f.close()
   
-  #writers = [text(), html(), markdown()]
-  writers = [text()]
-  for writer in writers:
-    print writer.write(resume)
+  if 'txt' in sys.argv:
+    writer = text()
+  elif 'md' in sys.argv:
+    writer = markdown()
+  
+  print writer.write(resume)
