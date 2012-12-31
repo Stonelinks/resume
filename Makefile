@@ -32,7 +32,7 @@ compile.pdf:
 	@cat static/footer.html >> $(FILENAME).html
 	@wkhtmltopdf $(FILENAME).html $(FILENAME).pdf
 
-compile: compile.text compile.markdown compile.pdf compile.html
+compile: compile.text compile.markdown
 
 # deployment
 ##########################################

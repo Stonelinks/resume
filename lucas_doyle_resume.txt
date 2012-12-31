@@ -1,4 +1,5 @@
-Lucas P. Doyle - lucas@lucasdoyle.com
+Lucas P. Doyle
+lucas@lucasdoyle.com
 603-998-3565
 28 Margaret Way
 Gilford, NH 03249
@@ -19,7 +20,8 @@ Professional
 ==============================================
 
 Harvard-Smithsonian Center for Astrophysics
-Automations Programmer / Engineer, Cambridge, MA, Summer 2009 - Present
+Automations Programmer / Engineer
+Cambridge, MA., Summer 2009 - Present
 Designed, constructed and programmed an experimental X-ray optic      
 production facility. Wrote intuitive software to simplify             
 fabrication of X-ray optics in multiple production scenarios.         
@@ -32,7 +34,8 @@ on time. Supervised a high school student to characterize potential
 optic substrates with a high precision 3D profilemeter. 
 
 Anybots, Inc.
-Robotics Intern, Mountain View, CA, Summer 2011
+Robotics Intern
+Mountain View, CA., Summer 2011
 Solely designed and authored Anystats, a tool to statistically        
 track, analyze and prioritize events from thousands of logs from a    
 fleet of telepresence robots. Saved time by cross referencing event   
@@ -47,7 +50,8 @@ Notable Projects and Open Source
 ==============================================
 
 Boeing Robotic Wingbox
-Team Leader and Lead Programmer, Troy, NY, Spring 2012
+Team Leader and Lead Programmer
+Troy, NY., Spring 2012
  - Led a capstone team of engineering students to design a simulator     
    for an intra-wing robot to operate inside an aircraft. 
  - Worked closely with Boeing to fulfill requirements for assembly and   
@@ -61,7 +65,8 @@ Team Leader and Lead Programmer, Troy, NY, Spring 2012
    kinematic trajectories to avoid collisions. 
 
 DaBuzz Market Sentiment Analyzer
-Team Member, Troy, NY, Spring 2012
+Team Member
+Troy, NY., Spring 2012
  - Designed and implemented web crawler and scraper to analyze           
    financial news sources and gauge stock market sentiment. 
  - Assisted in implementation and training of classifier using Python    
@@ -98,18 +103,21 @@ Student Leadership and Activities
 ==============================================
 
 Red & White Student Organization
-Webmaster, Troy, NY, Spring 2012
+Webmaster
+Troy, NY., Spring 2012
 Responsible for representing Rensselaer at high-visibility functions  
 to its alumni, campus and community. As Webmaster, maintained a web   
 presence for the organization. 
 
 The Baruch '60 Center for Bio-Solar Energy
-Webmaster and Systems Administrator, Troy, NY, Spring 2009 - Spring 2012
+Webmaster and Systems Administrator
+Troy, NY., Spring 2009 - Spring 2012
 Created and maintained two websites, responsible for various IT and   
 support tasks. 
 
 Rensselaer Judicial Board
-Member, Troy, NY, Fall 2009
+Member
+Troy, NY., Fall 2009
 Served in judgment for cases where student rights, responsibilities   
 or conduct were in question. 
 
