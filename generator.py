@@ -13,10 +13,7 @@ def multiline_format(text, indent=0):
     if len(line) + len(word) + 1 < max_line_width:
       line += word + ' '
     else:
-      s += line
-      for _ in range(max_line_width - len(line)):
-        s += ' '
-      s += '\n'
+      s += line + ' ' * (max_line_width - len(line)) + '\n'
       line = indent_string + word + ' '
   return s + line
 
@@ -106,9 +103,9 @@ class markdown(Writer):
     s = '#' + resume.name() + '\n'
     s += '###' + resume.me.email + '\n'
     s += resume.me.cellphone + '\n'
-    s += resume.me.address.first + '\n'
-    s += resume.me.address.second + '\n'
-    s += resume.me.website.address + '\n\n'
+    s += resume.me.address.first + '\n\n'
+    s += resume.me.address.second + '\n\n'
+    s += resume.me.website.address + '\n\n\n'
     return s
     
   def process_section(self, label, data):
@@ -167,7 +164,7 @@ class markdown(Writer):
     return self.process_section('Student Leadership and Activities', resume.leadershipactivities)
 
 if __name__ == "__main__":
-  f = open('resume.json')
+  f = open('content.json')
   resume = json.loads(f.read(), object_hook=lambda o : Resume(**o))
   f.close()
   
