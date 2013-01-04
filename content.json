@@ -15,20 +15,24 @@
       "first" : "28 Margaret Way",
       "second" : "Gilford, NH 03249"
     },
-    "socialNetworks" : {
-      "github" : {
+    "socialNetworks" : [
+      {
+        "name" : "github",
         "address" : "https://github.com/Stonelinks"
       },
-      "twitter" : {
+      {
+        "name" : "twitter",
         "address" : "https://twitter.com/#!/Stonelinks"
       },
-      "linkedin" : {
+      {
+        "name" : "linkedin",
         "address" : "http://www.linkedin.com/pub/lucas-doyle/25/550/169"
       },
-      "facebook" : {
+      {
+        "name" : "facebook",
         "address" : "https://www.facebook.com/stonelinks"
       }
-    }
+    ]
   },
   "education" : [
     {
@@ -133,7 +137,7 @@
       "name" : "Rensselaer Judicial Board",
       "where" : "Troy, NY",
       "start" : "Fall 2009",
-      "title" : "Member",
+      "title" : "Board Member",
       "description" : "Served in judgment for cases where student rights, responsibilities or conduct were in question."
     }
   ]

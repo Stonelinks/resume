@@ -24,13 +24,15 @@ compile.html:
 	@cat static/footer.html >> $(FILENAME).html
 
 compile.pdf:
-	@rm $(FILENAME).html 2> /dev/null &
+	@rm $(FILENAME).tmp.html 2> /dev/null &
 	@rm $(FILENAME).pdf 2> /dev/null &
 	@sleep 1
-	@cat static/header-pdf.html > $(FILENAME).html
-	@python generator.py html >> $(FILENAME).html
-	@cat static/footer.html >> $(FILENAME).html
-	@wkhtmltopdf $(FILENAME).html $(FILENAME).pdf
+	# avoid naming collisions with normal html
+	@cat static/header-pdf.html > $(FILENAME).tmp.html
+	@python generator.py html >> $(FILENAME).tmp.html
+	@cat static/footer.html >> $(FILENAME).tmp.html
+	@wkhtmltopdf $(FILENAME).tmp.html $(FILENAME).pdf
+	@rm $(FILENAME).tmp.html 2> /dev/null &
 
 compile: compile.text compile.markdown
 

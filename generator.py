@@ -87,7 +87,7 @@ class text(Writer):
   def skills(self, resume):
     s = 'Technical Skills' + self.newline
     s += self.seperator
-    s += 2*self.newline
+    s += self.newline
     
     for skill in resume.skills:
       s += skill.name + self.newline
@@ -157,7 +157,137 @@ class markdown(Writer):
   def skills(self, resume):
     s = '##Technical Skills\n'
     s += self.seperator
+    s += self.newline
+    
+    for skill in resume.skills:
+      s += '###' + skill.name + self.newline
+      s += multiline_format(skill.description) + self.newline
+      s += self.newline
+    return s
+
+  def leadershipactivities(self, resume):
+    return self.process_section('Student Leadership and Activities', resume.leadershipactivities)
+
+class html(Writer):
+  seperator = ''
+  newline = '<br>'
+  
+  def header(self, resume):
+
+    s = '<div class="row-fluid">'
+    s += '<div class="span4">'
+    s += wrap('h3', resume.me.address.first)
+    s += wrap('h3', resume.me.address.second)
+    s += '</div>'
+    s += '<div class="span4" style="text-align: center;">'
+    s += wrap('h1', resume.name())
+    s += wrap('h3', resume.me.email)
+    s += '</div>'
+    s += '<div class="span4" style="text-align: right;">'
+    s += wrap('h3', '<a style="color: #DD4814;" href="' + resume.me.website.address + '" target="_blank">' + resume.me.website.name + '</a>')
+    s += wrap('h3', 'Cell: ' + resume.me.cellphone)
+    
+    for network in resume.me.socialNetworks:
+      s += '<a href="' + network.address + '">'
+      s += '<img style="width: 20px; height: 20px; padding-right: 8px;" src="http://stonelinks.org/static/img/resume/' + network.name + '.png">'
+      s += '</a>'
+
+    s += '</div>'
+    s += '</div>'
+    s += '<hr>'
+    return s
+    
+  def process_section(self, label, data):
+    s = wrap('h2', label) + self.newline
     s += 2*self.newline
+    s += '<ul style="list-style-type: none;">'
+    
+    for thing in data:
+
+      s += '<li>'
+      s += '<div class="row-fluid">'
+      s += '<div class="span6">'
+      s += wrap('h3', thing.name)
+      s += '</div>'
+      s += '<div class="span3" style="text-align: right; font-size: 16px; height: 27px;">'
+      s += wrap('em', thing.where)
+      s += '</div>'
+      s += '<div class="span3" style="text-align: right; height: 27px;">'
+      try:
+        interval = thing.start + ' - ' + thing.end
+      except AttributeError:
+        interval = thing.start
+      s += wrap('b', interval)
+      s += '</div>'
+      s += '</div>'
+      s += '<ul style="list-style-type: none;">'
+      s += '<li>'
+      s += 'B.S., Computer and Systems Engineering, <b>GPA of 3.10</b>'
+      s += '</li>'
+      s += '</ul>'
+      s += '</li>'
+      s += '<br>'
+
+      s += '###' + thing.name + self.newline
+
+      s += thing.title + self.newline
+      s += thing.where + '., ' + interval + self.newline
+      try:
+        s += thing.description + 2*self.newline
+      except AttributeError:
+        for bullet in thing.bullets:
+          s += ' - ' + multiline_format(bullet, indent=3) + self.newline
+        s += self.newline
+    return s
+
+  def education(self, resume):
+    s = wrap('h2', 'Education') + self.newline
+    s += 2*self.newline
+    s += '<ul style="list-style-type: none;">'
+    
+    for school in resume.education:
+
+      s += '<li>'
+      s += '<div class="row-fluid">'
+      s += '<div class="span6">'
+      s += wrap('h3', school.name)
+      s += '</div>'
+      s += '<div class="span3" style="text-align: right; font-size: 16px; height: 27px;">'
+      s += wrap('em', school.where)
+      s += '</div>'
+      s += '<div class="span3" style="text-align: right; height: 27px;">'
+      try:
+        interval = school.start + ' - ' + school.end
+      except AttributeError:
+        interval = school.start
+      s += wrap('b', interval)
+      s += '</div>'
+      s += '</div>'
+      s += '<ul style="list-style-type: none;">'
+      s += '<li>'
+      try:
+        s += school.degree + ', '
+      except AttributeError:
+        pass
+      s += wrap('b', school.GPA)
+      s += '</li>'
+      s += '</ul>'
+      s += '</li>'
+      s += '<br>'
+    s += '</ul>'
+    s += '<br>'
+    return s
+  
+  def professional(self, resume):
+    return self.process_section('Professional', resume.professional)
+    
+  def projects(self, resume):
+    return self.process_section('Notable Projects and Open Source', resume.projects)
+
+  def skills(self, resume):
+    s = '##Technical Skills\n'
+    s += self.seperator
+    s += self.newline
     
     for skill in resume.skills:
       s += '###' + skill.name + self.newline
@@ -177,5 +307,7 @@ if __name__ == "__main__":
     writer = text()
   elif 'md' in sys.argv:
     writer = markdown()
+  elif 'html' in sys.argv:
+    writer = html()
   
   print writer.write(resume)
