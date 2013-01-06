@@ -76,11 +76,10 @@ Troy, NY., Spring 2012
 
 Technical Skills
 ==============================================
-
 Software Development
 Python, Javascript, C++, C, Java, PHP, MATLAB, LabVIEW. Seasoned      
 GNU/Linux user. Familiar industry standard development workflows,     
-version control systems and development patterns. 
+version control systems and design patterns. 
 
 Computer Aided Design  
 Advanced experience with Solidworks. Virtually designed and           
@@ -116,7 +115,7 @@ Created and maintained two websites, responsible for various IT and
 support tasks. 
 
 Rensselaer Judicial Board
-Member
+Board Member
 Troy, NY., Fall 2009
 Served in judgment for cases where student rights, responsibilities   
 or conduct were in question. 

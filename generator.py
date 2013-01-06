@@ -49,15 +49,15 @@ class text(Writer):
     
     for thing in data:
       s += thing.name + self.newline
-      try:
+      if hasattr(thing, 'end'):
         interval = thing.start + ' - ' + thing.end
-      except AttributeError:
+      else:
         interval = thing.start
       s += thing.title + self.newline
       s += thing.where + '., ' + interval + self.newline
-      try:
+      if hasattr(thing, 'description'):
         s += multiline_format(thing.description) + 2*self.newline
-      except AttributeError:
+      else:
         for bullet in thing.bullets:
           s += ' - ' + multiline_format(bullet, indent=3) + self.newline
         s += self.newline
@@ -71,9 +71,9 @@ class text(Writer):
     for school in resume.education:
       s += school.name + self.newline
       s += school.where + '. ' + school.start + ' - ' + school.end + self.newline
-      try:
+      if hasattr(school, 'degree'):
         s += school.degree + ', '
-      except AttributeError:
+      else:
         pass
       s += 'GPA of ' + school.GPA + 2*self.newline
     return s
@@ -119,15 +119,15 @@ class markdown(Writer):
     
     for thing in data:
       s += '###' + thing.name + self.newline
-      try:
+      if hasattr(thing, 'end'):
         interval = thing.start + ' - ' + thing.end
-      except AttributeError:
+      else:
         interval = thing.start
       s += thing.title + self.newline
       s += thing.where + '., ' + interval + self.newline
-      try:
+      if hasattr(thing, 'description'):
         s += thing.description + 2*self.newline
-      except AttributeError:
+      else:
         for bullet in thing.bullets:
           s += ' - ' + multiline_format(bullet, indent=3) + self.newline
         s += self.newline
@@ -141,9 +141,9 @@ class markdown(Writer):
     for school in resume.education:
       s += '###' + school.name + self.newline
       s += school.where + '. ' + school.start + ' - ' + school.end + self.newline
-      try:
+      if hasattr(school, 'degree'):
         s += school.degree + ', '
-      except AttributeError:
+      else:
         pass
       s += 'GPA of ' + school.GPA + 2*self.newline
     return s
@@ -173,7 +173,6 @@ class html(Writer):
   newline = '<br>'
   
   def header(self, resume):
-
     s = '<div class="row-fluid">'
     s += '<div class="span4">'
     s += wrap('h3', resume.me.address.first)
@@ -181,7 +180,7 @@ class html(Writer):
     s += '</div>'
     s += '<div class="span4" style="text-align: center;">'
     s += wrap('h1', resume.name())
-    s += wrap('h3', resume.me.email)
+    s += wrap('h3', '<a href="mailto:' + resume.me.email + '">' + resume.me.email + '</a>')
     s += '</div>'
     s += '<div class="span4" style="text-align: right;">'
     s += wrap('h3', '<a style="color: #DD4814;" href="' + resume.me.website.address + '" target="_blank">' + resume.me.website.name + '</a>')
@@ -199,7 +198,6 @@ class html(Writer):
     
   def process_section(self, label, data):
     s = wrap('h2', label) + self.newline
-    s += 2*self.newline
     s += '<ul style="list-style-type: none;">'
     
     for thing in data:
@@ -208,41 +206,35 @@ class html(Writer):
       s += '<div class="row-fluid">'
       s += '<div class="span6">'
       s += wrap('h3', thing.name)
+      s += wrap('em', thing.title)
       s += '</div>'
       s += '<div class="span3" style="text-align: right; font-size: 16px; height: 27px;">'
       s += wrap('em', thing.where)
       s += '</div>'
       s += '<div class="span3" style="text-align: right; height: 27px;">'
-      try:
+      if hasattr(thing, 'end'):
         interval = thing.start + ' - ' + thing.end
-      except AttributeError:
+      else:
         interval = thing.start
       s += wrap('b', interval)
       s += '</div>'
       s += '</div>'
-      s += '<ul style="list-style-type: none;">'
-      s += '<li>'
-      s += 'B.S., Computer and Systems Engineering, <b>GPA of 3.10</b>'
-      s += '</li>'
-      s += '</ul>'
+      if hasattr(thing, 'description'):
+        s += '<ul style="list-style-type: none;">'
+        s += wrap('li', thing.description)
+        s += '</ul>'
+      else:
+        s += '<ul>'
+        for bullet in thing.bullets:
+          s += wrap('li', bullet)
+        s += '</ul>'
       s += '</li>'
       s += '<br>'
-
-      s += '###' + thing.name + self.newline
-
-      s += thing.title + self.newline
-      s += thing.where + '., ' + interval + self.newline
-      try:
-        s += thing.description + 2*self.newline
-      except AttributeError:
-        for bullet in thing.bullets:
-          s += ' - ' + multiline_format(bullet, indent=3) + self.newline
-        s += self.newline
+    s += '</ul>'
     return s
 
   def education(self, resume):
     s = wrap('h2', 'Education') + self.newline
-    s += 2*self.newline
     s += '<ul style="list-style-type: none;">'
     
     for school in resume.education:
@@ -256,20 +248,20 @@ class html(Writer):
       s += wrap('em', school.where)
       s += '</div>'
       s += '<div class="span3" style="text-align: right; height: 27px;">'
-      try:
+      if hasattr(school, 'end'):
         interval = school.start + ' - ' + school.end
-      except AttributeError:
+      else:
         interval = school.start
       s += wrap('b', interval)
       s += '</div>'
       s += '</div>'
       s += '<ul style="list-style-type: none;">'
       s += '<li>'
-      try:
+      if hasattr(school, 'degree'):
         s += school.degree + ', '
-      except AttributeError:
+      else:
         pass
-      s += wrap('b', school.GPA)
+      s += wrap('b', 'GPA of ' + school.GPA)
       s += '</li>'
       s += '</ul>'
       s += '</li>'
@@ -285,14 +277,21 @@ class html(Writer):
     return self.process_section('Notable Projects and Open Source', resume.projects)
 
   def skills(self, resume):
-    s = '##Technical Skills\n'
-    s += self.seperator
-    s += self.newline
-    
+    s = wrap('h2', 'Technical Skills') + self.newline
+    s += '<ul style="list-style-type: none;">'
+
     for skill in resume.skills:
-      s += '###' + skill.name + self.newline
-      s += multiline_format(skill.description) + self.newline
-      s += self.newline
+      s += '<div class="row-fluid">'
+      s += '<div class="span3">'
+      s += wrap('h3', skill.name)
+      s += '</div>'
+      s += '<div class="span8">'
+      s += skill.description
+      s += '</div>'
+      s += '</div>'
+      s += '</li>'
+      s += '</br>'
+    s += '</ul>'
     return s
 
   def leadershipactivities(self, resume):
