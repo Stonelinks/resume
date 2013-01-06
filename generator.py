@@ -175,7 +175,7 @@ class html_writer(text_writer):
     
     for network in resume.me.socialNetworks:
       s += '<a href="' + network.address + '">'
-      s += '<img style="width: 20px; height: 20px; padding-right: 8px;" src="http://stonelinks.org/static/img/resume/' + network.name + '.png">'
+      s += '<img style="width: 20px; height: 20px; padding-right: 8px;" src="static/img/' + network.name + '.png">'
       s += '</a>'
 
     s += '</div>'
