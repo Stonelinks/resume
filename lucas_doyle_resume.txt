@@ -76,6 +76,7 @@ Troy, NY., Spring 2012
 
 Technical Skills
 ==============================================
+
 Software Development
 Python, Javascript, C++, C, Java, PHP, MATLAB, LabVIEW. Seasoned      
 GNU/Linux user. Familiar industry standard development workflows,     

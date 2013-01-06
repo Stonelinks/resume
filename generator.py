@@ -77,7 +77,7 @@ class text_writer():
   def skills(self, resume):
     s = 'Technical Skills' + self.newline
     s += self.seperator
-    s += self.newline
+    s += 2*self.newline
     
     for skill in resume.skills:
       s += skill.name + self.newline
@@ -158,6 +158,7 @@ class markdown_writer(text_writer):
 class html_writer(text_writer):
   seperator = ''
   newline = '<br>'
+  static_location = 'static/img/'
   
   def header(self, resume):
     s = '<div class="row-fluid">'
@@ -175,7 +176,7 @@ class html_writer(text_writer):
     
     for network in resume.me.socialNetworks:
       s += '<a href="' + network.address + '">'
-      s += '<img style="width: 20px; height: 20px; padding-right: 8px;" src="static/img/' + network.name + '.png">'
+      s += '<img style="width: 20px; height: 20px; padding-right: 8px;" src="' + self.static_location + network.name + '.png">'
       s += '</a>'
 
     s += '</div>'
@@ -289,5 +290,13 @@ if __name__ == "__main__":
     writer = markdown_writer()
   elif 'html' in sys.argv:
     writer = html_writer()
-  
-  print writer.write(resume)
+  else:
+    writer = None
+
+  if '-static_location' in sys.argv:
+    location = sys.argv[sys.argv.index('-static_location') + 1]
+    if writer is not None:
+      writer.static_location = location
+
+  if writer is not None:
+    print writer.write(resume)

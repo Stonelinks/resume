@@ -32,14 +32,20 @@ compile.pdf:
 	@rm $(FILENAME).pdf 2> /dev/null &
 	@sleep 1
 	@echo "compiling pdf version of $(FILENAME)"
-	@ # avoid naming collisions with normal html
 	@cat static/header-pdf.html > $(FILENAME).tmp.html
 	@python generator.py html >> $(FILENAME).tmp.html
 	@cat static/footer.html >> $(FILENAME).tmp.html
 	@./wkhtmltopdf-$(ARCH) $(FILENAME).tmp.html $(FILENAME).pdf
 	@rm $(FILENAME).tmp.html 2> /dev/null &
 
-compile: compile.text compile.markdown compile.html compile.pdf
+compile.stonelinks:
+	@rm $(FILENAME).stonelinks.md 2> /dev/null &
+	@sleep 1
+	@echo "compiling stonelinks markdown version of $(FILENAME)"
+	@cat static/header-stonelinks.html > $(FILENAME).stonelinks.md
+	@python generator.py html -static_location http://stonelinks.org/static/resume/img/ >> $(FILENAME).stonelinks.md
+
+compile: compile.text compile.markdown compile.html compile.pdf compile.stonelinks
 
 # deployment
 ##########################################
@@ -48,7 +54,11 @@ compile: compile.text compile.markdown compile.html compile.pdf
 
 # deploy to stonelinks.org
 deploy.stonelinks:
-	pass
+	@cp -R static/img ~/stonelinks/static/resume/
+	@cp $(FILENAME).stonelinks.md ~/stonelinks/content/luke/resume.md
+	@cp $(FILENAME).pdf ~/stonelinks/static/resume/
+	@cp $(FILENAME).txt ~/stonelinks/static/resume/
+	@cd ~/stonelinks && $(MAKE) site
 
 deploy: deploy.stonelinks
 
@@ -57,10 +67,11 @@ deploy: deploy.stonelinks
 
 .PHONY: all clean
 
-all: clean compile deploy
-
 clean:
 	@rm $(FILENAME).md 2> /dev/null &
 	@rm $(FILENAME).html 2> /dev/null &
 	@rm $(FILENAME).txt 2> /dev/null &
 	@rm $(FILENAME).pdf 2> /dev/null &
+
+all: clean compile deploy
+
