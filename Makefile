@@ -68,4 +68,3 @@ deploy: deploy.stonelinks
 .PHONY: all
 
 all: compile deploy
-

@@ -20,7 +20,7 @@ http://stonelinks.org/luke
 
 ###Rensselaer Polytechnic Institute
 
-Troy, NY. Fall 2008 - Spring 2012
+Troy, NY, Fall 2008 - Spring 2012
 
 B.S., Computer and Systems Engineering, GPA of 3.10
 
@@ -28,7 +28,7 @@ B.S., Computer and Systems Engineering, GPA of 3.10
 
 ###Gilford High School
 
-Gilford, NH. Fall 2004 - Spring 2008
+Gilford, NH, Fall 2004 - Spring 2008
 
 GPA of 4.00
 
@@ -40,21 +40,31 @@ GPA of 4.00
 
 
 
+###MUJIN Inc.
+
+Software engineer
+
+Bunkyo-ku, Tokyo, Japan, Fall 2012 - Present
+
+Designed and implemented the web interface to MUJIN's revolutionary industrial robotics motion planning software. Wrote the javascript clent library that uses MUJIN's RESTful API to power its products.
+
+
+
 ###Harvard-Smithsonian Center for Astrophysics
 
 Automations Programmer / Engineer
 
-Cambridge, MA., Summer 2009 - Present
+Cambridge, MA, Summer 2009 - Present
 
 Designed, constructed and programmed an experimental X-ray optic production facility. Wrote intuitive software to simplify fabrication of X-ray optics in multiple production scenarios. Designed sample manipulation hardware and a high strength production chamber mount using CAD. Saved time and lowered costs by developing a more efficient shutter controller now used on all production chambers in the lab. Worked closely with physicists, component vendors, machinists and other key stakeholders to complete project on time. Supervised a high school student to characterize potential optic substrates with a high precision 3D profilemeter.
 
 
 
-###Anybots, Inc.
+###Anybots Inc.
 
 Robotics Intern
 
-Mountain View, CA., Summer 2011
+Mountain View, CA, Summer 2011
 
 Solely designed and authored Anystats, a tool to statistically track, analyze and prioritize events from thousands of logs from a fleet of telepresence robots. Saved time by cross referencing event data with customer information and known bugs to dispatch engineering and support teams effectively. Also implemented UI features for touchscreen on forehead of robot, namely a dashboard to display internal robot device status and connectivity, as well as a call screen to allow users to answer or deny calls made to their telepresence robot.
 
@@ -70,7 +80,7 @@ Solely designed and authored Anystats, a tool to statistically track, analyze an
 
 Team Leader and Lead Programmer
 
-Troy, NY., Spring 2012
+Troy, NY, Spring 2012
 
  - Led a capstone team of engineering students to design a simulator     
    for an intra-wing robot to operate inside an aircraft. 
@@ -94,7 +104,7 @@ Troy, NY., Spring 2012
 
 Team Member
 
-Troy, NY., Spring 2012
+Troy, NY, Spring 2012
 
  - Designed and implemented web crawler and scraper to analyze           
    financial news sources and gauge stock market sentiment. 
@@ -154,7 +164,7 @@ non-relational databases.
 
 Webmaster
 
-Troy, NY., Spring 2012
+Troy, NY, Spring 2012
 
 Responsible for representing Rensselaer at high-visibility functions to its alumni, campus and community. As Webmaster, maintained a web presence for the organization.
 
@@ -164,7 +174,7 @@ Responsible for representing Rensselaer at high-visibility functions to its alum
 
 Webmaster and Systems Administrator
 
-Troy, NY., Spring 2009 - Spring 2012
+Troy, NY, Spring 2009 - Spring 2012
 
 Created and maintained two websites, responsible for various IT and support tasks.
 
@@ -174,7 +184,7 @@ Created and maintained two websites, responsible for various IT and support task
 
 Board Member
 
-Troy, NY., Fall 2009
+Troy, NY, Fall 2009
 
 Served in judgment for cases where student rights, responsibilities or conduct were in question.
 

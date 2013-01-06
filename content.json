@@ -53,6 +53,14 @@
   ],
   "professional" : [
     {
+      "name" : "MUJIN Inc.",
+      "where" : "Bunkyo-ku, Tokyo, Japan",
+      "start" : "Fall 2012",
+      "end" : "Present",
+      "title" : "Software engineer",
+      "description" : "Designed and implemented the web interface to MUJIN's revolutionary industrial robotics motion planning software. Wrote the javascript clent library that uses MUJIN's RESTful API to power its products."
+    },
+    {
       "name" : "Harvard-Smithsonian Center for Astrophysics",
       "link" : "http://stonelinks.org/projects/harvard.html",
       "where" : "Cambridge, MA",
@@ -62,7 +70,7 @@
       "description" : "Designed, constructed and programmed an experimental X-ray optic production facility. Wrote intuitive software to simplify fabrication of X-ray optics in multiple production scenarios. Designed sample manipulation hardware and a high strength production chamber mount using CAD. Saved time and lowered costs by developing a more efficient shutter controller now used on all production chambers in the lab. Worked closely with physicists, component vendors, machinists and other key stakeholders to complete project on time. Supervised a high school student to characterize potential optic substrates with a high precision 3D profilemeter."
     },
     {
-      "name" : "Anybots, Inc.",
+      "name" : "Anybots Inc.",
       "link" : "http://stonelinks.org/projects/anybots.html",
       "where" : "Mountain View, CA",
       "start" : "Summer 2011",

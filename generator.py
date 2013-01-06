@@ -50,7 +50,7 @@ class text_writer():
       else:
         interval = thing.start
       s += thing.title + self.newline
-      s += thing.where + '., ' + interval + self.newline
+      s += thing.where + ', ' + interval + self.newline
       if hasattr(thing, 'description'):
         s += multiline_format(thing.description) + 2*self.newline
       else:
@@ -66,7 +66,7 @@ class text_writer():
     
     for school in resume.education:
       s += school.name + self.newline
-      s += school.where + '. ' + school.start + ' - ' + school.end + self.newline
+      s += school.where + ', ' + school.start + ' - ' + school.end + self.newline
       if hasattr(school, 'degree'):
         s += school.degree + ', '
       else:
@@ -120,7 +120,7 @@ class markdown_writer(text_writer):
       else:
         interval = thing.start
       s += thing.title + self.newline
-      s += thing.where + '., ' + interval + self.newline
+      s += thing.where + ', ' + interval + self.newline
       if hasattr(thing, 'description'):
         s += thing.description + 2*self.newline
       else:
@@ -136,7 +136,7 @@ class markdown_writer(text_writer):
     
     for school in resume.education:
       s += '###' + school.name + self.newline
-      s += school.where + '. ' + school.start + ' - ' + school.end + self.newline
+      s += school.where + ', ' + school.start + ' - ' + school.end + self.newline
       if hasattr(school, 'degree'):
         s += school.degree + ', '
       else:

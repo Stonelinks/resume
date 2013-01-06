@@ -9,19 +9,26 @@ Education
 ==============================================
 
 Rensselaer Polytechnic Institute
-Troy, NY. Fall 2008 - Spring 2012
+Troy, NY, Fall 2008 - Spring 2012
 B.S., Computer and Systems Engineering, GPA of 3.10
 
 Gilford High School
-Gilford, NH. Fall 2004 - Spring 2008
+Gilford, NH, Fall 2004 - Spring 2008
 GPA of 4.00
 
 Professional
 ==============================================
 
+MUJIN Inc.
+Software engineer
+Bunkyo-ku, Tokyo, Japan, Fall 2012 - Present
+Designed and implemented the web interface to MUJIN's revolutionary   
+industrial robotics motion planning software. Wrote the javascript    
+clent library that uses MUJIN's RESTful API to power its products. 
+
 Harvard-Smithsonian Center for Astrophysics
 Automations Programmer / Engineer
-Cambridge, MA., Summer 2009 - Present
+Cambridge, MA, Summer 2009 - Present
 Designed, constructed and programmed an experimental X-ray optic      
 production facility. Wrote intuitive software to simplify             
 fabrication of X-ray optics in multiple production scenarios.         
@@ -33,9 +40,9 @@ vendors, machinists and other key stakeholders to complete project
 on time. Supervised a high school student to characterize potential   
 optic substrates with a high precision 3D profilemeter. 
 
-Anybots, Inc.
+Anybots Inc.
 Robotics Intern
-Mountain View, CA., Summer 2011
+Mountain View, CA, Summer 2011
 Solely designed and authored Anystats, a tool to statistically        
 track, analyze and prioritize events from thousands of logs from a    
 fleet of telepresence robots. Saved time by cross referencing event   
@@ -51,7 +58,7 @@ Notable Projects and Open Source
 
 Boeing Robotic Wingbox
 Team Leader and Lead Programmer
-Troy, NY., Spring 2012
+Troy, NY, Spring 2012
  - Led a capstone team of engineering students to design a simulator     
    for an intra-wing robot to operate inside an aircraft. 
  - Worked closely with Boeing to fulfill requirements for assembly and   
@@ -66,7 +73,7 @@ Troy, NY., Spring 2012
 
 DaBuzz Market Sentiment Analyzer
 Team Member
-Troy, NY., Spring 2012
+Troy, NY, Spring 2012
  - Designed and implemented web crawler and scraper to analyze           
    financial news sources and gauge stock market sentiment. 
  - Assisted in implementation and training of classifier using Python    
@@ -104,20 +111,20 @@ Student Leadership and Activities
 
 Red & White Student Organization
 Webmaster
-Troy, NY., Spring 2012
+Troy, NY, Spring 2012
 Responsible for representing Rensselaer at high-visibility functions  
 to its alumni, campus and community. As Webmaster, maintained a web   
 presence for the organization. 
 
 The Baruch '60 Center for Bio-Solar Energy
 Webmaster and Systems Administrator
-Troy, NY., Spring 2009 - Spring 2012
+Troy, NY, Spring 2009 - Spring 2012
 Created and maintained two websites, responsible for various IT and   
 support tasks. 
 
 Rensselaer Judicial Board
 Board Member
-Troy, NY., Fall 2009
+Troy, NY, Fall 2009
 Served in judgment for cases where student rights, responsibilities   
 or conduct were in question. 
 
