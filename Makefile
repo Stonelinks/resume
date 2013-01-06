@@ -35,7 +35,7 @@ compile.pdf:
 	@cat static/header-pdf.html > $(FILENAME).tmp.html
 	@python generator.py html >> $(FILENAME).tmp.html
 	@cat static/footer.html >> $(FILENAME).tmp.html
-	@./wkhtmltopdf-$(ARCH) $(FILENAME).tmp.html $(FILENAME).pdf
+	@./wkhtmltopdf-$(ARCH) --no-outline $(FILENAME).tmp.html $(FILENAME).pdf
 	@rm $(FILENAME).tmp.html 2> /dev/null &
 
 compile.stonelinks:
@@ -65,13 +65,7 @@ deploy: deploy.stonelinks
 # main
 ##########################################
 
-.PHONY: all clean
+.PHONY: all
 
-clean:
-	@rm $(FILENAME).md 2> /dev/null &
-	@rm $(FILENAME).html 2> /dev/null &
-	@rm $(FILENAME).txt 2> /dev/null &
-	@rm $(FILENAME).pdf 2> /dev/null &
-
-all: clean compile deploy
+all: compile deploy
 
