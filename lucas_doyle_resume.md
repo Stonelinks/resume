@@ -136,10 +136,10 @@ blimps, cars and robots. Programmed for multiple microcontrollers
 
 ###Web Technologies
 
-Currently host own website on self-built framework with Amazon's      
-Elastic Computing Cloud. Competent Javascript developer. Familiar     
-with CSS/HTML, Django, Webpy, Wordpress core, various Google APIs     
-and configuring a LAMP stack. Proficient with relational and          
+Host own website on self-built framework with Amazon's Elastic        
+Computing Cloud. Competent Javascript developer. Familiar with        
+CSS/HTML, Django, Webpy, Wordpress core, various Google APIs and      
+configuring a LAMP stack. Proficient with relational and              
 non-relational databases. 
 
 
