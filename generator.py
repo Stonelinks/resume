@@ -188,11 +188,15 @@ class html_writer(text_writer):
     s += '<ul style="list-style-type: none;">'
     
     for thing in data:
-
       s += '<li>'
       s += '<div class="row-fluid">'
       s += '<div class="span6">'
-      s += wrap('h3', thing.name)
+      if hasattr(thing, 'link'):
+        s += '<a href="' + thing.link + '" target="_blank">'
+        s += wrap('h3', thing.name)
+        s += '</a>'
+      else:
+        s += wrap('h3', thing.name)
       s += wrap('em', thing.title)
       s += '</div>'
       s += '<div class="span3" style="text-align: right; font-size: 16px; height: 27px;">'
@@ -225,7 +229,6 @@ class html_writer(text_writer):
     s += '<ul style="list-style-type: none;">'
     
     for school in resume.education:
-
       s += '<li>'
       s += '<div class="row-fluid">'
       s += '<div class="span6">'
