@@ -17,16 +17,16 @@ def multiline_format(text, indent=0):
       line = indent_string + word + ' '
   return s + line
 
-class Resume():
+class resume_container():
   def __init__(self, **entries): 
     self.__dict__.update(entries)
   
   def name(self):
     return self.me.name.first + ' ' + self.me.name.MI + '. ' + self.me.name.last
   
-class Writer():
-  def __init__(self):
-    pass
+class text_writer():
+  seperator = '=============================================='
+  newline = '\n'
   
   def write(self, resume):
     s = ''
@@ -35,10 +35,6 @@ class Writer():
       s += section(resume)
     return s
 
-class text(Writer):
-  seperator = '=============================================='
-  newline = '\n'
-  
   def header(self, resume):
     return self.newline.join([resume.name(), resume.me.email, resume.me.cellphone, resume.me.address.first, resume.me.address.second, resume.me.website.address]) + 2*self.newline
 
@@ -78,12 +74,6 @@ class text(Writer):
       s += 'GPA of ' + school.GPA + 2*self.newline
     return s
   
-  def professional(self, resume):
-    return self.process_section('Professional', resume.professional)
-    
-  def projects(self, resume):
-    return self.process_section('Notable Projects and Open Source', resume.projects)
-
   def skills(self, resume):
     s = 'Technical Skills' + self.newline
     s += self.seperator
@@ -95,10 +85,16 @@ class text(Writer):
       s += 2*self.newline
     return s
 
+  def professional(self, resume):
+    return self.process_section('Professional', resume.professional)
+    
+  def projects(self, resume):
+    return self.process_section('Notable Projects and Open Source', resume.projects)
+
   def leadershipactivities(self, resume):
     return self.process_section('Student Leadership and Activities', resume.leadershipactivities)
 
-class markdown(Writer):
+class markdown_writer(text_writer):
   seperator = '=========='
   newline = '\n\n'
   
@@ -148,12 +144,6 @@ class markdown(Writer):
       s += 'GPA of ' + school.GPA + 2*self.newline
     return s
   
-  def professional(self, resume):
-    return self.process_section('Professional', resume.professional)
-    
-  def projects(self, resume):
-    return self.process_section('Notable Projects and Open Source', resume.projects)
-
   def skills(self, resume):
     s = '##Technical Skills\n'
     s += self.seperator
@@ -165,10 +155,7 @@ class markdown(Writer):
       s += self.newline
     return s
 
-  def leadershipactivities(self, resume):
-    return self.process_section('Student Leadership and Activities', resume.leadershipactivities)
-
-class html(Writer):
+class html_writer(text_writer):
   seperator = ''
   newline = '<br>'
   
@@ -270,12 +257,6 @@ class html(Writer):
     s += '<br>'
     return s
   
-  def professional(self, resume):
-    return self.process_section('Professional', resume.professional)
-    
-  def projects(self, resume):
-    return self.process_section('Notable Projects and Open Source', resume.projects)
-
   def skills(self, resume):
     s = wrap('h2', 'Technical Skills') + self.newline
     s += '<ul style="list-style-type: none;">'
@@ -294,19 +275,16 @@ class html(Writer):
     s += '</ul>'
     return s
 
-  def leadershipactivities(self, resume):
-    return self.process_section('Student Leadership and Activities', resume.leadershipactivities)
-
 if __name__ == "__main__":
   f = open('content.json')
-  resume = json.loads(f.read(), object_hook=lambda o : Resume(**o))
+  resume = json.loads(f.read(), object_hook=lambda o : resume_container(**o))
   f.close()
   
   if 'txt' in sys.argv:
-    writer = text()
+    writer = text_writer()
   elif 'md' in sys.argv:
-    writer = markdown()
+    writer = markdown_writer()
   elif 'html' in sys.argv:
-    writer = html()
+    writer = html_writer()
   
   print writer.write(resume)
