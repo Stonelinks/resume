@@ -192,12 +192,12 @@ class html_writer(text_writer):
       s += '<li>'
       s += '<div class="row-fluid">'
       s += '<div class="span6">'
+      s += '<h3 style="white-space: nowrap;">'
       if hasattr(thing, 'link'):
-        s += '<a href="' + thing.link + '" target="_blank">'
-        s += wrap('h3', thing.name)
-        s += '</a>'
+        s += '<a href="' + thing.link + '" target="_blank">' + thing.name + '</a>'
       else:
-        s += wrap('h3', thing.name)
+        s += thing.name
+      s += '</h3>'
       s += wrap('em', thing.title)
       s += '</div>'
       s += '<div class="span3" style="text-align: right; font-size: 16px; height: 27px;">'
@@ -213,12 +213,12 @@ class html_writer(text_writer):
       s += '</div>'
       if hasattr(thing, 'description'):
         s += '<ul style="list-style-type: none;">'
-        s += wrap('li', thing.description)
+        s += wrap('li', wrap('p', thing.description))
         s += '</ul>'
       else:
         s += '<ul>'
         for bullet in thing.bullets:
-          s += wrap('li', bullet)
+          s += wrap('li', wrap('p', bullet))
         s += '</ul>'
       s += '</li>'
       s += '<br>'
