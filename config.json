@@ -1,0 +1,58 @@
+{
+  "port": 9021,
+  "locals": {
+    "url": "",
+
+    "site": {
+      "title": "Stonelinks",
+      "tagline": "Lucas Doyle's website",
+      "logo": "logos/big-logo.png",
+      "email": "lucas.p.doyle@gmail.com"
+    },
+
+    "social_networks": [
+      {
+        "name": "facebook",
+        "link": "https://www.facebook.com/stonelinks"
+      },
+      {
+        "name": "github",
+        "link": "https://github.com/Stonelinks"
+      },
+      {
+        "name": "twitter",
+        "link": "https://twitter.com/#!/Stonelinks"
+      },
+      {
+        "name": "google-plus",
+        "link": "https://plus.google.com/116178490514652721625/posts"
+      },
+      {
+        "name": "linkedin",
+        "link": "http://www.linkedin.com/pub/lucas-doyle/25/550/169"
+      },
+      {
+        "name": "youtube",
+        "link": "http://www.youtube.com/user/RealStonelinks"
+      }
+    ]
+  },
+  "require": {
+    "_": "underscore",
+    "typogr": "typogr",
+    "grunt": "grunt",
+    "markdown": "markdown"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  },
+  "ignore":  [
+    "less",
+    "**/config.json",
+    "**/.DS_Store"
+  ]
+}
