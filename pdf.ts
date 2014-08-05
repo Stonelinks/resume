@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer';
 import { pathToFileURL } from 'url';
 
 const filePath = './dist/pdf.html';
-const outputPath = './output.pdf';
+const outputPath = './dist/lucas_doyle_resume.pdf';
 
 const browser = await puppeteer.launch({
   args: ['--no-sandbox'],

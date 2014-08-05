@@ -46,6 +46,7 @@ interface ResumeData {
   email: string;
   website?: string;
   pdfLink?: string;
+  introduction: string;
   socialNetworks: SocialNetwork[];
   experience: Experience[];
   education: Education;
@@ -59,6 +60,7 @@ const resumeData: ResumeData = {
   email: 'lucas.p.doyle@gmail.com',
   website: 'http://stonelinks.org/luke/',
   pdfLink: 'http://stonelinks.github.io/resume/lucas_doyle_resume.pdf',
+  introduction: `My superpower is solving hard zero-to-one problems, delivering prototypes that seem impossible and giving last second live demos. I've shipped major features across firmware, mobile, cloud backend, frontend, and ML infrastructure, but I like it best when I can see the real, physical impact of my work (e.g. robotics, smart hardware, autonomous systems, etc.).`,
   socialNetworks: [
     { address: 'https://github.com/Stonelinks', icon: faGithub },
     { address: 'https://linkedin.com/in/stonelinks/', icon: faLinkedin },
@@ -70,11 +72,21 @@ const resumeData: ResumeData = {
       location: 'San Francisco, CA',
       duration: '2018 - Present',
       techStack:
-        'Python, Golang, Typescript, React, React Native, Android, Java, Kotlin',
+        'Python, Golang, Typescript (React, Redux, React Native), Android (Java, Kotlin)',
       responsibilities: `
-- Defined and implemented core workflows for edge deployment of ML models to fleet.
-- Prototyped new products and features for Samsara's fleet management platform.
-- Developed React Native framework for publishing multiple apps from monorepo.
+**ML Infrastructure**
+
+Led the infrastructure and product features behind Samsara's core safety product (e.g. tailgating, rolling stop sign detection, etc.) that run on the edge across 2M+ of Samsara's AI dashcams, improving the safety of our roads and drivers.
+
+- Led end-to-end development and deployment of multiple edge pipelines, including device farm QA automation, shadow testing, and firmware infrastructure/feature development.
+- Built internal tools for debugging, continuous evaluation, and telemetry replay; enabled scalable model iteration and observability across firmware and cloud.
+- Spearheaded offline evaluation pipelines for quantized models and integrated support for multimodal data (video, IMU, GPS, hardware emulation, etc.).
+- Mentored interns and collaborated cross-functionally with product, firmware, science and data teams to streamline ML deployment and validation processes.
+
+**Mobile**
+
+- Led performance and infrastructure efforts for mobile applications with 500k+ DAU, driving major improvements in responsiveness, reliability, and developer velocity.
+- Helped bootstrap new apps, products and the company’s first native Android systems and mobile device management (MDM) stack.
 `,
     },
     {
@@ -83,25 +95,31 @@ const resumeData: ResumeData = {
       location: 'San Francisco, CA',
       duration: '2014 - 2018',
       techStack:
-        'Javascript (React, Redux, Webpack, Leaflet, THREE.js, React Native), Python, Swift, PHP, Golang',
+        'Javascript (React, Redux, Leaflet, React Native), Python, Swift, PHP, Golang',
       responsibilities: `
-Developed core technologies for a drone analytics platform, converting drone imagery into survey-grade data for insurance and mining industries.
-- Built cloud workflows for survey processing and analysis with a GIS-focused UI using React, Redux, and Leaflet.
-- Developed a mobile app for drone operators using React Native and iOS, enabling geofence editing and on-device photogrammetry.
-- Created a desktop app for configuring autopilot hardware for fixed-wing and multirotor drones.
+Developed core technologies for a drone platform to capture, upload and process large-scale imagery into survey-grade data for insurance and mining industries.
+
+- Created a desktop app for flashing and configuring fixed-wing and multirotor drone avionics hardware.
+- Built cloud workflows for large-scale survey processing and analysis with a GIS/geospatial-focused UI.
+- Developed a mobile app for drone operators using React Native and iOS, enabling geofence editing and on-device photogrammetry processing.
+
 - Led feature development, large-scale refactors, product mergers / acquisitions; contributed to hiring, planning, and mentoring engineers.
 `,
     },
     {
       title: 'Software Engineer',
       company: 'MUJIN Inc. (株式会社MUJIN)',
-      location: 'Bunkyō-ku, Tokyo, Japan',
+      location: 'Tokyo, Japan',
       duration: '2012 - 2014',
-      techStack: 'Python (django, OpenRAVE), Javascript (Backbone / WebGL)',
+      techStack:
+        'Python (django, OpenRAVE), Javascript (Backbone/Marionette, WebGL)',
       responsibilities: `
-Early employee at a Japanese industrial robotics startup, developing a web interface for an arm / workcell planning system used by Canon, Honda, and other integrators.
-- Built customer-facing UI with a WebGL viewer and real-time state streamer for a binpicking system.
-- Collaborated with an international team while living in Japan for two years.`,
+Fourth employee at a Japanese industrial robotics startup:
+
+- Designed and implemented the web interface for the MUJIN Controller, a robotic arm workcell planning system used by Canon, Honda, and other system integrators.
+- Developed customer-facing UIs featuring a real-time, WebSocket-based WebGL viewer for a bin-picking system.
+- Collaborated with an international team while living in Japan for two years.
+`,
     },
   ],
   education: {
@@ -141,17 +159,77 @@ Early employee at a Japanese industrial robotics startup, developing a web inter
   ],
 };
 
+/**
+ * SectionHeader component for consistent section headers
+ */
+const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
+  <h2 className="text-3xl font-bold font-serif border-b border-primary pb-1 mb-3">
+    {title}
+  </h2>
+);
+
+/**
+ * Section component for consistent section layout
+ */
+const Section: React.FC<{ title: string; children: React.ReactNode }> = ({
+  title,
+  children,
+}) => (
+  <section className="py-4 px-8">
+    <SectionHeader title={title} />
+    {children}
+  </section>
+);
+
+/**
+ * MarkdownContent component for rendering markdown with consistent styles
+ */
+const MarkdownContent: React.FC<{ content: string }> = ({ content }) => (
+  <div className="text-gray-700">
+    <ReactMarkdown
+      components={{
+        p: ({ children }) => <p className="mt-2">{children}</p>,
+        li: ({ children }) => <li className="list-disc ml-6">{children}</li>,
+      }}
+    >
+      {content}
+    </ReactMarkdown>
+  </div>
+);
+
 const Resume: React.FC = () => {
+  const websiteButton = (
+    <a
+      href={resumeData.website}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white hover:bg-background text-primary font-bold py-2 px-4 rounded"
+    >
+      {!isPDF ? 'Website' : resumeData.website?.replace('http://', '')}
+    </a>
+  );
+
+  const pdfButton = !isPDF && (
+    <a
+      href={resumeData.pdfLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white hover:bg-background text-primary font-bold py-2 px-4 rounded"
+    >
+      PDF
+    </a>
+  );
+
   return (
-    <div className={(!isPDF ? `bg-background` : '') + ' min-h-screen md:py-8'}>
+    <div
+      className={`min-h-screen md:py-${!isPDF ? '1' : '8'} ${!isPDF ? 'bg-background' : ''}`}
+    >
       <div
-        className={`max-w-3xl mx-auto bg-white ${!isPDF ? 'rounded-lg shadow-lg' : ''} overflow-hidden`}
+        className={`max-w-3xl mx-auto bg-white ${!isPDF ? 'md:rounded-lg md:shadow-lg' : ''} overflow-hidden`}
       >
         <header className="bg-primary text-white py-6 px-8 flex flex-col md:flex-row items-center justify-between">
           <div className="text-center md:text-left">
-            <h1 className="text-5xl font-bold font-serif mb-1">
-              {resumeData.name}
-            </h1>
+            <h1 className="text-5xl font-serif mb-1">{resumeData.name}</h1>
             <p className="hidden md:block text-xl font-sans">
               {resumeData.title} | {resumeData.location}
             </p>
@@ -162,31 +240,23 @@ const Resume: React.FC = () => {
               {resumeData.location}
             </p>
 
-            <div className="mt-3 flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-              <a
-                href={resumeData.website}
-                className="text-muted hover:text-muted-light"
-              >
-                {!isPDF ? 'Website' : resumeData.website}
-              </a>
-              {!isPDF && (
-                <a
-                  href={resumeData.pdfLink}
-                  className="bg-white hover:bg-background text-primary font-bold py-2 px-4 rounded"
-                >
-                  Download PDF
-                </a>
-              )}
+            <div className="hidden md:block">
+              <div className="mt-4 flex flex-row items-center">
+                <span className="space-x-4">
+                  {websiteButton}
+                  {pdfButton}
+                </span>
+              </div>
             </div>
           </div>
-          <ul className="flex items-center space-x-4 mt-4 md:mt-0">
+          <span className="flex items-center space-x-4 mt-4 md:mt-0">
             {resumeData.socialNetworks.map((social, index) => (
-              <li key={index} className="cursor-pointer">
+              <div key={`s-${index}`} className="inline-block">
                 <a
                   href={social.address}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-dark hover:text-primary"
+                  className=""
                 >
                   <FontAwesomeIcon
                     className="transition-transform transform hover:scale-110"
@@ -194,58 +264,51 @@ const Resume: React.FC = () => {
                     size="2x"
                   />
                 </a>
-              </li>
+              </div>
             ))}
-          </ul>
+            <div className="inline-block md:hidden" key="website">
+              {websiteButton}
+            </div>
+            <div className="inline-block md:hidden" key="pdf">
+              {pdfButton}
+            </div>
+          </span>
         </header>
 
-        <section className="py-6 px-8">
-          <h2 className="text-2xl font-bold font-serif border-b border-primary pb-1 mb-3">
-            Experience
-          </h2>
+        <section className="py-4 px-8">
+          <MarkdownContent content={resumeData.introduction} />
+        </section>
+
+        <Section title="Experience">
           {resumeData.experience.map((job, index) => (
             <div key={index} className="mb-6">
-              <h3 className="text-lg font-semibold font-serif">
+              <h3 className="text-lg font-bold font-serif">
                 {job.company} - {job.title}
               </h3>
-              <p className="text-sm text-muted-dark">
+              <p className="text-sm text-gray-700">
                 {job.location} | {job.duration}
               </p>
               {job.techStack && (
-                <p className="text-sm font-mono text-muted-darker mt-1">
+                <p className="text-sm font-mono text-gray-400 mt-1">
                   {job.techStack}
                 </p>
               )}
-              <ReactMarkdown
-                components={{
-                  p: ({ children }) => (
-                    <p className="text-muted mt-2">{children}</p>
-                  ),
-                  li: ({ children }) => (
-                    <li className="list-disc ml-6">{children}</li>
-                  ),
-                }}
-              >
-                {job.responsibilities}
-              </ReactMarkdown>
+              <MarkdownContent content={job.responsibilities} />
             </div>
           ))}
-        </section>
+        </Section>
 
-        <section className="py-6 px-8">
-          <h2 className="text-2xl font-bold font-serif border-b border-primary pb-1 mb-3">
-            Education
-          </h2>
-          <p className="text-muted mb-3">
-            <strong>{resumeData.education.degree}</strong>,{' '}
-            {resumeData.education.institution} ({resumeData.education.years})
+        <Section title="Education">
+          <h3 className="text-lg font-bold font-serif">
+            {resumeData.education.institution}
+          </h3>
+          <p className="mb-3 text-gray-700">
+            {resumeData.education.degree} | {resumeData.education.years}
           </p>
           {resumeData.education.projects?.map((project, index) => (
             <div key={index} className="mb-6">
-              <h3 className="text-lg font-semibold font-serif">
-                {project.name}
-              </h3>
-              <p className="text-muted mb-2">{project.description}</p>
+              <b className="font-sans">{project.name}</b>
+              <p className="text-gray-700 mb-2">{project.description}</p>
               {project.link && (
                 <a
                   href={project.link}
@@ -258,31 +321,23 @@ const Resume: React.FC = () => {
               )}
             </div>
           ))}
-        </section>
+        </Section>
 
-        <section className="py-6 px-8">
-          <h2 className="text-2xl font-bold font-serif border-b border-primary pb-1 mb-3">
-            Patents
-          </h2>
+        <Section title="Patents">
           {resumeData.patents.map((patent, index) => (
             <div key={index} className="mb-6">
-              <h3 className="text-lg font-semibold font-serif">
-                {patent.title}
-              </h3>
-              <p className="text-muted mb-2">{patent.number}</p>
-              {patent.link && (
-                <a
-                  href={patent.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-primary-dark"
-                >
-                  Patent Link
-                </a>
-              )}
+              <h3 className="text-lg font-bold font-serif">{patent.title}</h3>
+              <a
+                href={patent.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary-dark"
+              >
+                {patent.number}
+              </a>
             </div>
           ))}
-        </section>
+        </Section>
       </div>
     </div>
   );
