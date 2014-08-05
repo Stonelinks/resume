@@ -2,7 +2,7 @@ extends layout
 
 block content
   .row.header
-    .col-xs-4
+    .col-xs-3
       h4
         = page.metadata.address.first
       h4
@@ -11,7 +11,7 @@ block content
         i.fa.fa-phone
         | &nbsp;&nbsp;
         = page.metadata.cellphone
-    .col-xs-4.text-center
+    .col-xs-6.text-center
       h1
         = page.metadata.name
       p
@@ -22,7 +22,7 @@ block content
         strong
           a(href=page.metadata.website.address, target='_blank')
             = page.metadata.website.name
-    .col-xs-4
+    .col-xs-3
       .pull-right
         h4.pdf-hidden
           a(href=page.metadata.pdf_link, target='_blank')

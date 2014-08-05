@@ -3,7 +3,7 @@
 
   name: Lucas P. Doyle
   email: lucas.p.doyle@gmail.com
-  cellphone: 603-998-3565
+  cellphone: (+81)80-7004-5913
   pdf_link: http://stonelinks.github.io/resume/lucas_doyle_resume.pdf
   
   website:
@@ -11,8 +11,8 @@
     address: http://stonelinks.org
   
   address:
-    first: 28 Margaret Way
-    second: Gilford, NH 03249
+    first:  White Hills Sakino 1103
+    second: 1-20 Hakusan, Bunkyō, Tokyo
   
   social_networks:
     -
@@ -37,22 +37,6 @@
   contents:
     
     -
-      name: Education
-      list:
-        -
-          name: Rensselaer Polytechnic Institute
-          where: Troy, NY
-          start: 2008
-          end: 2012
-          description: B.S., Computer and Systems Engineering
-        -
-          name: Gilford High School
-          where: Gilford, NH
-          start: 2004
-          end: 2008
-          description: Math team, St. Paul's Advanced Study Program
-    
-    -
       name: Professional
       list:
         -
@@ -60,9 +44,15 @@
           where: Bunkyo-ku, Tokyo, Japan
           start: 2012
           end: Present
-          title: Software engineer
+          title: Software Engineer
           description: |
-            Designed and implemented the web interface to MUJIN's revolutionary industrial robotics motion planning software. Wrote the javascript clent library that uses MUJIN's RESTful API to power its products.
+            Designed and implemented the web interface to MUJIN's revolutionary industrial robotics motion planning platform from the ground up.
+            
+            - Wrote a large scale Backbone application that uses MUJIN's RESTful API to implement complicated robotics workflows in a user-friendly manner
+            - Learned to think like a customer to make important UI / UX decisions in an environment where analytics are unavailable
+            - Worked with a small, highly international team to coordinate API design and implement major features on an extremely tight schedule
+            - Wrote tools (and leveraged existing ones) to enable rapid development / build / deployment cycles and manage things like internationalization
+            - Implemented a full-featured scenegraph-based WebGL viewer that hooked into Backbone's model event API
         -
           name: Harvard-Smithsonian Center for Astrophysics
           link: http://stonelinks.org/projects/harvard.html
@@ -71,7 +61,13 @@
           end: Present
           title: Automations Programmer / Engineer
           description: |
-            Designed, constructed and programmed an experimental X-ray optic production facility. Wrote intuitive software to simplify fabrication of X-ray optics in multiple production scenarios. Designed sample manipulation hardware and a high strength production chamber mount using CAD. Saved time and lowered costs by developing a more efficient shutter controller now used on all production chambers in the lab. Worked closely with physicists, component vendors, machinists and other key stakeholders to complete project on time. Supervised a high school student to characterize potential optic substrates with a high precision 3D profilemeter.
+            Designed, constructed and programmed an experimental X-ray optic production facility.
+            
+            - Wrote intuitive software to simplify fabrication of X-ray optics in multiple production scenarios
+            - Designed sample manipulation hardware and a high strength production chamber mount using CAD.
+            - Saved time and lowered costs by developing more efficient shutter controller used on all production chambers.
+            - Worked closely with physicists, component vendors, machinists and other key stakeholders
+            - Supervised a high school student to characterize potential optic substrates with a high precision 3D profilemeter
         -
           name: Anybots Inc.
           link: http://stonelinks.org/projects/anybots.html
@@ -79,8 +75,25 @@
           start: 2011
           title: Robotics Intern
           description: |
-            Solely designed and authored Anystats, a tool to statistically track, analyze and prioritize events from thousands of logs from a fleet of telepresence robots. Saved time by cross referencing event data with customer information and known bugs to dispatch engineering and support teams effectively. Also implemented UI features for touchscreen on forehead of robot, namely a dashboard to display internal robot device status and connectivity, as well as a call screen to allow users to answer or deny calls made to their telepresence robot.
-    
+            Authored tools to statistically track, analyze and prioritize events from thousands of logs from a fleet of >130 telepresence robots. Cross referenced event data with customer information and known bugs to preemptively dispatch engineering and support teams.
+            
+            Implemented forehead touchscreen UI to display internal robot device status / connectivity, as well as a call screen to allow users to answer or deny calls made to their robot.
+    -
+      name: Education
+      list:
+        -
+          name: Rensselaer Polytechnic Institute
+          where: Troy, NY
+          start: 2008
+          end: 2012
+          description: |
+            B.S., Computer and Systems Engineering
+        -
+          name: Gilford High School
+          where: Gilford, NH
+          start: 2004
+          end: 2008
+          description: Math team, St. Paul's Advanced Study Program (Artificial Intelligence)
     -
       name: Projects and Open Source
       list:
@@ -91,11 +104,11 @@
           start: 2012
           title: Team Leader and Lead Programmer
           description: |
-            - Led a capstone team of engineering students to design a simulator for an intra-wing robot to operate inside an aircraft.
-            - Worked closely with Boeing to fulfill requirements for assembly and maintenance roles of operation.
-            - Implemented client / server architecture to distribute computation effectively and allow collaborative robot use.
-            - Designed and implemented a 3D interface with joystick integration to allow user to easily modify robot state.
-            - Wrote highly concurrent, high-performance server to control robot hardware, recognize object locations with OpenCV and plan kinematic trajectories to avoid collisions.
+            - Led a team of students to design a simulator for an intra-wing robot to operate inside an aircraft
+            - Worked with Boeing to fulfill requirements for assembly and maintenance roles of operation
+            - Implemented robot client / server to distribute computation effectively and allow collaborative robot use
+            - Created joystick controls and 3D interface to enable easy user / robot interaction
+            - Wrote highly concurrent server to control robot hardware, recognize object locations with OpenCV and plan trajectories to avoid collisions
         -
           name: DaBuzz Market Sentiment Analyzer
           link: http://stonelinks.org/projects/DaBuzz/index.html
@@ -103,9 +116,9 @@
           start: 2012
           title: Team Member
           description: |
-            - Designed and implemented web crawler and scraper to analyze financial news sources and gauge stock market sentiment.
-            - Assisted in implementation and training of classifier using Python Natural Language Toolkit.
-            - Gave presentations and poster sessions to the RPI Community about DaBuzz and the Rensselaer Center for Open Source Software.
+            - Designed and implemented web crawler / scraper to analyze financial news sources and gauge market sentiment
+            - Assisted in implementation / training of classifier using Python Natural Language Toolkit
+            - Gave presentations and poster sessions to the RPI Community about DaBuzz and the Rensselaer Center for Open Source Software
     
     -
       name: Skills
@@ -114,19 +127,19 @@
         -
           name: Software Development
           description: |
-            Python, Javascript, C++, C, Java, PHP, MATLAB, LabVIEW. Seasoned GNU/Linux user. Familiar industry standard development workflows, version control systems and design patterns.
-        -
-          name: Computer Aided Design
-          description: |
-            Advanced experience with Solidworks. Virtually designed and simulated FIRST robots, a Battlebot, as well as vacuum chambers at Harvard-Smithsonian Center for Astrophysics.
-        -
-          name: Embedded Control
-          description: |
-            Authored control software for autonomous and semi-autonomous boats, blimps, cars and robots. Programmed for multiple microcontrollers (Intel 8051, ARM). Regularly build own servers and computers.
+            Javascript, Python, C++, C, Java, PHP, MATLAB, LabVIEW. Seasoned Linux user. Familiar with industry standard development workflows, version control and design patterns. Spends time reading code on places like Github and Google Code. Concerned with best practices. Effective technical writing and documentation skills.
         -
           name: Web Technologies
           description: |
-            Host own website on self-built framework with Amazon's Elastic Computing Cloud. Competent Javascript developer. Familiar with CSS/HTML, Django, Webpy, Wordpress core, various Google APIs and configuring a LAMP stack. Proficient with relational and non-relational databases.
+            Strong web development experience, particularly on frontend but comfortable with the full stack. Host own website on self-built framework on Amazon EC2. Competent Javascript developer. Familiar with CSS3/HTML5, Backbone, Requirejs, Marionette, Bootstrap, Django, Flask, Wordpress core, various Google APIs and configuring a LAMP stack from scratch. Proficient with relational and non-relational databases.
+        -
+          name: Computer Aided Design
+          description: |
+            Advanced experience with Solidworks. Virtually designed and/or simulated multiple FIRST robots, a Battlebot and vacuum chambers at Harvard-Smithsonian Center for Astrophysics.
+        -
+          name: Embedded Control
+          description: |
+            Authored control software for autonomous and semi-autonomous boats, blimps, cars and robots. Programmed for multiple microcontrollers (Intel 8051, Arduino, ARM). Regularly build own servers and computers.
     
     -
       name: Leadership
@@ -153,5 +166,4 @@
           title: Board Member
           description: |
             Served in judgment for cases where student rights, responsibilities or conduct were in question.
-
 ---
