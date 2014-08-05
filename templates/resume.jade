@@ -3,178 +3,63 @@ extends layout
 block content
   .row
     .col-xs-4
-      br
       h4
         = page.metadata.address.first
       h4
         = page.metadata.address.second
     .col-xs-4.text-center
-      br
       h1
         = page.metadata.name
-      a(href='mailto:' + page.metadata.email + '?Subject=Hello', target='_top') 
-        = page.metadata.email
+      p
+        a(href='mailto:' + page.metadata.email + '?Subject=Hello', target='_top') 
+          = page.metadata.email
     .col-xs-4
       .pull-right
-        br
         h4
           a(href=page.metadata.website.address, target='_blank')
             = page.metadata.website.name
         each network in page.metadata.social_networks
           a.social(href=network.link, target='_blank')
             i(class='fa fa-'+ network.name)
-  hr
 
-  .row
-    .col-xs-12
-      h2
-        | Education
-      each thing in page.metadata.education
-        .resume-section
-          .row
-            .col-xs-6
-              h3
-                = thing.name
-            .col-xs-3
-              .pull-right
-                p
-                  em
-                    = thing.where
-            .col-xs-3
-              .pull-right
-                p
-                  if thing.start
-                    b
-                      = thing.start
-                  if thing.end
-                    b
-                      | &nbsp;-&nbsp;
-                    b
-                      = thing.end
-          .row
-            .col-xs-12
-              p
-                if thing.degree
-                  = thing.degree
-                if thing.GPA
-                  b
-                    | &nbsp;GPA of !{thing.GPA}
-  hr
-
-  .row
-    .col-xs-12
-      h2
-        | Professional
-      each thing in page.metadata.professional
-        .resume-section
-          .row
-            .col-xs-6
-              h3
-                = thing.name
-              if thing.title
-                p
-                  b
-                    = thing.title
-            .col-xs-3
-              .pull-right
-                p
-                  em
-                    = thing.where
-            .col-xs-3
-              .pull-right
-                p
-                  if thing.start
-                    b
-                      = thing.start
-                  if thing.end
-                    b
-                      | &nbsp;-&nbsp;
-                    b
-                      = thing.end
-          .row
-            .col-xs-12
-              | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
-  hr
-
-  .row
-    .col-xs-12
-      h2
-        | Projects and Open Source
-      each thing in page.metadata.projects
-        .resume-section
-          .row
-            .col-xs-6
-              h3
-                = thing.name
-              if thing.title
-                p
-                  b
-                    = thing.title
-            .col-xs-3
-              .pull-right
-                p
-                  em
-                    = thing.where
-            .col-xs-3
-              .pull-right
-                p
-                  if thing.start
-                    b
-                      = thing.start
-                  if thing.end
-                    b
-                      | &nbsp;-&nbsp;
-                    b
-                      = thing.end
-          .row
-            .col-xs-12
-              | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
-  hr
-
-  .row
-    .col-xs-12
-      h2
-        | Skills
-      each thing in page.metadata.skills
-        .resume-section
-          .row
-            .col-xs-4
-              h3
-                = thing.name
-            .col-xs-8
-              | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
-  hr
-
-  .row
-    .col-xs-12
-      h2
-        | Leadership
-      each thing in page.metadata.leadership
-        .resume-section
-          .row
-            .col-xs-6
-              h3
-                = thing.name
-              if thing.title
-                p
-                  b
-                    = thing.title
-            .col-xs-3
-              .pull-right
-                p
-                  em
-                    = thing.where
-            .col-xs-3
-              .pull-right
-                p
-                  if thing.start
-                    b
-                      = thing.start
-                  if thing.end
-                    b
-                      | &nbsp;-&nbsp;
-                    b
-                      = thing.end
-          .row
-            .col-xs-12
-              | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
+  each section in page.metadata.contents
+    hr
+    .row
+      .col-xs-12
+        h2
+          | !{ typogr(section.name).typogrify() }
+        each thing in section.list
+          .resume-section
+            .row
+              if section.layout && section.layout == '2columns'
+                .col-xs-4
+                  h3
+                    = thing.name
+                .col-xs-8
+                  | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
+              else
+                .col-xs-6
+                  h3
+                    = thing.name
+                  if thing.title
+                    p
+                      b
+                        = thing.title
+                .col-xs-3
+                  .pull-right
+                    p
+                      em
+                        = thing.where
+                .col-xs-3
+                  .pull-right
+                    p
+                      if thing.start
+                        b
+                          = thing.start
+                      if thing.end
+                        b
+                          | &nbsp;-&nbsp;
+                        b
+                          = thing.end
+                .col-xs-12
+                  | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }

@@ -7118,6 +7118,7 @@ body {
 }
 .container {
   background-color: #FFFFFF;
+  padding: 30px;
 }
 h1,
 h2,
@@ -7152,4 +7153,7 @@ ul {
 }
 .resume-section {
   margin-bottom: 20px;
+}
+.resume-section h3 {
+  margin-top: 10px;
 }
