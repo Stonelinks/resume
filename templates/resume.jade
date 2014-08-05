@@ -1,0 +1,189 @@
+extends layout
+
+block content
+  .row
+    .col-xs-4
+      br
+      h4
+        = locals.address.first
+      h4
+        = locals.address.second
+    .col-xs-4.text-center
+      br
+      h1
+        = locals.name
+      a(href='mailto:' + locals.email + '?Subject=Hello', target='_top') 
+        = locals.email
+    .col-xs-4
+      .pull-right
+        br
+        h4
+          a(href=locals.website.address, target='_blank')
+            = locals.website.name
+        each network in locals.social_networks
+          a.social(href=network.link, target='_blank')
+            i(class='fa fa-'+ network.name)
+  hr
+
+  .row
+    .col-xs-12
+      h2
+        | Education
+      each thing in locals.education
+        .resume-section
+          .row
+            .col-xs-6
+              h3
+                = thing.name
+            .col-xs-3
+              .pull-right
+                p
+                  em
+                    = thing.where
+            .col-xs-3
+              .pull-right
+                p
+                  if thing.start
+                    b
+                      = thing.start
+                  if thing.end
+                    b
+                      | &nbsp;-&nbsp;
+                    b
+                      = thing.end
+          .row
+            .col-xs-12
+              p
+                if thing.degree
+                  = thing.degree
+                if thing.GPA
+                  b
+                    | &nbsp;GPA of !{thing.GPA}
+  hr
+
+  .row
+    .col-xs-12
+      h2
+        | Professional
+      each thing in locals.professional
+        .resume-section
+          .row
+            .col-xs-6
+              h3
+                = thing.name
+              if thing.title
+                p
+                  b
+                    = thing.title
+            .col-xs-3
+              .pull-right
+                p
+                  em
+                    = thing.where
+            .col-xs-3
+              .pull-right
+                p
+                  if thing.start
+                    b
+                      = thing.start
+                  if thing.end
+                    b
+                      | &nbsp;-&nbsp;
+                    b
+                      = thing.end
+          .row
+            .col-xs-12
+              if thing.description
+                p
+                  = thing.description
+  hr
+
+  .row
+    .col-xs-12
+      h2
+        | Projects and Open Source
+      each thing in locals.projects
+        .resume-section
+          .row
+            .col-xs-6
+              h3
+                = thing.name
+              if thing.title
+                p
+                  b
+                    = thing.title
+            .col-xs-3
+              .pull-right
+                p
+                  em
+                    = thing.where
+            .col-xs-3
+              .pull-right
+                p
+                  if thing.start
+                    b
+                      = thing.start
+                  if thing.end
+                    b
+                      | &nbsp;-&nbsp;
+                    b
+                      = thing.end
+          .row
+            .col-xs-12
+              if thing.bullets
+                ul
+                  each bullet in thing.bullets
+                    li
+                      = bullet
+  hr
+
+  .row
+    .col-xs-12
+      h2
+        | Skills
+      each thing in locals.skills
+        .resume-section
+          .row
+            .col-xs-4
+              h3
+                = thing.name
+            .col-xs-8
+              p
+                = thing.description
+  hr
+
+  .row
+    .col-xs-12
+      h2
+        | Leadership
+      each thing in locals.leadership
+        .resume-section
+          .row
+            .col-xs-6
+              h3
+                = thing.name
+              if thing.title
+                p
+                  b
+                    = thing.title
+            .col-xs-3
+              .pull-right
+                p
+                  em
+                    = thing.where
+            .col-xs-3
+              .pull-right
+                p
+                  if thing.start
+                    b
+                      = thing.start
+                  if thing.end
+                    b
+                      | &nbsp;-&nbsp;
+                    b
+                      = thing.end
+          .row
+            .col-xs-12
+              if thing.description
+                p
+                  = thing.description

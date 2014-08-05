@@ -1,4 +1,3 @@
 ---
-template: index.jade
+  template: resume.jade
 ---
-
