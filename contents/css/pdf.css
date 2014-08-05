@@ -1,13 +1,17 @@
+.pdf-hidden {
+  display: none !important;
+}
+
 .what {
   width: 58% !important;
 }
 
 .where {
-  width: 22% !important;
+  width: 24% !important;
 }
 
 .when {
-  width: 20% !important;
+  width: 18% !important;
 }
 
 .resume-section {

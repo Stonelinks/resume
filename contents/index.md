@@ -4,10 +4,11 @@
   name: Lucas P. Doyle
   email: lucas.p.doyle@gmail.com
   cellphone: 603-998-3565
+  pdf_link: http://stonelinks.github.io/resume/lucas_doyle_resume.pdf
   
   website:
     name: stonelinks.org/luke
-    address: http://stonelinks.org/luke.html
+    address: http://stonelinks.org
   
   address:
     first: 28 Margaret Way

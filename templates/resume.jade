@@ -1,23 +1,33 @@
 extends layout
 
 block content
-  .row
+  .row.header
     .col-xs-4
       h4
         = page.metadata.address.first
       h4
         = page.metadata.address.second
+      h4
+        i.fa.fa-phone
+        | &nbsp;&nbsp;
+        = page.metadata.cellphone
     .col-xs-4.text-center
       h1
         = page.metadata.name
       p
-        a(href='mailto:' + page.metadata.email + '?Subject=Hello', target='_top') 
-          = page.metadata.email
-    .col-xs-4
-      .pull-right
-        h4
+        strong
+          a(href='mailto:' + page.metadata.email + '?Subject=Hello', target='_top') 
+            = page.metadata.email
+      p
+        strong
           a(href=page.metadata.website.address, target='_blank')
             = page.metadata.website.name
+    .col-xs-4
+      .pull-right
+        h4.pdf-hidden
+          a(href=page.metadata.pdf_link, target='_blank')
+            i.fa.fa-file-pdf-o
+            | &nbsp;download as pdf
         .social-networks
           each network in page.metadata.social_networks
             a.social(href=network.link, target='_blank')
