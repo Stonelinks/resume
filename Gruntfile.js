@@ -80,8 +80,7 @@ module.exports = function(grunt) {
 
     'gh-pages': {
       options: {
-        base: '<%= config.dist %>',
-        branch: 'master'
+        base: '<%= config.dist %>'
       },
       src: ['**', '.*']
     },

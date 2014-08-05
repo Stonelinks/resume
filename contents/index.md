@@ -1,7 +1,7 @@
 ---
   template: resume.jade
 
-  name: Lucas P. Doyle
+  name: test
   email: lucas.p.doyle@gmail.com
   cellphone: 603-998-3565
   
