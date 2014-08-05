@@ -84,6 +84,10 @@ module.exports = function(grunt) {
         branch: 'master'
       },
       src: ['**', '.*']
+    },
+
+    exec: {
+      wkhtmltopdf: 'wkhtmltopdf build/index.html build/lucas_doyle_resume.pdf'
     }
   });
 
@@ -95,7 +99,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'pre',
     'wintersmith:build',
-    'copy:nojekyll'
+    'copy:nojekyll',
+    'exec:wkhtmltopdf'
   ]);
 
   grunt.registerTask('publish', [

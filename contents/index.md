@@ -41,15 +41,15 @@
         -
           name: Rensselaer Polytechnic Institute
           where: Troy, NY
-          start: Fall 2008
-          end: Spring 2012
+          start: 2008
+          end: 2012
           description: B.S., Computer and Systems Engineering
         -
           name: Gilford High School
           where: Gilford, NH
-          start: Fall 2004
-          end: Spring 2008
-          description: "**GPA: 4.00**"
+          start: 2004
+          end: 2008
+          description: Math team, St. Paul's Advanced Study Program
     
     -
       name: Professional
@@ -57,7 +57,7 @@
         -
           name: MUJIN Inc.
           where: Bunkyo-ku, Tokyo, Japan
-          start: Fall 2012
+          start: 2012
           end: Present
           title: Software engineer
           description: |
@@ -66,7 +66,7 @@
           name: Harvard-Smithsonian Center for Astrophysics
           link: http://stonelinks.org/projects/harvard.html
           where: Cambridge, MA
-          start: Summer 2009
+          start: 2009
           end: Present
           title: Automations Programmer / Engineer
           description: |
@@ -75,7 +75,7 @@
           name: Anybots Inc.
           link: http://stonelinks.org/projects/anybots.html
           where: Mountain View, CA
-          start: Summer 2011
+          start: 2011
           title: Robotics Intern
           description: |
             Solely designed and authored Anystats, a tool to statistically track, analyze and prioritize events from thousands of logs from a fleet of telepresence robots. Saved time by cross referencing event data with customer information and known bugs to dispatch engineering and support teams effectively. Also implemented UI features for touchscreen on forehead of robot, namely a dashboard to display internal robot device status and connectivity, as well as a call screen to allow users to answer or deny calls made to their telepresence robot.
@@ -87,7 +87,7 @@
           name: Boeing Robotic Wingbox
           link: http://stonelinks.org/projects/wingbox.html
           where: Troy, NY
-          start: Spring 2012
+          start: 2012
           title: Team Leader and Lead Programmer
           description: |
             - Led a capstone team of engineering students to design a simulator for an intra-wing robot to operate inside an aircraft.
@@ -99,7 +99,7 @@
           name: DaBuzz Market Sentiment Analyzer
           link: http://stonelinks.org/projects/DaBuzz/index.html
           where: Troy, NY
-          start: Spring 2012
+          start: 2012
           title: Team Member
           description: |
             - Designed and implemented web crawler and scraper to analyze financial news sources and gauge stock market sentiment.
@@ -133,22 +133,22 @@
         -
           name: Red & White Student Organization
           where: Troy, NY
-          start: Spring 2012
+          start: 2012
           title: Webmaster
           description: |
             Responsible for representing Rensselaer at high-visibility functions to its alumni, campus and community. As Webmaster, maintained a web presence for the organization.
         -
           name: The Baruch '60 Center for Bio-Solar Energy
           where: Troy, NY
-          start: Spring 2009
-          end: Spring 2012
+          start: 2009
+          end: 2012
           title: Webmaster and Systems Administrator
           description: |
             Created and maintained two websites, responsible for various IT and support tasks.
         -
           name: Rensselaer Judicial Board
           where: Troy, NY
-          start: Fall 2009
+          start: 2009
           title: Board Member
           description: |
             Served in judgment for cases where student rights, responsibilities or conduct were in question.

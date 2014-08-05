@@ -38,19 +38,22 @@ block content
                 .col-xs-8
                   | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
               else
-                .col-xs-6
+                .title
                   h3
                     = thing.name
+                    if thing.link
+                      a(href=thing.link, target='_blank')
+                        i.fa.fa-external-link
                   if thing.title
                     p
                       b
                         = thing.title
-                .col-xs-3
+                .where
                   .pull-right
                     p
                       em
                         = thing.where
-                .col-xs-3
+                .duration
                   .pull-right
                     p
                       if thing.start
