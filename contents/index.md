@@ -55,7 +55,7 @@
             - Implemented a full-featured scenegraph-based WebGL viewer that hooked into Backbone's model event API
         -
           name: Harvard-Smithsonian Center for Astrophysics
-          link: http://stonelinks.org/projects/harvard.html
+          link: http://stonelinks.org/projects/amf/index.html
           where: Cambridge, MA
           start: 2009
           end: Present
@@ -70,7 +70,7 @@
             - Supervised a high school student to characterize potential optic substrates with a high precision 3D profilemeter
         -
           name: Anybots Inc.
-          link: http://stonelinks.org/projects/anybots.html
+          link: http://stonelinks.org/projects/anybots/index.html
           where: Mountain View, CA
           start: 2011
           title: Robotics Intern
@@ -99,7 +99,7 @@
       list:
         -
           name: Boeing Robotic Wingbox
-          link: http://stonelinks.org/projects/wingbox.html
+          link: http://stonelinks.org/projects/boeing/index.html
           where: Troy, NY
           start: 2012
           title: Team Leader and Lead Programmer
@@ -111,7 +111,7 @@
             - Wrote highly concurrent server to control robot hardware, recognize object locations with OpenCV and plan trajectories to avoid collisions
         -
           name: DaBuzz Market Sentiment Analyzer
-          link: http://stonelinks.org/projects/DaBuzz/index.html
+          link: http://stonelinks.org/projects/dabuzz/index.html
           where: Troy, NY
           start: 2012
           title: Team Member
