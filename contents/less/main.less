@@ -14,14 +14,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-  letter-spacing: 3px;
   font-weight: 400;
 }
 
-p {
+p, ul {
   font-size: 1.25em;
-  line-height: 1.6;
+  line-height: 1.35;
   color: #000;
   margin: 0 0 15px;
 }
@@ -39,12 +37,6 @@ hr {
   text-decoration: none;
 }
 
-ul {
-  font-size: 15px;
-  line-height: 25px;
-  color: rgb(0, 0, 0);
-}
-
 .resume-section {
   margin-bottom: 20px;
 }
@@ -54,32 +46,45 @@ ul {
 }
 
 h2 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 3px;
+  border: 0;
+  border-bottom: 1px solid #D2D2D2;
 }
 
-.col-mimic() {
-  float: left;
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.title {
-  width: 70%;
-  .col-mimic();
+.what {
+  width: 60%;
 }
 
 .where {
-  width: 18%;
-  .col-mimic();
+  width: 20%;
 }
 
-.duration {
-  width: 12%;
-  .col-mimic();
+.when {
+  width: 20%;
+}
+
+.what p {
+  margin-bottom: 0px;
 }
 
 .fa-external-link {
   margin-left: 8px;
+}
+
+@media print {
+
+  a, i {
+    color: @brand-primary !important;
+  }
+  
+  a[href]:after {
+    content: "";
+  }
+  
+  body, html, .container {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+  }
 }

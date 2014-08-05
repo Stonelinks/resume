@@ -18,16 +18,17 @@ block content
         h4
           a(href=page.metadata.website.address, target='_blank')
             = page.metadata.website.name
-        each network in page.metadata.social_networks
-          a.social(href=network.link, target='_blank')
-            i(class='fa fa-'+ network.name)
+        .social-networks
+          each network in page.metadata.social_networks
+            a.social(href=network.link, target='_blank')
+              i(class='fa fa-'+ network.name)
 
   each section in page.metadata.contents
-    hr
     .row
       .col-xs-12
         h2
-          | !{ typogr(section.name).typogrify() }
+          strong
+            | !{ typogr(section.name).typogrify() }
         each thing in section.list
           .resume-section
             .row
@@ -38,7 +39,7 @@ block content
                 .col-xs-8
                   | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
               else
-                .title
+                .what.col-xs-8
                   h3
                     = thing.name
                     if thing.link
@@ -48,12 +49,12 @@ block content
                     p
                       b
                         = thing.title
-                .where
+                .where.col-xs-2
                   .pull-right
                     p
                       em
                         = thing.where
-                .duration
+                .when.col-xs-2
                   .pull-right
                     p
                       if thing.start
