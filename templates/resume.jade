@@ -5,22 +5,22 @@ block content
     .col-xs-4
       br
       h4
-        = locals.address.first
+        = page.metadata.address.first
       h4
-        = locals.address.second
+        = page.metadata.address.second
     .col-xs-4.text-center
       br
       h1
-        = locals.name
-      a(href='mailto:' + locals.email + '?Subject=Hello', target='_top') 
-        = locals.email
+        = page.metadata.name
+      a(href='mailto:' + page.metadata.email + '?Subject=Hello', target='_top') 
+        = page.metadata.email
     .col-xs-4
       .pull-right
         br
         h4
-          a(href=locals.website.address, target='_blank')
-            = locals.website.name
-        each network in locals.social_networks
+          a(href=page.metadata.website.address, target='_blank')
+            = page.metadata.website.name
+        each network in page.metadata.social_networks
           a.social(href=network.link, target='_blank')
             i(class='fa fa-'+ network.name)
   hr
@@ -29,7 +29,7 @@ block content
     .col-xs-12
       h2
         | Education
-      each thing in locals.education
+      each thing in page.metadata.education
         .resume-section
           .row
             .col-xs-6
@@ -65,7 +65,7 @@ block content
     .col-xs-12
       h2
         | Professional
-      each thing in locals.professional
+      each thing in page.metadata.professional
         .resume-section
           .row
             .col-xs-6
@@ -93,16 +93,14 @@ block content
                       = thing.end
           .row
             .col-xs-12
-              if thing.description
-                p
-                  = thing.description
+              | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
   hr
 
   .row
     .col-xs-12
       h2
         | Projects and Open Source
-      each thing in locals.projects
+      each thing in page.metadata.projects
         .resume-section
           .row
             .col-xs-6
@@ -130,33 +128,28 @@ block content
                       = thing.end
           .row
             .col-xs-12
-              if thing.bullets
-                ul
-                  each bullet in thing.bullets
-                    li
-                      = bullet
+              | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
   hr
 
   .row
     .col-xs-12
       h2
         | Skills
-      each thing in locals.skills
+      each thing in page.metadata.skills
         .resume-section
           .row
             .col-xs-4
               h3
                 = thing.name
             .col-xs-8
-              p
-                = thing.description
+              | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
   hr
 
   .row
     .col-xs-12
       h2
         | Leadership
-      each thing in locals.leadership
+      each thing in page.metadata.leadership
         .resume-section
           .row
             .col-xs-6
@@ -184,6 +177,4 @@ block content
                       = thing.end
           .row
             .col-xs-12
-              if thing.description
-                p
-                  = thing.description
+              | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
