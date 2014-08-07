@@ -86,7 +86,7 @@ module.exports = function(grunt) {
     },
 
     exec: {
-      wkhtmltopdf: 'wkhtmltopdf -B 0 -L 0 -R 0 -T 0 --zoom 0.85 --user-style-sheet contents/css/pdf.css --javascript-delay 3000 build/index.html build/lucas_doyle_resume.pdf'
+      wkhtmltopdf: 'wkhtmltopdf --zoom 0.825 --user-style-sheet contents/css/pdf.css --javascript-delay 3000 --print-media-type build/index.html build/lucas_doyle_resume.pdf'
     }
   });
 

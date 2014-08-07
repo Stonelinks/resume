@@ -1,23 +1,6 @@
-.pdf-hidden {
-  display: none !important;
+#Projects-and-Open-Source {
+  margin-top: 80px;
 }
-
-.what {
-  width: 58% !important;
-}
-
-.where {
-  width: 24% !important;
-}
-
-.when {
-  width: 18% !important;
-}
-
-.resume-section {
-  margin-bottom: 5px !important;
-}
-
-h2 {
-  margin-bottom: 20px !important;
+#Leadership {
+  margin-top: 140px;
 }

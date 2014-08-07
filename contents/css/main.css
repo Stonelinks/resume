@@ -7424,4 +7424,33 @@ h2 {
     margin: 0px;
     width: 100%;
   }
+  body {
+    -ms-transform: scale(1);
+    /* IE 9 */
+    -webkit-transform: scale(1);
+    /* Chrome, Safari, Opera */
+    transform: scale(1);
+  }
+  .print-hidden {
+    display: none !important;
+  }
+  .what {
+    width: 59% !important;
+  }
+  .where {
+    width: 24% !important;
+  }
+  .when {
+    width: 17% !important;
+  }
+  .header-side {
+    width: 30% !important;
+  }
+  .header-center {
+    width: 40% !important;
+  }
+  .social {
+    font-size: 21px !important;
+    margin-left: 10px !important;
+  }
 }

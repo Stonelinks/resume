@@ -39,5 +39,8 @@
     "wintersmith": "^2.0.10",
     "wintersmith-livereload": "^0.1.1",
     "markdown": "~0.5.0"
+  },
+  "dependencies": {
+    "slug": "~0.5.0"
   }
 }

@@ -2,7 +2,7 @@ extends layout
 
 block content
   .row.header
-    .col-xs-3
+    .col-xs-3.header-side
       h4
         = page.metadata.address.first
       h4
@@ -11,7 +11,7 @@ block content
         i.fa.fa-phone
         | &nbsp;&nbsp;
         = page.metadata.cellphone
-    .col-xs-6.text-center
+    .col-xs-6.text-center.header-center
       h1
         = page.metadata.name
       p
@@ -22,9 +22,9 @@ block content
         strong
           a(href=page.metadata.website.address, target='_blank')
             = page.metadata.website.name
-    .col-xs-3
+    .col-xs-3.header-side
       .pull-right
-        h4.pdf-hidden
+        h4.print-hidden
           a(href=page.metadata.pdf_link, target='_blank')
             i.fa.fa-file-pdf-o
             | &nbsp;download as pdf
@@ -35,7 +35,7 @@ block content
 
   each section in page.metadata.contents
     .row
-      .col-xs-12
+      .col-xs-12(id=slug(section.name))
         h2
           strong
             | !{ typogr(section.name).typogrify() }
@@ -75,5 +75,6 @@ block content
                           | &nbsp;-&nbsp;
                         b
                           = thing.end
-                .col-xs-12
-                  | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
+                if thing.description
+                  .col-xs-12
+                    | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }

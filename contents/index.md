@@ -46,13 +46,15 @@
           end: Present
           title: Software Engineer
           description: |
-            Designed and implemented the web interface to MUJIN's revolutionary industrial robotics motion planning platform from the ground up.
+            Created the web interface for a large-scale industrial robotics platform used by clients such as Canon and Honda, and a half-dozen other Japanese companies.
             
-            - Wrote a large scale Backbone application that uses MUJIN's RESTful API to implement complicated robotics workflows in a user-friendly manner
-            - Learned to think like a customer to make important UI / UX decisions in an environment where analytics are unavailable
-            - Worked with a small, highly international team to coordinate API design and implement major features on an extremely tight schedule
-            - Wrote tools (and leveraged existing ones) to enable rapid development / build / deployment cycles and manage things like internationalization
-            - Implemented a full-featured scenegraph-based WebGL viewer that hooked into Backbone's model event API
+            - Implemented complex robot workflows and made UI decisions to make things easy and intuitive for users
+            - Wrote a custom UI library, an RPC system, a real-time environment state streamer, a scenegraph-based WebGL framework and more
+            - Incorporated many components into a large scale Backbone app using modules to decouple functionality
+            - Created infrastructure tools (and leveraged existing ones) to enable rapid development / build / deployment
+            - Worked with a small team to coordinate API design and developed major features on an extremely tight schedule
+            - Honed communication skills by working with a highly international team and living in Japan
+            
         -
           name: Harvard-Smithsonian Center for Astrophysics
           link: http://stonelinks.org/projects/amf/index.html
@@ -64,8 +66,8 @@
             Designed, constructed and programmed an experimental X-ray optic production facility.
             
             - Wrote intuitive software to simplify fabrication of X-ray optics in multiple production scenarios
-            - Designed sample manipulation hardware and a high strength production chamber mount using CAD.
-            - Saved time and lowered costs by developing more efficient shutter controller used on all production chambers.
+            - Designed sample manipulation hardware and a high strength production chamber mount using CAD
+            - Saved time and lowered costs by developing more efficient shutter controller used on all production chambers
             - Worked closely with physicists, component vendors, machinists and other key stakeholders
             - Supervised a high school student to characterize potential optic substrates with a high precision 3D profilemeter
         -
@@ -75,7 +77,7 @@
           start: 2011
           title: Robotics Intern
           description: |
-            Authored tools to statistically track, analyze and prioritize events from thousands of logs from a fleet of >130 telepresence robots. Cross referenced event data with customer information and known bugs to preemptively dispatch engineering and support teams.
+            Authored tools to statistically track, analyze and prioritize events from thousands of logs for a fleet of >130 telepresence robots. Cross referenced event data with customer information and known bugs to preemptively dispatch engineering and support teams.
             
             Implemented forehead touchscreen UI to display internal robot device status / connectivity, as well as a call screen to allow users to answer or deny calls made to their robot.
     -
@@ -93,7 +95,7 @@
           where: Gilford, NH
           start: 2004
           end: 2008
-          description: Math team, St. Paul's Advanced Study Program (Artificial Intelligence)
+          description: 
     -
       name: Projects and Open Source
       list:
@@ -127,7 +129,7 @@
         -
           name: Software Development
           description: |
-            Javascript, Python, C++, C, Java, PHP, MATLAB, LabVIEW. Seasoned Linux user. Familiar with industry standard development workflows, version control and design patterns. Spends time reading code on places like Github and Google Code. Concerned with best practices. Effective technical writing and documentation skills.
+            Javascript, Python, C++, C, Java, PHP, MATLAB, LabVIEW. Seasoned Linux user. Familiar with industry standard development workflows, version control and design patterns. Spend time reading code on places like Github and Google Code. Concerned with best practices (DRY, etc.). Effective technical writing and documentation skills.
         -
           name: Web Technologies
           description: |
