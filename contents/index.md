@@ -11,8 +11,8 @@
     address: http://stonelinks.org
   
   address:
-    first:  White Hills Sakino 1103
-    second: 1-20 Hakusan, Bunkyō, Tokyo
+    first:  737 Hyde Street #302
+    second: San Francisco, CA 94109
   
   social_networks:
     -
@@ -40,10 +40,18 @@
       name: Professional
       list:
         -
+          name: Airware
+          where: San Francisco, CA
+          start: 2014
+          end: Present
+          title: Software Engineer
+          description: |
+            
+        -
           name: MUJIN Inc.
           where: Bunkyo-ku, Tokyo, Japan
           start: 2012
-          end: Present
+          end: 2014
           title: Software Engineer
           description: |
             Created the web interface for a large-scale industrial robotics platform used by clients such as Canon and Honda, and a half-dozen other Japanese companies.
