@@ -3,7 +3,7 @@
 
   name: Lucas P. Doyle
   email: lucas.p.doyle@gmail.com
-  cellphone: (+81)80-7004-5913
+  cellphone: 603-998-3565
   pdf_link: http://stonelinks.github.io/resume/lucas_doyle_resume.pdf
   
   website:
