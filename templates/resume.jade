@@ -47,7 +47,7 @@ block content
                   h3
                     = thing.name
                 .col-xs-8
-                  | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
+                  | !{ typogr(marked(thing.description)).typogrify() }
               else
                 .what.col-xs-8
                   h3
@@ -77,4 +77,4 @@ block content
                           = thing.end
                 if thing.description
                   .col-xs-12
-                    | !{ typogr(markdown.markdown.toHTML(thing.description)).typogrify() }
+                    | !{ typogr(marked(thing.description)).typogrify() }

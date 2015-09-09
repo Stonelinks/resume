@@ -3,14 +3,9 @@
   "locals": {
     "title": "Lucas Doyle resume"
   },
-  "plugins": [
-    "wintersmith-livereload"
-  ],
   "require": {
-    "_": "underscore",
     "typogr": "typogr",
-    "grunt": "grunt",
-    "markdown": "markdown",
+    "marked": "marked",
     "slug": "slug"
   },
   "jade": {
@@ -18,7 +13,12 @@
   },
   "markdown": {
     "smartLists": true,
-    "smartypants": true
+    "smartypants": true,
+    "gfm": false,
+    "tables": true,
+    "breaks": false,
+    "pedantic": false,
+    "sanitize": false
   },
   "ignore": [
     "less",

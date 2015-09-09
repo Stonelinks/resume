@@ -11,7 +11,7 @@
     address: http://stonelinks.org
   
   address:
-    first:  737 Hyde Street #302
+    first: 737 Hyde Street #302
     second: San Francisco, CA 94109
   
   social_networks:
