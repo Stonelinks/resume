@@ -89,7 +89,7 @@ gulp.task('gh-pages', function () {
         './build/**/*',
         './build/.nojekyll'
     ]).pipe(ghPages({
-        branch: 'master'
+        branch: 'gh-pages'
     }));
 });
 
