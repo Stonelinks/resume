@@ -68,7 +68,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('wkhtmltopdf', function (cb) {
-    exec('wkhtmltopdf --zoom 0.825 --user-style-sheet contents/style/pdf.css --print-media-type build/index.html build/lucas_doyle_resume.pdf', function (err, stdout, stderr) {
+    exec('wkhtmltopdf --zoom 0.825 --user-style-sheet contents/style/pdf.css --print-media-type --javascript-delay 30000 build/index.html build/lucas_doyle_resume.pdf', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         cb(err);
