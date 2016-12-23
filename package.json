@@ -1,36 +1,131 @@
 {
   "name": "resume",
-  "version": "0.0.0",
   "description": "Lucas Doyle's resume",
-  "main": "index.js",
+  "version": "1.0.0",
+  "author": "Lucas Doyle <lucas.p.doyle@gmail.com>",
+  "dependencies": {
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-react": "6.16.0",
+    "babel-preset-stage-0": "6.16.0",
+    "catch-links": "2.0.1",
+    "font-awesome": "4.7.0",
+    "gatsby": "0.12.19",
+    "jquery": "3.1.1",
+    "just-intersect": "1.1.22",
+    "lodash": "4.17.2",
+    "moment": "2.17.1",
+    "react": "15.4.1",
+    "react-document-title": "2.0.2",
+    "react-dom": "15.4.1",
+    "react-ga": "2.1.2",
+    "react-responsive-grid": "0.3.4",
+    "react-router": "2.8.1",
+    "react-typography": "0.15.0",
+    "safe-access": "0.1.0",
+    "slugify": "1.0.2",
+    "typography": "0.15.0",
+    "typography-theme-noriega": "0.15.1",
+    "underscore.string": "3.3.4"
+  },
+  "devDependencies": {
+    "babel-core": "6.20.0",
+    "babel-loader": "6.2.9",
+    "babel-preset-react-hmre": "1.1.1",
+    "css-loader": "0.26.1",
+    "eslint": "3.10.2",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.8.0",
+    "front-matter": "2.1.1",
+    "gh-pages": "0.12.0",
+    "mkdirp": "0.5.1",
+    "null-loader": "0.1.1",
+    "postcss-loader": "1.2.0",
+    "react-transform-catch-errors": "1.0.2",
+    "react-transform-hmr": "1.0.4",
+    "redbox-react": "1.3.3",
+    "style-loader": "0.13.1"
+  },
+  "homepage": "http://stonelinks.org/",
+  "license": "MIT",
+  "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Stonelinks/resume.git"
+    "url": "git+https://github.com/Stonelinks/resume.git"
   },
-  "keywords": [
-    "resume",
-    "lucas",
-    "doyle"
-  ],
-  "author": "Lucas Doyle <lucas.p.doyle@gmail.com>",
-  "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/Stonelinks/resume/issues"
+  "scripts": {
+    "dev": "gatsby develop",
+    "lint": "./node_modules/.bin/eslint --fix --ext .js,.jsx --ignore-pattern public --ignore-pattern scripts .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
-  "dependencies": {
-    "bootstrap": "3.2.0",
-    "color-themes-for-google-code-prettify": "https://github.com/jmblog/color-themes-for-highlightjs.git",
-    "font-awesome": "4.1.0",
-    "gulp": "3.9.0",
-    "gulp-clean": "0.3.1",
-    "gulp-gh-pages": "0.5.2",
-    "gulp-less": "3.0.3",
-    "gulp-sequence": "0.4.1",
-    "gulp-sourcemaps": "1.5.2",
-    "gulp-webserver": "0.9.0",
-    "marked": "0.3.5",
-    "slug": "0.5.0",
-    "typogr": "0.6.5",
-    "wintersmith": "2.2.1"
+  "eslintConfig": {
+    "extends": "eslint-config-airbnb",
+    "rules": {
+      "indent": [
+        2,
+        2,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "no-console": [
+        0
+      ],
+      "func-names": [
+        0
+      ],
+      "space-before-function-paren": [
+        2,
+        "always"
+      ],
+      "no-else-return": [
+        0
+      ],
+      "space-infix-ops": [
+        0
+      ],
+      "react/prefer-es6-class": [
+        0
+      ],
+      "react/prefer-stateless-function": [
+        0
+      ],
+      "react/jsx-filename-extension": [
+        0
+      ],
+      "react/forbid-prop-types": [
+        0
+      ],
+      "import/no-unresolved": [
+        0
+      ],
+      "import/no-extraneous-dependencies": [
+        0
+      ],
+      "import/extensions": [
+        0
+      ],
+      "global-require": [
+        0
+      ]
+    },
+    "globals": {
+      "__PREFIX_LINKS__": true
+    }
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
   }
 }

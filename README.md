@@ -1,4 +1,6 @@
-Resume
-======
+#[stonelinks.github.io](http://stonelinks.github.io)
 
-My resume! Check it out at [stonelinks.github.io/resume/](http://stonelinks.github.io/resume/)
+My personal website
+
+## Running in development
+`gatsby develop`

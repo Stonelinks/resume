@@ -1,20 +1,11 @@
-lib-cov
-*.seed
+node_modules/
 *.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-*.yo-rc.json
-
-pids
-logs
-results
+public
 build
+.gatsby-context.js
+.DS_Store
 
 npm-debug.log
-node_modules
 
 *.sublime-*
 
@@ -22,3 +13,6 @@ node_modules
 .idea
 .desktop
 .publish
+
+*.orig
+
