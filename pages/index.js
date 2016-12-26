@@ -1,10 +1,9 @@
-import React from 'react';
-import DocumentTitle from 'react-document-title';
-import { rhythm } from 'utils/typography';
-import { config } from 'config';
+import React from 'react'
+import DocumentTitle from 'react-document-title'
+import { config } from 'config'
 
-import PostsList from 'components/PostsList';
-import ProjectList from 'components/ProjectList';
+import PostsList from 'components/PostsList'
+import ProjectList from 'components/ProjectList'
 
 class SiteIndex extends React.Component {
   render () {
@@ -15,12 +14,12 @@ class SiteIndex extends React.Component {
           <ProjectList route={this.props.route} limit={5} />
         </div>
       </DocumentTitle>
-    );
+    )
   }
 }
 
 SiteIndex.propTypes = {
-  route: React.PropTypes.object,
-};
+  route: React.PropTypes.object
+}
 
-export default SiteIndex;
+export default SiteIndex

@@ -1,76 +1,70 @@
-import React from 'react';
-import { Link } from 'react-router';
-import { Container } from 'react-responsive-grid';
-import { prefixLink } from 'gatsby-helpers';
-import { rhythm, scale } from 'utils/typography';
-import { config } from 'config';
-import flatten from 'lodash/flatten';
-import includes from 'lodash/includes';
+import React from 'react'
+import { Container } from 'react-responsive-grid'
+import { rhythm, scale } from 'utils/typography'
+import { config } from 'config'
 
-const logoSize = 60;
-const smallerLogoSize = 35;
 const style = {
   header: {
-    marginBottom: rhythm(1),
+    marginBottom: rhythm(1)
   },
   h1: {
     marginBottom: 0,
     fontSize: scale(1.5).fontSize,
     lineHeight: scale(1.5).lineHeight,
-    marginTop: 0,
+    marginTop: 0
   },
   hr: {
     marginTop: rhythm(0.5),
     marginBottom: rhythm(0.5),
-    backgroundColor: 'gray',
+    backgroundColor: 'gray'
   },
   Container: {
     maxWidth: rhythm(26),
-    padding: rhythm(0.75),
+    padding: rhythm(0.75)
   },
   headerItem: {
-    display: 'inline-block',
+    display: 'inline-block'
   },
   headerItemSmall: {
     fontSize: '15px',
-    lineHeight: '19px',
+    lineHeight: '19px'
   },
   left: {
     display: 'inline-block',
     width: '30%',
     position: 'relative',
-    bottom: '-4px',
+    bottom: '-4px'
   },
   middle: {
     display: 'inline-block',
     width: '40%',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   right: {
     display: 'inline-block',
     width: '30%',
-    textAlign: 'right',
-  },
-};
+    textAlign: 'right'
+  }
+}
 
 class Template extends React.Component {
 
   get socialIcons () {
-    const socialIcons = [];
+    const socialIcons = []
     Object.keys(config.socialNetworks).forEach((network) => {
-      const URL = config.socialNetworks[network];
+      const URL = config.socialNetworks[network]
       socialIcons.push(
-        <a key={URL} href={URL} target="blank_">
+        <a key={URL} href={URL} target='blank_'>
           <div className={`fa fa-${network}`} style={style.socialIcon} />
         </a>,
-        );
-    });
+        )
+    })
 
     return (
       <div>
         {socialIcons.reduce((accu, elem) => accu === null ? [elem] : [...accu, ' | ', elem], null)}
       </div>
-    );
+    )
   }
 
   get headerContents () {
@@ -93,7 +87,7 @@ class Template extends React.Component {
             {config.name}
           </h1>
           <div style={style.headerItem}>
-            <a href={`mailto:${config.email}?Subject=Hello`} target="blank_">
+            <a href={`mailto:${config.email}?Subject=Hello`} target='blank_'>
               {config.email}
             </a>
           </div>
@@ -101,7 +95,7 @@ class Template extends React.Component {
 
         <div style={style.right}>
           <div style={style.headerItem}>
-            <a href={config.websiteAddress} target="blank_">
+            <a href={config.websiteAddress} target='blank_'>
               {config.websiteName}
             </a>
           </div>
@@ -110,11 +104,11 @@ class Template extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   render () {
-    const { children } = this.props;
+    const { children } = this.props
     return (
       <Container style={style.Container}>
         <header style={style.header}>
@@ -123,13 +117,13 @@ class Template extends React.Component {
         </header>
         {children}
       </Container>
-    );
+    )
   }
 }
 
 Template.propTypes = {
   children: React.PropTypes.any,
-  route: React.PropTypes.object,
-};
+  route: React.PropTypes.object
+}
 
-export default Template;
+export default Template
