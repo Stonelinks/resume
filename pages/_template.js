@@ -13,11 +13,6 @@ const style = {
     lineHeight: scale(1.5).lineHeight,
     marginTop: 0
   },
-  hr: {
-    marginTop: rhythm(0.5),
-    marginBottom: rhythm(0.5),
-    backgroundColor: 'gray'
-  },
   Container: {
     maxWidth: rhythm(26),
     padding: rhythm(0.75)
@@ -113,7 +108,6 @@ class Template extends React.Component {
       <Container style={style.Container}>
         <header style={style.header}>
           {this.headerContents}
-          <hr style={style.hr} />
         </header>
         {children}
       </Container>
