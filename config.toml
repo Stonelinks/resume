@@ -1,4 +1,4 @@
-name = "Lucas P. Doyle"
+name = "Lucas Doyle"
 email = "lucas.p.doyle@gmail.com"
 cellphone = "603-998-3565"
 pdfLink = "http://stonelinks.github.io/resume/lucas_doyle_resume.pdf"
@@ -6,8 +6,10 @@ pdfLink = "http://stonelinks.github.io/resume/lucas_doyle_resume.pdf"
 websiteName = "stonelinks.org/luke"
 websiteAddress = "http://stonelinks.org"
 
-addressLineOne = "737 Hyde Street Apt. 302"
+addressLineOne = "737 Hyde Street Apt. 401"
 addressLineTwo = "San Francisco, CA 94109"
+
+gaCode = "UA-18750328-2"
 
 [socialNetworks]
 github = "https://github.com/Stonelinks"
@@ -16,5 +18,3 @@ linkedin = "http://www.linkedin.com/pub/lucas-doyle/25/550/169"
 youtube = "https://www.youtube.com/c/LukeDoyle0"
 # youtube = "http://www.youtube.com/user/RealStonelinks"
 dribbble = "https://dribbble.com/Stonelinks"
-
-gaCode = "UA-18750328-2"
