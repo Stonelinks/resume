@@ -1,54 +1,10 @@
-import React from "react"
-import { config } from "config"
-import { rhythm } from "utils/typography"
+import React from "react";
+import { config } from "config";
+import { rhythm } from "utils/typography";
+
+import { CommonStyles } from "utils/styles";
 
 const styles = {
-  p: {
-    marginTop: rhythm(0.25),
-    marginBottom: rhythm(0.25),
-    fontSize: "15px",
-    lineHeight: "19px"
-  },
-  techStack: {
-    color: "#939393",
-    marginTop: rhythm(0.25),
-    marginBottom: rhythm(0.25),
-    fontSize: "15px",
-    lineHeight: "19px"
-  },
-  h3: {
-    marginTop: rhythm(1),
-    marginBottom: rhythm(0.25)
-  },
-  h4: {
-    marginTop: rhythm(0.5),
-    marginBottom: 0
-  },
-  hr: {
-    marginBottom: rhythm(0.5),
-    backgroundColor: "gray"
-  },
-  resumeItemWrapper: {
-    marginTop: rhythm(0.5),
-    marginBottom: rhythm(0.5)
-  },
-  headerItemSmall: {
-    fontSize: "15px",
-    lineHeight: "19px"
-  },
-  title: {
-    fontSize: "15px",
-    lineHeight: "19px",
-    fontWeight: "bold"
-  },
-  ul: {
-    marginBottom: rhythm(0.5)
-  },
-  li: {
-    fontSize: "15px",
-    lineHeight: "19px",
-    marginBottom: rhythm(0.25)
-  },
   left: {
     display: "inline-block",
     width: "55%"
@@ -63,6 +19,26 @@ const styles = {
     width: "20%",
     textAlign: "right"
   },
+  techStack: {
+    color: "#939393",
+    marginTop: rhythm(0.25),
+    marginBottom: rhythm(0.25),
+    fontSize: "15px",
+    lineHeight: "19px"
+  },
+  resumeItemWrapper: {
+    marginTop: rhythm(0.5),
+    marginBottom: rhythm(0.5)
+  },
+  headerItemSmall: {
+    fontSize: "15px",
+    lineHeight: "19px"
+  },
+  title: {
+    fontSize: "15px",
+    lineHeight: "19px",
+    fontWeight: "bold"
+  },
   externalLink: {
     display: "inline-block",
     fontSize: "20px",
@@ -72,7 +48,7 @@ const styles = {
     marginLeft: "4px"
     // marginRight: "4px"
   }
-}
+};
 
 const resume = [
   {
@@ -86,28 +62,40 @@ const resume = [
         title: "Staff Software Engineer",
         description: (
           <div>
-            <p style={styles.p}>
-              Lead front-end development of core technologies for enterprise /
-              commercial drone users.
+            <p style={CommonStyles.p}>
+              Lead developer of core technologies for an enterprise commercial
+              drone platform, with a focus on UI.
             </p>
-            <p style={styles.p}>
-              <b>Cloud Front-end:</b> responsible for job creation workflows,
-              flight planning, data processing / analysis. significant mapping /
-              geospatial experience creating UI for viewing, annotating and
-              measuring drone imagery, spatial data and other drone-derived data
-              products.
+
+            <p style={CommonStyles.p}>
+              <b>Cloud Front-end:</b> browser-based flight planning, large-scale
+              drone imagery ingestion, mapping / GIS tools for analysis: core
+              author of internal react / redux / leaflet map framework (which
+              I'd like to open source someday), user-defined custom coordinate
+              systems, ground control point (GCP) management, tools to view /
+              annotate / measure / compare drone imagery. Also build many
+              enterprise-focused things like user management, permissions, SAML
+              / auth configuration, etc.
             </p>
-            <p style={styles.p}>
-              <b>Configuration Manager:</b> desktop application built with web
-              technologies designed for novices to provision, configure and
-              update any aircraft to fly with Airware's autopilot and avionics
-              hardware.
+
+            <p style={CommonStyles.p}>
+              <b>Mobile:</b> bootstrapped Airware's first mobile app for drone
+              operators to fly, record and upload drone data to the cloud.
+              Leveraged existing team skills and code with a hybrid react-native
+              / iOS approach for the app. Implemented key features like geofence
+              editing and status indicators for on-device photogrammetry.
             </p>
-            <p style={styles.p}>
-              Fully engaged in engineering leadership, have planned quarters and
-              managed teams on an as-needed basis within a startup environment
-              with a technically complex product. Work closely with Product,
-              Quality, Design and Support teams.
+
+            <p style={CommonStyles.p}>
+              <b>Configuration Manager:</b> a desktop application built with web
+              technologies for users to setup and configure drone with Airware's
+              custom autopilot and avionics hardware.
+            </p>
+            <p style={CommonStyles.p}>
+              <b>Leadership:</b> Fully engaged in engineering leadership. Help
+              define requirements, run meetings, plan quarters and manage the team
+              on an as-needed basis. Architected and worked with a few large
+              scale refactors and migrations
             </p>
           </div>
         ),
@@ -122,25 +110,25 @@ const resume = [
         title: "Software Engineer",
         description: (
           <div>
-            <p style={styles.p}>
+            <p style={CommonStyles.p}>
               Moved to Japan straight out of college to be the fourth employee
               of an industrial / manufacturing robotics startup. Created the web
               interface to MUJIN's robotics planning platform used by clients
               such as Canon, Honda, and a half-dozen other Japanese companies.
             </p>
-            <ul style={styles.ul}>
-              <li style={styles.li}>
+            <ul style={CommonStyles.ul}>
+              <li style={CommonStyles.li}>
                 Conceptualized, designed and implemented workflows for users to
                 program and optimize their industrial robots. Wrote all customer
                 facing UI.
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Designed, developed and supported major features on an extremely
                 tight schedule with a small team. Highlights include a
                 scenegraph-based WebGL viewer and a real-time environment state
                 streamer for our binpicking system.
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Honed communication skills by working with a highly
                 international team and living in Japan.
               </li>
@@ -159,30 +147,30 @@ const resume = [
         title: "Automations Programmer / Engineer",
         description: (
           <div>
-            <p style={styles.p}>
+            <p style={CommonStyles.p}>
               Designed, constructed and programmed an experimental X-ray optic
               production facility
             </p>
-            <ul style={styles.ul}>
-              <li style={styles.li}>
+            <ul style={CommonStyles.ul}>
+              <li style={CommonStyles.li}>
                 Wrote software to simplify fabrication of X-ray optics in
                 multiple production scenarios (different deposition strategies,
                 optic geometries, vacuum chamber configurations, etc.)
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Designed and built sample manipulation hardware and high
                 strength vacuum chamber mount using Solidworks, CAD and working
                 with component vendors and machinists
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Saved time and lowered costs by developing efficient shutter
                 controllers for all chambers using Arduinos
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Worked closely with physicists and astrophysicists to fulfill
                 requirements
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Supervised a high school student to characterize optic
                 substrates with a high precision 3D profilemeter
               </li>
@@ -199,14 +187,14 @@ const resume = [
         title: "Robotics Intern",
         description: (
           <div>
-            <p style={styles.p}>
+            <p style={CommonStyles.p}>
               Authored analytics and reporting tools to track, analyze and
               prioritize events from thousands of logs for a fleet of >130
               telepresence robots. Cross referenced events with customer
               information and known bugs to preemptively dispatch engineering
               and support teams.
             </p>
-            <p style={styles.p}>
+            <p style={CommonStyles.p}>
               Implemented forehead touchscreen UI to display internal robot
               device status / connectivity, as well as a call screen to allow
               users to answer or deny calls made to their robot.
@@ -226,7 +214,7 @@ const resume = [
         start: "2008",
         end: "2012",
         description: (
-          <p style={styles.p}>B.S., Computer and Systems Engineering</p>
+          <p style={CommonStyles.p}>B.S., Computer and Systems Engineering</p>
         )
       },
       {
@@ -248,24 +236,24 @@ const resume = [
         title: "Team Leader and Lead Programmer",
         description: (
           <div>
-            <ul style={styles.ul}>
-              <li style={styles.li}>
+            <ul style={CommonStyles.ul}>
+              <li style={CommonStyles.li}>
                 Led a team of students to design a simulator for an intra-wing
                 robot to operate inside an aircraft
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Worked with Boeing to fulfill requirements for assembly and
                 maintenance roles of operation
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Implemented robot client / server to distribute computation
                 effectively and allow collaborative robot use
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Created joystick controls and 3D interface to enable easy user /
                 robot interaction
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Wrote concurrent server in C++ to control robot hardware,
                 recognize object locations with OpenCV, plan trajectories to
                 avoid collisions
@@ -282,16 +270,16 @@ const resume = [
         title: "Team Member",
         description: (
           <div>
-            <ul style={styles.ul}>
-              <li style={styles.li}>
+            <ul style={CommonStyles.ul}>
+              <li style={CommonStyles.li}>
                 Designed and implemented web crawler / scraper to analyze
                 financial news sources and gauge market sentiment
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Assisted in implementation / training of classifier using Python
                 Natural Language Toolkit
               </li>
-              <li style={styles.li}>
+              <li style={CommonStyles.li}>
                 Gave presentations and poster sessions to the RPI Community
                 about DaBuzz and the Rensselaer Center for Open Source Software
               </li>
@@ -308,14 +296,14 @@ const resume = [
         name: "Software Development",
         description: (
           <div>
-            <p style={styles.p}>
+            <p style={CommonStyles.p}>
               Extensive experience writing Javascript for browser and server,
               Python, LabVIEW. Familiarity with Swift, Golang, C++, PHP,
               Seasoned Linux user. Familiar with industry standard development
               tools, e.g. version control (git) and design patterns (MVC, MVVM,
               ).
             </p>
-            <p style={styles.p}>
+            <p style={CommonStyles.p}>
               Concerned with best practices (DRY, etc.). Effective technical
               writing and documentation skills.
             </p>
@@ -326,7 +314,7 @@ const resume = [
         name: "Web Technologies",
         description: (
           <div>
-            <p style={styles.p}>
+            <p style={CommonStyles.p}>
               Strong web development experience, particularly on frontend but
               comfortable with the full stack. Host own website Amazon EC2/aws.
               Very seasoned Javascript developer, both on frontend and backend
@@ -341,7 +329,7 @@ const resume = [
         name: "Computer Aided Design",
         description: (
           <div>
-            <p style={styles.p}>
+            <p style={CommonStyles.p}>
               Experience with Solidworks. Virtually designed and/or simulated
               multiple FIRST robots, a Battlebot and vacuum chambers at
               Harvard-Smithsonian Center for Astrophysics.
@@ -353,7 +341,7 @@ const resume = [
         name: "Embedded Control",
         description: (
           <div>
-            <p style={styles.p}>
+            <p style={CommonStyles.p}>
               Authored control software for autonomous and semi-autonomous
               boats, blimps, cars and robots. Programmed for multiple
               microcontrollers (Intel 8051, Arduino, ARM). Regularly build own
@@ -364,7 +352,7 @@ const resume = [
       }
     ]
   }
-]
+];
 
 class Resume extends React.Component {
   render() {
@@ -373,14 +361,14 @@ class Resume extends React.Component {
         {resume.map(section => {
           return (
             <div key={section.name}>
-              <h3 style={styles.h3}>{section.name}</h3>
-              <hr style={styles.hr} />
+              <h3 style={CommonStyles.h3}>{section.name}</h3>
+              <hr style={CommonStyles.hr} />
               {section.list.map(listItem => {
                 return (
                   <div key={listItem.name}>
                     <div>
                       <div style={styles.left}>
-                        <h4 style={styles.h4}>
+                        <h4 style={CommonStyles.h4}>
                           {listItem.name}
                           {listItem.link && (
                             <a
@@ -418,18 +406,14 @@ class Resume extends React.Component {
                       )}
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
-          )
+          );
         })}
       </div>
-    )
+    );
   }
 }
 
-Resume.propTypes = {
-  route: React.PropTypes.object
-}
-
-export default Resume
+export default Resume;
