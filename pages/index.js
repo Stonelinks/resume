@@ -2,7 +2,7 @@ import React from "react"
 import { config } from "config"
 import { rhythm } from "utils/typography"
 
-const style = {
+const styles = {
   p: {
     marginTop: rhythm(0.25),
     marginBottom: rhythm(0.25),
@@ -69,8 +69,8 @@ const style = {
     lineHeight: "20px",
     // position: "relative",
     // bottom: "-2px",
-    marginLeft: "4px",
-    marginRight: "4px"
+    marginLeft: "4px"
+    // marginRight: "4px"
   }
 }
 
@@ -83,38 +83,36 @@ const resume = [
         where: "San Francisco, CA",
         start: "2014",
         end: "Present",
-        title: "Software Engineer",
+        title: "Staff Software Engineer",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <p style={style.p}>
-              Lead rapid development of high-quality, high-visibility products
-              for enterprise / commercial drone users:
+          <div>
+            <p style={styles.p}>
+              Lead front-end development of core technologies for enterprise /
+              commercial drone users.
             </p>
-            <p style={style.p}>
-              <b>Cloud Frontend:</b> responsible for job creation workflows,
-              flight planning, data processing / analysis. signifigant mapping /
+            <p style={styles.p}>
+              <b>Cloud Front-end:</b> responsible for job creation workflows,
+              flight planning, data processing / analysis. significant mapping /
               geospatial experience creating UI for viewing, annotating and
               measuring drone imagery, spatial data and other drone-derived data
               products.
             </p>
-            <p style={style.p}>
+            <p style={styles.p}>
               <b>Configuration Manager:</b> desktop application built with web
               technologies designed for novices to provision, configure and
               update any aircraft to fly with Airware's autopilot and avionics
               hardware.
             </p>
-            <p style={style.p}>
-              Fully engaged in engineering leadership within a startup
-              environment with a technically complex product. Work closely with
-              Product, Quality, Design and Support teams.
-            </p>
-            <p style={style.techStack}>
-              <b>Tech stack:</b> React, Redux, ES6, Babel, Webpack, Leaflet,
-              Mocha, Karma, Sinon, Enzyme, Backbone, Marionette, node-webkit
-              (nw.js), some Python and Golang
+            <p style={styles.p}>
+              Fully engaged in engineering leadership, have planned quarters and
+              managed teams on an as-needed basis within a startup environment
+              with a technically complex product. Work closely with Product,
+              Quality, Design and Support teams.
             </p>
           </div>
-        )
+        ),
+        techStack:
+          "React, Redux, ES6, Babel, Webpack, Leaflet, Mocha, Karma, Sinon, Enzyme, Backbone, Marionette, node-webkit (nw.js), some Python and Golang"
       },
       {
         name: "MUJIN Inc.",
@@ -123,36 +121,34 @@ const resume = [
         end: "2014",
         title: "Software Engineer",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <p style={style.p}>
+          <div>
+            <p style={styles.p}>
               Moved to Japan straight out of college to be the fourth employee
               of an industrial / manufacturing robotics startup. Created the web
               interface to MUJIN's robotics planning platform used by clients
               such as Canon, Honda, and a half-dozen other Japanese companies.
             </p>
-            <ul style={style.ul}>
-              <li style={style.li}>
+            <ul style={styles.ul}>
+              <li style={styles.li}>
                 Conceptualized, designed and implemented workflows for users to
                 program and optimize their industrial robots. Wrote all customer
                 facing UI.
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Designed, developed and supported major features on an extremely
                 tight schedule with a small team. Highlights include a
                 scenegraph-based WebGL viewer and a real-time environment state
                 streamer for our binpicking system.
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Honed communication skills by working with a highly
                 international team and living in Japan.
               </li>
             </ul>
-            <p style={style.techStack}>
-              <b>Tech stack:</b> Backbone, Marionette, Grunt, Python, django,
-              webgl, websockets
-            </p>
           </div>
-        )
+        ),
+        techStack:
+          "Backbone, Marionette, Grunt, Python, django, webgl, websockets"
       },
       {
         name: "Harvard-Smithsonian Center for Astrophysics",
@@ -162,41 +158,38 @@ const resume = [
         end: "2012",
         title: "Automations Programmer / Engineer",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <p style={style.p}>
+          <div>
+            <p style={styles.p}>
               Designed, constructed and programmed an experimental X-ray optic
               production facility
             </p>
-            <ul style={style.ul}>
-              <li style={style.li}>
+            <ul style={styles.ul}>
+              <li style={styles.li}>
                 Wrote software to simplify fabrication of X-ray optics in
                 multiple production scenarios (different deposition strategies,
                 optic geometries, vacuum chamber configurations, etc.)
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Designed and built sample manipulation hardware and high
                 strength vacuum chamber mount using Solidworks, CAD and working
                 with component vendors and machinists
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Saved time and lowered costs by developing efficient shutter
                 controllers for all chambers using Arduinos
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Worked closely with physicists and astrophysicists to fulfill
                 requirements
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Supervised a high school student to characterize optic
                 substrates with a high precision 3D profilemeter
               </li>
             </ul>
-            <p style={style.techStack}>
-              <b>Tech stack:</b> Python, LabVIEW, Javascript, Solidworks,
-              Arduino
-            </p>
           </div>
-        )
+        ),
+        techStack: "Python, LabVIEW, Javascript, Solidworks, Arduino"
       },
       {
         name: "Anybots Inc.",
@@ -205,24 +198,22 @@ const resume = [
         start: "2011",
         title: "Robotics Intern",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <p style={style.p}>
+          <div>
+            <p style={styles.p}>
               Authored analytics and reporting tools to track, analyze and
               prioritize events from thousands of logs for a fleet of >130
               telepresence robots. Cross referenced events with customer
               information and known bugs to preemptively dispatch engineering
               and support teams.
             </p>
-            <p style={style.p}>
+            <p style={styles.p}>
               Implemented forehead touchscreen UI to display internal robot
               device status / connectivity, as well as a call screen to allow
               users to answer or deny calls made to their robot.
             </p>
-            <p style={style.techStack}>
-              <b>Tech stack:</b> Python, Javascript, custom internal tools
-            </p>
           </div>
-        )
+        ),
+        techStack: "Python, Javascript, custom internal tools"
       }
     ]
   },
@@ -235,7 +226,7 @@ const resume = [
         start: "2008",
         end: "2012",
         description: (
-          <p style={style.p}>B.S., Computer and Systems Engineering</p>
+          <p style={styles.p}>B.S., Computer and Systems Engineering</p>
         )
       },
       {
@@ -256,25 +247,25 @@ const resume = [
         start: "2012",
         title: "Team Leader and Lead Programmer",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <ul style={style.ul}>
-              <li style={style.li}>
+          <div>
+            <ul style={styles.ul}>
+              <li style={styles.li}>
                 Led a team of students to design a simulator for an intra-wing
                 robot to operate inside an aircraft
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Worked with Boeing to fulfill requirements for assembly and
                 maintenance roles of operation
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Implemented robot client / server to distribute computation
                 effectively and allow collaborative robot use
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Created joystick controls and 3D interface to enable easy user /
                 robot interaction
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Wrote concurrent server in C++ to control robot hardware,
                 recognize object locations with OpenCV, plan trajectories to
                 avoid collisions
@@ -290,17 +281,17 @@ const resume = [
         start: "2012",
         title: "Team Member",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <ul style={style.ul}>
-              <li style={style.li}>
+          <div>
+            <ul style={styles.ul}>
+              <li style={styles.li}>
                 Designed and implemented web crawler / scraper to analyze
                 financial news sources and gauge market sentiment
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Assisted in implementation / training of classifier using Python
                 Natural Language Toolkit
               </li>
-              <li style={style.li}>
+              <li style={styles.li}>
                 Gave presentations and poster sessions to the RPI Community
                 about DaBuzz and the Rensselaer Center for Open Source Software
               </li>
@@ -316,15 +307,15 @@ const resume = [
       {
         name: "Software Development",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <p style={style.p}>
+          <div>
+            <p style={styles.p}>
               Extensive experience writing Javascript for browser and server,
               Python, LabVIEW. Familiarity with Swift, Golang, C++, PHP,
               Seasoned Linux user. Familiar with industry standard development
               tools, e.g. version control (git) and design patterns (MVC, MVVM,
               ).
             </p>
-            <p style={style.p}>
+            <p style={styles.p}>
               Concerned with best practices (DRY, etc.). Effective technical
               writing and documentation skills.
             </p>
@@ -334,8 +325,8 @@ const resume = [
       {
         name: "Web Technologies",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <p style={style.p}>
+          <div>
+            <p style={styles.p}>
               Strong web development experience, particularly on frontend but
               comfortable with the full stack. Host own website Amazon EC2/aws.
               Very seasoned Javascript developer, both on frontend and backend
@@ -349,8 +340,8 @@ const resume = [
       {
         name: "Computer Aided Design",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <p style={style.p}>
+          <div>
+            <p style={styles.p}>
               Experience with Solidworks. Virtually designed and/or simulated
               multiple FIRST robots, a Battlebot and vacuum chambers at
               Harvard-Smithsonian Center for Astrophysics.
@@ -361,8 +352,8 @@ const resume = [
       {
         name: "Embedded Control",
         description: (
-          <div style={style.resumeItemWrapper}>
-            <p style={style.p}>
+          <div>
+            <p style={styles.p}>
               Authored control software for autonomous and semi-autonomous
               boats, blimps, cars and robots. Programmed for multiple
               microcontrollers (Intel 8051, Arduino, ARM). Regularly build own
@@ -382,36 +373,52 @@ class Resume extends React.Component {
         {resume.map(section => {
           return (
             <div key={section.name}>
-              <h3 style={style.h3}>{section.name}</h3>
-              <hr style={style.hr} />
+              <h3 style={styles.h3}>{section.name}</h3>
+              <hr style={styles.hr} />
               {section.list.map(listItem => {
-                return <div key={listItem.name}>
+                return (
+                  <div key={listItem.name}>
                     <div>
-                      <div style={style.left}>
-                        <h4 style={style.h4}>
+                      <div style={styles.left}>
+                        <h4 style={styles.h4}>
                           {listItem.name}
+                          {listItem.link && (
+                            <a
+                              href={listItem.link}
+                              target="blank_"
+                              style={styles.externalLink}
+                            >
+                              <div className={`fa fa-external-link`} />
+                            </a>
+                          )}
                         </h4>
-                        {listItem.link && <a href={listItem.link} target="blank_" style={style.externalLink}>
-                            <div className={`fa fa-external-link`} />
-                          </a>}
                       </div>
-                      <div style={style.middle}>
-                        <div style={style.headerItemSmall}>
+                      <div style={styles.middle}>
+                        <div style={styles.headerItemSmall}>
                           {listItem.where}
                         </div>
                       </div>
-                      <div style={style.right}>
-                        <div style={style.headerItemSmall}>
+                      <div style={styles.right}>
+                        <div style={styles.headerItemSmall}>
                           {listItem.start}
                           {listItem.end && " - " + listItem.end}
                         </div>
                       </div>
                     </div>
-                    {listItem.title && <div style={style.title}>
-                        {listItem.title}
-                      </div>}
-                    {listItem.description}
-                  </div>;
+                    {listItem.title && (
+                      <div style={styles.title}>{listItem.title}</div>
+                    )}
+                    <div style={styles.resumeItemWrapper}>
+                      {listItem.description}
+                      {listItem.techStack && (
+                        <p style={styles.techStack}>
+                          <b>Tech stack:</b>
+                          {` ${listItem.techStack}`}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )
               })}
             </div>
           )

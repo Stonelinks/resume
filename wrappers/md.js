@@ -1,5 +1,4 @@
 import React from "react"
-import { fixLinks, getPageDate } from "utils"
 
 import { rhythm } from "utils/typography"
 import { config } from "config"
@@ -20,10 +19,6 @@ const style = {
 }
 
 class MarkdownWrapper extends React.Component {
-  componentDidMount() {
-    fixLinks(this.refs.markdown, this.context.router)
-  }
-
   render() {
     const { route } = this.props
     const page = route.page.data
@@ -31,7 +26,6 @@ class MarkdownWrapper extends React.Component {
     const header = (
       <div>
         <h1 style={style.h1}>{page.title}</h1>
-        {page.date && <div style={style.date}>{getPageDate(route.page)}</div>}
       </div>
     )
 
