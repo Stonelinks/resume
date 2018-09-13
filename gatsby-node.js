@@ -8,6 +8,7 @@ function postBuild(pages, callback) {
   shell.execSync("cp -r node_modules/font-awesome/fonts public/")
 
   const html = fs.readFileSync("./public/index.html", "utf8")
+  const pdfCSS = fs.readFileSync("./pdf.css", "utf8")
 
   pdf
     .create(html, {
@@ -21,14 +22,15 @@ function postBuild(pages, callback) {
       ],
       header: {
         // height: '45mm',
-        contents: "<div id=\"is-pdf\" />"
-      }
+        contents: `<style>${pdfCSS}</style>`
+      },
+      renderDelay: 1000
     })
     .toFile("./public/resume.pdf", function(err, res) {
-      if (err) return console.log(err)
-      console.log("PDF created")
-      callback()
-    })
+      if (err) return console.log(err);
+      console.log("PDF created");
+      callback();
+    });
 }
 
 export { postBuild }

@@ -3,7 +3,6 @@ import isPDF from "utils/isPDF"
 
 export const CommonStyles = {
   p: {
-    color: isPDF() ? 'red' : null,
     marginTop: rhythm(0.25),
     marginBottom: rhythm(0.25),
     fontSize: "15px",
