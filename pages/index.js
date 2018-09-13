@@ -64,43 +64,47 @@ const resume = [
           <div>
             <p style={CommonStyles.p}>
               Lead developer of core technologies for an enterprise commercial
-              drone platform, with a focus on UI.
+              drone platform.
             </p>
 
             <p style={CommonStyles.p}>
-              <b>Cloud Front-end:</b> browser-based flight planning, large-scale
-              drone imagery ingestion, mapping / GIS tools for analysis: core
-              author of internal react / redux / leaflet map framework (which
-              I'd like to open source someday), user-defined custom coordinate
-              systems, ground control point (GCP) management, tools to view /
-              annotate / measure / compare drone imagery. Also build many
-              enterprise-focused things like user management, permissions, SAML
-              / auth configuration, etc.
+              <b>Cloud Front-end:</b> large-scale file ingestion, processing and
+              analysis of drone imagery. Wrote mapping / GIS tools: internal
+              react / redux / leaflet map framework (which I'd like to open
+              source someday), user-defined custom coordinate systems, ground
+              control point (GCP) management. Features to view, annotate,
+              measure and compare drone imagery. Built an experimental 3D
+              viewer, javascript build / test tooling and many
+              enterprise-focused features like user management, permissions, SSO
+              / authentication, etc.
             </p>
 
             <p style={CommonStyles.p}>
-              <b>Mobile:</b> bootstrapped Airware's first mobile app for drone
-              operators to fly, record and upload drone data to the cloud.
-              Leveraged existing team skills and code with a hybrid react-native
-              / iOS approach for the app. Implemented key features like geofence
-              editing and status indicators for on-device photogrammetry.
+              <b>Mobile:</b> helped bootstrap Airware's first mobile app for
+              drone operators to fly, capture and upload drone data to the
+              cloud. Leveraged existing team skills and code reuse with a
+              react-native / iOS approach for the app. Implemented key features
+              like geofence editing and status indicators for on-device
+              photogrammetry.
             </p>
 
             <p style={CommonStyles.p}>
-              <b>Configuration Manager:</b> a desktop application built with web
-              technologies for users to setup and configure drone with Airware's
-              custom autopilot and avionics hardware.
+              <b>Configuration Manager:</b> desktop app built with web
+              technologies to configure Airware's autopilot hardware for different fixed-wing and multirotor drones.
             </p>
+
             <p style={CommonStyles.p}>
-              <b>Leadership:</b> Fully engaged in engineering leadership. Help
-              define requirements, run meetings, plan quarters and manage the team
-              on an as-needed basis. Architected and worked with a few large
-              scale refactors and migrations
+              <b>Leadership:</b> fully engaged in engineering leadership and
+              product lifecycle. Help define requirements, run meetings and
+              generally move things forward. Serve as a manager and help plan
+              quarters / hire people on an as-needed basis. Architected and
+              completed a few large scale refactors and migrations, including a
+              product merger after acquiring a French company.
             </p>
           </div>
         ),
         techStack:
-          "React, Redux, ES6, Babel, Webpack, Leaflet, Mocha, Karma, Sinon, Enzyme, Backbone, Marionette, node-webkit (nw.js), some Python and Golang"
+          "Javascript, react, redux, babel, webpack, leaflet, react-native, THREE.js, node-webkit (nw.js), some Python, Golang and PHP"
       },
       {
         name: "MUJIN Inc.",
@@ -111,32 +115,27 @@ const resume = [
         description: (
           <div>
             <p style={CommonStyles.p}>
-              Moved to Japan straight out of college to be the fourth employee
-              of an industrial / manufacturing robotics startup. Created the web
-              interface to MUJIN's robotics planning platform used by clients
-              such as Canon, Honda, and a half-dozen other Japanese companies.
+              Fourth employee of a Japanese industrial / manufacturing robotics
+              startup straight out of college. Created the web interface for a
+              robotics planning system used by clients such as Canon, Honda, and
+              a half-dozen other Japanese companies.
             </p>
             <ul style={CommonStyles.ul}>
               <li style={CommonStyles.li}>
-                Conceptualized, designed and implemented workflows for users to
-                program and optimize their industrial robots. Wrote all customer
-                facing UI.
-              </li>
-              <li style={CommonStyles.li}>
-                Designed, developed and supported major features on an extremely
-                tight schedule with a small team. Highlights include a
-                scenegraph-based WebGL viewer and a real-time environment state
-                streamer for our binpicking system.
+                Defined and implemented workflows to program and optimize
+                industrial robots. Wrote all customer facing UI. Highlights
+                include a scenegraph-based WebGL viewer and a real-time
+                environment state streamer for our binpicking system.
               </li>
               <li style={CommonStyles.li}>
                 Honed communication skills by working with a highly
-                international team and living in Japan.
+                international team and living in Japan for two years.
               </li>
             </ul>
           </div>
         ),
         techStack:
-          "Backbone, Marionette, Grunt, Python, django, webgl, websockets"
+          "Javascript, Backbone / Marionette, Grunt, Python, django, WebGL, websockets"
       },
       {
         name: "Harvard-Smithsonian Center for Astrophysics",
@@ -148,31 +147,21 @@ const resume = [
         description: (
           <div>
             <p style={CommonStyles.p}>
-              Designed, constructed and programmed an experimental X-ray optic
-              production facility
+              Assisted with design, construction and programming of an
+              experimental X-ray optic production facility on a summer
+              internship / part time basis.
             </p>
             <ul style={CommonStyles.ul}>
               <li style={CommonStyles.li}>
-                Wrote software to simplify fabrication of X-ray optics in
-                multiple production scenarios (different deposition strategies,
-                optic geometries, vacuum chamber configurations, etc.)
+                Wrote software to fabricate optics in multiple production
+                scenarios (different deposition strategies, optic geometries,
+                vacuum chamber configurations, etc.)
               </li>
               <li style={CommonStyles.li}>
-                Designed and built sample manipulation hardware and high
-                strength vacuum chamber mount using Solidworks, CAD and working
-                with component vendors and machinists
-              </li>
-              <li style={CommonStyles.li}>
-                Saved time and lowered costs by developing efficient shutter
-                controllers for all chambers using Arduinos
-              </li>
-              <li style={CommonStyles.li}>
-                Worked closely with physicists and astrophysicists to fulfill
-                requirements
-              </li>
-              <li style={CommonStyles.li}>
-                Supervised a high school student to characterize optic
-                substrates with a high precision 3D profilemeter
+                Completed mechanical and electrical design of vacuum chamber
+                hardware. Used CAD to produce drawings for machinists,
+                coordinated work with external component vendors. Saved costs by
+                developing efficient shutter controllers using Arduinos.
               </li>
             </ul>
           </div>
@@ -188,20 +177,17 @@ const resume = [
         description: (
           <div>
             <p style={CommonStyles.p}>
-              Authored analytics and reporting tools to track, analyze and
-              prioritize events from thousands of logs for a fleet of >130
-              telepresence robots. Cross referenced events with customer
-              information and known bugs to preemptively dispatch engineering
-              and support teams.
+              Authored log aggregation and analysis tools for a fleet of >130
+              telepresence robots for internal staff.
             </p>
             <p style={CommonStyles.p}>
               Implemented forehead touchscreen UI to display internal robot
-              device status / connectivity, as well as a call screen to allow
-              users to answer or deny calls made to their robot.
+              device status, as well as a call screen to allow users to answer
+              calls made to their robot.
             </p>
           </div>
         ),
-        techStack: "Python, Javascript, custom internal tools"
+        techStack: "Python, Javascript"
       }
     ]
   },
@@ -238,25 +224,14 @@ const resume = [
           <div>
             <ul style={CommonStyles.ul}>
               <li style={CommonStyles.li}>
-                Led a team of students to design a simulator for an intra-wing
-                robot to operate inside an aircraft
+                Leader of a Boeing-sponsored team of students to design a
+                simulator for an intra-wing robot to operate inside an aircraft
+                and conduct common inspection and assembly tasks.
               </li>
               <li style={CommonStyles.li}>
-                Worked with Boeing to fulfill requirements for assembly and
-                maintenance roles of operation
-              </li>
-              <li style={CommonStyles.li}>
-                Implemented robot client / server to distribute computation
-                effectively and allow collaborative robot use
-              </li>
-              <li style={CommonStyles.li}>
-                Created joystick controls and 3D interface to enable easy user /
-                robot interaction
-              </li>
-              <li style={CommonStyles.li}>
-                Wrote concurrent server in C++ to control robot hardware,
-                recognize object locations with OpenCV, plan trajectories to
-                avoid collisions
+                Wrote concurrent server in C++ to control robot hardware, enable
+                collaboration, recognize object locations with OpenCV, plan
+                trajectories to avoid collisions with internal wing geometry.
               </li>
             </ul>
           </div>
@@ -276,10 +251,6 @@ const resume = [
                 financial news sources and gauge market sentiment
               </li>
               <li style={CommonStyles.li}>
-                Assisted in implementation / training of classifier using Python
-                Natural Language Toolkit
-              </li>
-              <li style={CommonStyles.li}>
                 Gave presentations and poster sessions to the RPI Community
                 about DaBuzz and the Rensselaer Center for Open Source Software
               </li>
@@ -297,40 +268,26 @@ const resume = [
         description: (
           <div>
             <p style={CommonStyles.p}>
-              Extensive experience writing Javascript for browser and server,
-              Python, LabVIEW. Familiarity with Swift, Golang, C++, PHP,
-              Seasoned Linux user. Familiar with industry standard development
-              tools, e.g. version control (git) and design patterns (MVC, MVVM,
-              ).
+              Experience writing both modern and "old-school" Javascript for
+              front-end, back-end and mobile (react-native). Experience with
+              python and node. Familiar with modern javascript tooling for build
+              and testing. Experience Python user. Familiarity with Swift / iOS,
+              C++, PHP. Familiar with industry standard tools, like git, JIRA,
+              github, etc.
             </p>
             <p style={CommonStyles.p}>
-              Concerned with best practices (DRY, etc.). Effective technical
+              Pragmatic follower of agile best practices. Effective technical
               writing and documentation skills.
             </p>
           </div>
         )
       },
       {
-        name: "Web Technologies",
+        name: "Computer Aided Design (CAD)",
         description: (
           <div>
             <p style={CommonStyles.p}>
-              Strong web development experience, particularly on frontend but
-              comfortable with the full stack. Host own website Amazon EC2/aws.
-              Very seasoned Javascript developer, both on frontend and backend
-              with Node. Familiar with CSS3/HTML5, Marionette/Backbone,
-              React/Redux, Django, Flask, Wordpress core, various Google APIs.
-              Proficient with relational and non-relational databases.
-            </p>
-          </div>
-        )
-      },
-      {
-        name: "Computer Aided Design",
-        description: (
-          <div>
-            <p style={CommonStyles.p}>
-              Experience with Solidworks. Virtually designed and/or simulated
+              Experience with Solidworks. Virtually designed / simulated
               multiple FIRST robots, a Battlebot and vacuum chambers at
               Harvard-Smithsonian Center for Astrophysics.
             </p>
