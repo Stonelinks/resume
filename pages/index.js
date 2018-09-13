@@ -1,22 +1,22 @@
-import React from "react";
-import { config } from "config";
-import { rhythm } from "utils/typography";
+import React from "react"
+import { config } from "config"
+import { rhythm } from "utils/typography"
 
-import { CommonStyles } from "utils/styles";
+import { CommonStyles } from "utils/styles"
 
 const styles = {
   left: {
     display: "inline-block",
-    width: "55%"
+    width: "60%"
   },
   middle: {
     display: "inline-block",
     width: "25%",
-    textAlign: "center"
+    textAlign: "right"
   },
   right: {
     display: "inline-block",
-    width: "20%",
+    width: "15%",
     textAlign: "right"
   },
   techStack: {
@@ -48,7 +48,7 @@ const styles = {
     marginLeft: "4px"
     // marginRight: "4px"
   }
-};
+}
 
 const resume = [
   {
@@ -63,20 +63,19 @@ const resume = [
         description: (
           <div>
             <p style={CommonStyles.p}>
-              Lead developer of core technologies for an enterprise commercial
-              drone platform.
+              Develop core technologies for an enterprise commercial drone
+              startup that processes raw drone imagery into survey-grade data
+              products for the insurance and mining / quarrying industries.
             </p>
 
             <p style={CommonStyles.p}>
-              <b>Cloud Front-end:</b> large-scale file ingestion, processing and
-              analysis of drone imagery. Wrote mapping / GIS tools: internal
-              react / redux / leaflet map framework (which I'd like to open
-              source someday), user-defined custom coordinate systems, ground
-              control point (GCP) management. Features to view, annotate,
-              measure and compare drone imagery. Built an experimental 3D
-              viewer, javascript build / test tooling and many
-              enterprise-focused features like user management, permissions, SSO
-              / authentication, etc.
+              <b>Cloud front-end:</b> built core workflows to upload, process
+              and analyze drone surveys. Wrote mapping / GIS focused software:
+              internal react / redux / leaflet map framework, support for
+              user-defined coordinate systems, ground control points, tools to
+              annotate, measure and compare map layers. Built many
+              enterprise-focused features like user management, permissions and
+              SSO / authentication.
             </p>
 
             <p style={CommonStyles.p}>
@@ -89,8 +88,8 @@ const resume = [
             </p>
 
             <p style={CommonStyles.p}>
-              <b>Configuration Manager:</b> desktop app built with web
-              technologies to configure Airware's autopilot hardware for different fixed-wing and multirotor drones.
+              <b>Configuration manager:</b> desktop app to configure autopilot
+              hardware for fixed-wing and multirotor drones.
             </p>
 
             <p style={CommonStyles.p}>
@@ -99,12 +98,13 @@ const resume = [
               generally move things forward. Serve as a manager and help plan
               quarters / hire people on an as-needed basis. Architected and
               completed a few large scale refactors and migrations, including a
-              product merger after acquiring a French company.
+              Backbone to react migration as well as a product merger after
+              acquiring a French company.
             </p>
           </div>
         ),
         techStack:
-          "Javascript, react, redux, babel, webpack, leaflet, react-native, THREE.js, node-webkit (nw.js), some Python, Golang and PHP"
+          "Javascript (react, redux, babel, webpack, leaflet, THREE.js, react-native), Python, some Swift 3 / iOS, PHP (symfony), golang"
       },
       {
         name: "MUJIN Inc.",
@@ -115,10 +115,10 @@ const resume = [
         description: (
           <div>
             <p style={CommonStyles.p}>
-              Fourth employee of a Japanese industrial / manufacturing robotics
-              startup straight out of college. Created the web interface for a
-              robotics planning system used by clients such as Canon, Honda, and
-              a half-dozen other Japanese companies.
+              Employee number four at a Japanese industrial / manufacturing
+              robotics startup straight out of college. Created the web
+              interface for a robot arm planning system used by clients such as
+              Canon, Honda, and a half-dozen other Japanese companies.
             </p>
             <ul style={CommonStyles.ul}>
               <li style={CommonStyles.li}>
@@ -135,7 +135,7 @@ const resume = [
           </div>
         ),
         techStack:
-          "Javascript, Backbone / Marionette, Grunt, Python, django, WebGL, websockets"
+          "Javascript (Backbone / Marionette, Grunt, WebGL, websockets), Python (django)"
       },
       {
         name: "Harvard-Smithsonian Center for Astrophysics",
@@ -147,9 +147,8 @@ const resume = [
         description: (
           <div>
             <p style={CommonStyles.p}>
-              Assisted with design, construction and programming of an
-              experimental X-ray optic production facility on a summer
-              internship / part time basis.
+              Worked on an experimental X-ray optic production facility on a
+              summer internship / part time basis.
             </p>
             <ul style={CommonStyles.ul}>
               <li style={CommonStyles.li}>
@@ -159,14 +158,14 @@ const resume = [
               </li>
               <li style={CommonStyles.li}>
                 Completed mechanical and electrical design of vacuum chamber
-                hardware. Used CAD to produce drawings for machinists,
+                hardware. Used CAD to produce drawings for machinists and
                 coordinated work with external component vendors. Saved costs by
                 developing efficient shutter controllers using Arduinos.
               </li>
             </ul>
           </div>
         ),
-        techStack: "Python, LabVIEW, Javascript, Solidworks, Arduino"
+        techStack: "Python (flask), LabVIEW, Javascript, Solidworks, Arduino"
       },
       {
         name: "Anybots Inc.",
@@ -181,9 +180,8 @@ const resume = [
               telepresence robots for internal staff.
             </p>
             <p style={CommonStyles.p}>
-              Implemented forehead touchscreen UI to display internal robot
-              device status, as well as a call screen to allow users to answer
-              calls made to their robot.
+              Implemented forehead screen UI to display internal robot state and
+              answer calls made to the robot.
             </p>
           </div>
         ),
@@ -219,23 +217,25 @@ const resume = [
         link: "http://stonelinks.org/projects/boeing",
         where: "Troy, NY",
         start: "2012",
-        title: "Team Leader and Lead Programmer",
+        title: "Team Leader and Programmer",
         description: (
           <div>
             <ul style={CommonStyles.ul}>
               <li style={CommonStyles.li}>
-                Leader of a Boeing-sponsored team of students to design a
-                simulator for an intra-wing robot to operate inside an aircraft
-                and conduct common inspection and assembly tasks.
+                Leader of a Boeing-sponsored team of students to simulate an
+                intra-wing robot to operate inside an aircraft and conduct
+                common inspection and assembly tasks.
               </li>
               <li style={CommonStyles.li}>
-                Wrote concurrent server in C++ to control robot hardware, enable
-                collaboration, recognize object locations with OpenCV, plan
-                trajectories to avoid collisions with internal wing geometry.
+                Wrote C++ server and python client to control robot hardware,
+                enable collaboration, recognize object locations with OpenCV,
+                plan collisions-free trajectories through internal wing
+                structures with OpenRAVE.
               </li>
             </ul>
           </div>
-        )
+        ),
+        techStack: "Python (pyQT), C++ (OpenRAVE, boost::asio, OpenCV)"
       },
       {
         name: "DaBuzz Market Sentiment Analyzer",
@@ -256,7 +256,8 @@ const resume = [
               </li>
             </ul>
           </div>
-        )
+        ),
+        techStack: "Python (django, nltk)"
       }
     ]
   },
@@ -269,15 +270,26 @@ const resume = [
           <div>
             <p style={CommonStyles.p}>
               Experience writing both modern and "old-school" Javascript for
-              front-end, back-end and mobile (react-native). Experience with
-              python and node. Familiar with modern javascript tooling for build
-              and testing. Experience Python user. Familiarity with Swift / iOS,
-              C++, PHP. Familiar with industry standard tools, like git, JIRA,
-              github, etc.
+              front-end, back-end and mobile (via react-native). Experience with
+              Python and node. Experience with javascript tooling for build and
+              unit testing. Familiarity with Swift / iOS, PHP, C++.
             </p>
             <p style={CommonStyles.p}>
-              Pragmatic follower of agile best practices. Effective technical
-              writing and documentation skills.
+              Familiar with industry standard tools, like git, JIRA, github, CI,
+              Docker, etc. Pragmatic follower of agile best practices. Effective
+              technical writing and documentation skills.
+            </p>
+          </div>
+        )
+      },
+      {
+        name: "Embedded Control",
+        description: (
+          <div>
+            <p style={CommonStyles.p}>
+              Authored control software for autonomous and semi-autonomous
+              boats, blimps, cars and robots. Programmed for multiple
+              microcontrollers (Intel 8051, Arduino, ARM).
             </p>
           </div>
         )
@@ -293,23 +305,10 @@ const resume = [
             </p>
           </div>
         )
-      },
-      {
-        name: "Embedded Control",
-        description: (
-          <div>
-            <p style={CommonStyles.p}>
-              Authored control software for autonomous and semi-autonomous
-              boats, blimps, cars and robots. Programmed for multiple
-              microcontrollers (Intel 8051, Arduino, ARM). Regularly build own
-              servers and computers.
-            </p>
-          </div>
-        )
       }
     ]
   }
-];
+]
 
 class Resume extends React.Component {
   render() {
@@ -363,14 +362,14 @@ class Resume extends React.Component {
                       )}
                     </div>
                   </div>
-                );
+                )
               })}
             </div>
-          );
+          )
         })}
       </div>
-    );
+    )
   }
 }
 
-export default Resume;
+export default Resume

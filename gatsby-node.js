@@ -1,12 +1,7 @@
-// import shell from "child_process"
-// import fs from "fs"
-// import path from "path"
-// import pdf from "html-pdf"
-
-var shell = require("child_process")
-var fs = require("fs")
-var path = require("path")
-var pdf = require("html-pdf")
+import shell from "child_process"
+import fs from "fs"
+import path from "path"
+import pdf from "html-pdf"
 
 function postBuild(pages, callback) {
   shell.execSync("cp -r node_modules/font-awesome/css/font-awesome.css public/")
@@ -23,20 +18,17 @@ function postBuild(pages, callback) {
         // '--disk-cache=false',
         "--debug=true"
         // '--cookies-file=/tmp/cookies-file'
-      ]
-      // header: {
-      //   height: '45mm',
-      //   contents: '<h1>wow</h1>'
-      // }
+      ],
+      header: {
+        // height: '45mm',
+        contents: "<div id=\"is-pdf\" />"
+      }
     })
     .toFile("./public/resume.pdf", function(err, res) {
       if (err) return console.log(err)
       console.log("PDF created")
-      // callback()
+      callback()
     })
-  
 }
 
-postBuild()
-
-// export { postBuild }
+export { postBuild }
