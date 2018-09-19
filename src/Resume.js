@@ -30,12 +30,52 @@ const styles = Styles.Create({
   }
 })
 
+const leonardo = {
+  name: (
+    <React.Fragment>
+      <div>Leonardo da Vinci</div>
+      <img
+        alt="Leonardo da Vinci, famous for mirror writing (among other things)"
+        title="Leonardo da Vinci, famous for mirror writing (among other things)"
+        src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Francesco_Melzi_-_Portrait_of_Leonardo_-_WGA14795.jpg"
+      />
+    </React.Fragment>
+  ),
+
+  jobName: "Illuminati",
+  where: "Florence, Italy",
+  start: "1452",
+  end: "1519",
+  title: "Founding member"
+}
+
 class Resume extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      easterEggActive: false
+    }
+
+    // not the greatest, but seems to be the easiest way of having one global function
+    this.checkEasterEggActive = this.checkEasterEggActive.bind(this)
+    setInterval(() => {
+      this.checkEasterEggActive()
+    }, 500)
+  }
+
+  checkEasterEggActive() {
+    this.setState({
+      easterEggActive: window.__easterEggActive
+    })
+  }
+
   render() {
+    const { easterEggActive } = this.state
     return (
       <Page>
         <Header
-          name={"Lucas Doyle"}
+          name={!easterEggActive ? "Lucas Doyle" : leonardo.name}
           email={"lucas.p.doyle@gmail.com"}
           cellphoneNumber={"603-998-3565"}
           pdfLink={"http://stonelinks.github.io/resume/lucas_doyle_resume.pdf"}
@@ -43,23 +83,36 @@ class Resume extends Component {
           addressLineOne={"737 Hyde Street Apt. 401"}
           addressLineTwo={"San Francisco, CA 94109"}
           socialNetworks={[
-            { address: "https://github.com/Stonelinks", Icon: FaGithub },
+            {
+              address: "https://github.com/Stonelinks",
+              Icon: FaGithub
+            },
             {
               address: "https://linkedin.com/in/stonelinks/",
               Icon: FaLinkedin
             },
-            { address: "https://youtube.com/c/LukeDoyle0", Icon: FaYoutube },
-            { address: "https://dribbble.com/Stonelinks", Icon: FaDribbble }
+            {
+              address: "https://youtube.com/c/LukeDoyle0",
+              Icon: FaYoutube
+            },
+            {
+              address: "https://dribbble.com/Stonelinks",
+              Icon: FaDribbble
+            }
           ]}
         />
 
         <SectionHeading name={"Professional"}>
           <Section
-            name={"Airware"}
-            where={"San Francisco, CA"}
-            start={"2014"}
-            end={"2018"}
-            title={"Senior Staff Software Engineer"}
+            name={!easterEggActive ? "Airware" : leonardo.jobName}
+            where={!easterEggActive ? "San Francisco, CA" : leonardo.where}
+            start={!easterEggActive ? "2014" : leonardo.start}
+            end={!easterEggActive ? "2018" : leonardo.end}
+            title={
+              !easterEggActive
+                ? "Senior Staff Software Engineer"
+                : leonardo.title
+            }
             techStack={
               "Javascript (react, redux, babel, webpack, leaflet, THREE.js, react-native, node-webkit), Python, some Swift 3 / iOS, PHP (symfony), golang"
             }
