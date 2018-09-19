@@ -1,6 +1,12 @@
-#[stonelinks.github.io](http://stonelinks.github.io)
+# [stonelinks.org/resume](http://stonelinks.org/resume)
 
-My personal website
+My resume
 
-## Running in development
-`gatsby develop`
+## Install
+`npm install`
+
+## Develop
+`npm start`
+
+## Deploy
+`npm run deploy`
