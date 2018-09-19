@@ -4,6 +4,7 @@ import Typography from "typography"
 import theme from "typography-theme-noriega"
 
 import Styles from "./Styles"
+import isPDF from "./isPDF"
 
 const typography = new Typography({
   ...theme,
@@ -15,7 +16,7 @@ const typography = new Typography({
 
 const styles = Styles.Create({
   container: {
-    backgroundColor: Styles.vars.colors.grey0
+    backgroundColor: !isPDF ? Styles.vars.colors.grey0 : null
   },
   paper: {
     backgroundColor: Styles.vars.colors.white,

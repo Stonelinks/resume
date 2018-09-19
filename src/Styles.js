@@ -1,4 +1,5 @@
 import { prefix } from "inline-style-prefixer"
+import isPDF from "./isPDF"
 
 export const Create = function(rules) {
   const styles = {}
@@ -8,13 +9,13 @@ export const Create = function(rules) {
   return styles
 }
 
-export const colors = {
-  white: "#ffffff",
-  grey0: "#919498"
-}
+export const colors = { white: "#ffffff", grey0: "#7f8285" }
 
 const unitString = function(unit) {
   return function(value) {
+    if (isPDF) {
+      value = value * 0.89
+    }
     const str = new String(`${value}${unit}`) // eslint-disable-line
     str["raw"] = value
     return str

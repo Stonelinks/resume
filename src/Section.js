@@ -1,22 +1,21 @@
 import React from "react"
 
+import { FaExternalLinkAlt } from "react-icons/fa"
+
 import { Columns, Column } from "./Columns"
 import ExternalLink from "./ExternalLink"
 import Styles from "./Styles"
-import { FaExternalLinkAlt } from "react-icons/fa"
+import isPDF from "./isPDF"
 
 const styles = Styles.Create({
   root: {
     marginTop: Styles.vars.spacing.large
   },
-  companyColumn: {
-    flexBasis: "60%"
+  firstColumn: {
+    flexBasis: "70%"
   },
-  whereColumn: {
-    flexBasis: "25%"
-  },
-  durationColumn: {
-    flexBasis: "40%"
+  lastColumn: {
+    flexBasis: "30%"
   },
   iconStyle: {
     marginLeft: Styles.vars.spacing.small,
@@ -41,7 +40,7 @@ const Section = ({
   return (
     <div style={styles.root}>
       <Columns>
-        <Column style={styles.companyColumn}>
+        <Column style={styles.firstColumn}>
           <h2>
             {name}
             {link && (
@@ -52,7 +51,7 @@ const Section = ({
           </h2>
           {title && <h4>{title}</h4>}
         </Column>
-        <Column style={styles.durationColumn}>
+        <Column style={styles.lastColumn}>
           <div>{where}</div>
           <div>
             {start}

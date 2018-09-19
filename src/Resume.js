@@ -39,13 +39,10 @@ class Resume extends Component {
           socialNetworks={[
             { address: "https://github.com/Stonelinks", Icon: FaGithub },
             {
-              address: "http://www.linkedin.com/pub/lucas-doyle/25/550/169",
+              address: "https://linkedin.com/in/stonelinks/",
               Icon: FaLinkedin
             },
-            {
-              address: "https://www.youtube.com/c/LukeDoyle0",
-              Icon: FaYoutube
-            },
+            { address: "https://youtube.com/c/LukeDoyle0", Icon: FaYoutube },
             { address: "https://dribbble.com/Stonelinks", Icon: FaDribbble }
           ]}
         />
