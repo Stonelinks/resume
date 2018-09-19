@@ -16,7 +16,7 @@ const styles = Styles.Create({
     flexBasis: "25%"
   },
   durationColumn: {
-    flexBasis: "15%"
+    flexBasis: "40%"
   },
   iconStyle: {
     marginLeft: Styles.vars.spacing.small,
@@ -50,19 +50,16 @@ const Section = ({
               </ExternalLink>
             )}
           </h2>
-        </Column>
-        <Column style={styles.whereColumn}>
-          <div>{where}</div>
+          {title && <h4>{title}</h4>}
         </Column>
         <Column style={styles.durationColumn}>
+          <div>{where}</div>
           <div>
             {start}
             {end && ` - ${end}`}
           </div>
         </Column>
       </Columns>
-
-      {title && <h4>{title}</h4>}
       <div>
         {children}
         {techStack && (

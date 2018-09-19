@@ -31,7 +31,7 @@ export const spacing = {
   small: px(8),
   regular: px(16),
   medium: px(24),
-  large: px(32),
+  large: px(38),
   xl: px(56)
 }
 

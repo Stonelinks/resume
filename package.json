@@ -12,8 +12,8 @@
     "url": "git+https://github.com/Stonelinks/resume.git"
   },
   "devDependencies": {
+    "chrome-headless-render-pdf": "1.7.2",
     "gh-pages": "0.12.0",
-    "html-pdf": "2.2.0",
     "prettier": "1.12.1",
     "react-scripts": "1.1.5"
   },
@@ -31,6 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "pdf": "chrome-headless-render-pdf --url file:///build/index.html --pdf lucas_doyle_resume.pdf",
     "lint": "prettier --write --no-semi *.js **/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "npm run build && gh-pages -d build"

@@ -2,16 +2,27 @@ import React, { Component } from "react"
 
 import {
   FaGithub,
-  FaTwitter,
   FaLinkedin,
   FaYoutube,
-  FaDribbble
+  FaDribbble,
+  FaExternalLinkAlt
 } from "react-icons/fa"
 
 import Page from "./Page"
 import Header from "./Header"
 import Section from "./Section"
 import SectionHeading from "./SectionHeading"
+import ExternalLink from "./ExternalLink"
+
+import Styles from "./Styles"
+
+const styles = Styles.Create({
+  iconStyle: {
+    marginLeft: Styles.vars.spacing.xs,
+    marginRight: Styles.vars.spacing.xs,
+    marginBottom: "-2px"
+  }
+})
 
 class Resume extends Component {
   render() {
@@ -27,7 +38,6 @@ class Resume extends Component {
           addressLineTwo={"San Francisco, CA 94109"}
           socialNetworks={[
             { address: "https://github.com/Stonelinks", Icon: FaGithub },
-            { address: "https://twitter.com/#!/Stonelinks", Icon: FaTwitter },
             {
               address: "http://www.linkedin.com/pub/lucas-doyle/25/550/169",
               Icon: FaLinkedin
@@ -60,44 +70,44 @@ class Resume extends Component {
               </p>
 
               <p>
-                <b>Cloud front-end:</b> built fundamental workflows to upload,
-                process and analyze large drone surveys. Developed mapping / GIS
-                focused UI: authored internal react / redux / leaflet map
-                framework, added support for user-defined coordinate systems,
-                implemented ground control point management, built tools to
-                annotate, measure and compare layers. Also built many
+                <b>Cloud front-end:</b> Built fundamental workflows to upload,
+                process and analyze large drone surveys. Developed mapping /
+                GIS-focused UI: authored internal react / redux / leaflet map
+                framework; added support for user-defined coordinate systems;
+                implemented ground control point management (GCP); built tools
+                to annotate, measure and compare layers. Also built many
                 enterprise-focused features like user management, permissions
                 and SSO / authentication.
               </p>
 
               <p>
-                <b>Mobile:</b> helped bootstrap Airware's first mobile app for
+                <b>Mobile:</b> Helped bootstrap Airware's first mobile app for
                 drone operators to fly, capture and upload drone data to the
-                cloud. Leveraged existing team skills and code reuse with a
-                react-native / iOS approach for the app. Implemented key
-                features like geofence editing and status indicators for
-                on-device photogrammetry.
+                cloud. Leveraged team skills and code reuse with a react-native
+                / iOS approach for the app. Implemented key features like
+                geofence editing and status indicators for on-device
+                photogrammetry.
               </p>
 
               <p>
-                <b>Desktop:</b> built Config Manager to configure Airware's
-                autopilot hardware to fly fixed-wing and multirotor drones.
+                <b>Desktop:</b> Built an app to configure Airware's autopilot
+                hardware to fly fixed-wing and multirotor drones.
               </p>
 
               <p>
-                <b>Leadership:</b> engaged in engineering leadership and product
-                lifecycle. Help define requirements, run meetings and generally
-                move things forward. Serve as a manager and help plan quarters /
-                hire people on an as-needed basis. Architected and completed a
-                few large scale refactors and migrations, including a Backbone
-                to react migration as well as a product merger after acquiring a
-                French company.
+                <b>Leadership:</b> Engaged in engineering leadership and product
+                lifecycle. Helped define requirements, led feature development
+                and ran meetings. Architected and completed several large scale
+                refactors and migrations, including a Backbone to react
+                migration as well as a product merger after acquiring a French
+                company. Served as a manager on an as-needed basis; helped plan
+                quarters and hired engineers.
               </p>
             </div>
           </Section>
           <Section
             name={"MUJIN Inc."}
-            where={"Tokyo, Japan"}
+            where={"Bunkyō-ku, Tokyo, Japan"}
             start={"2012"}
             end={"2014"}
             title={"Software Engineer"}
@@ -107,17 +117,17 @@ class Resume extends Component {
           >
             <div>
               <p>
-                Employee number four at a Japanese industrial / manufacturing
-                robotics startup straight out of college. Created the web
-                interface for an industrial arm planning system used by clients
-                such as Canon, Honda, and a half-dozen other Japanese companies.
+                Fourth employee at a Japanese industrial / manufacturing
+                robotics startup straight out of college. Created web interface
+                for an industrial arm planning system used by Canon, Honda and
+                several Japanese system integrators.
               </p>
               <ul>
                 <li>
                   Defined and implemented workflows to program and optimize
-                  industrial robots. Wrote all customer facing UI. Highlights
-                  include a scenegraph-based WebGL viewer and a real-time
-                  environment state streamer for our binpicking system.
+                  industrial robots. Wrote all customer-facing UI, including a
+                  scenegraph-based WebGL viewer and a real-time environment
+                  state streamer for a binpicking system.
                 </li>
                 <li>
                   Honed communication skills by working with a highly
@@ -145,8 +155,8 @@ class Resume extends Component {
               <ul>
                 <li>
                   Wrote software to fabricate optics in multiple production
-                  scenarios (different deposition strategies, optic geometries,
-                  vacuum chamber configurations, etc.)
+                  scenarios such as different deposition strategies, optic
+                  geometries, vacuum chamber configurations.
                 </li>
                 <li>
                   Completed mechanical and electrical design of vacuum chamber
@@ -166,78 +176,50 @@ class Resume extends Component {
             techStack={"Python, Javascript"}
           >
             <div>
-              <p>
-                Authored log aggregation and analysis tools for a fleet of >130
-                telepresence robots for internal staff.
-              </p>
-              <p>
-                Implemented forehead screen UI to display internal robot state
-                and answer calls made to the robot.
-              </p>
+              <ul>
+                <li>
+                  Authored log aggregation and analysis tools for a fleet of
+                  >130 telepresence robots.
+                </li>
+                <li>
+                  Implemented forehead screen UI to display internal robot state
+                  and answer calls made to the robot.
+                </li>
+              </ul>
             </div>
           </Section>
         </SectionHeading>
         <SectionHeading name={"Education"}>
           <Section
             name={"Rensselaer Polytechnic Institute"}
+            title={"B.S., Computer and Systems Engineering"}
             where={"Troy, NY"}
             start={"2008"}
             end={"2012"}
           >
-            <p>B.S., Computer and Systems Engineering</p>
-          </Section>
-          <Section
-            name={"Gilford High School"}
-            where={"Gilford, NH"}
-            start={"2004"}
-            end={"2008"}
-          />
-        </SectionHeading>
-        <SectionHeading name={"Projects and Open Source"}>
-          <Section
-            name={"Boeing Robotic Wingbox"}
-            link={"http://stonelinks.org/projects/boeing"}
-            where={"Troy, NY"}
-            start={"2012"}
-            title={"Team Leader and Programmer"}
-            techStack={"Python (pyQT), C++ (OpenRAVE, boost::asio, OpenCV)"}
-          >
             <div>
-              <ul>
-                <li>
-                  Leader of a Boeing-sponsored team of students to simulate an
-                  intra-wing robot to operate inside an aircraft and conduct
-                  common inspection and assembly tasks.
-                </li>
-                <li>
-                  Wrote C++ server and python client to control robot hardware,
-                  enable collaboration, recognize object locations with OpenCV,
-                  plan collisions-free trajectories through internal wing
-                  structures with OpenRAVE.
-                </li>
-              </ul>
-            </div>
-          </Section>
-          <Section
-            name={"DaBuzz Market Sentiment Analyzer"}
-            link={"http://stonelinks.org/projects/dabuzz"}
-            where={"Troy, NY"}
-            start={"2012"}
-            title={"Team Member"}
-            techStack={"Python (django, nltk)"}
-          >
-            <div>
-              <ul>
-                <li>
-                  Designed and implemented web crawler / scraper to analyze
-                  financial news sources and gauge market sentiment
-                </li>
-                <li>
-                  Gave presentations and poster sessions to the RPI Community
-                  about DaBuzz and the Rensselaer Center for Open Source
-                  Software
-                </li>
-              </ul>
+              <p>
+                <b>
+                  {"Boeing Robotic Wingbox"}
+                  <ExternalLink href={"http://stonelinks.org/projects/boeing"}>
+                    <FaExternalLinkAlt style={styles.iconStyle} />
+                  </ExternalLink>:{" "}
+                </b>
+                Simulated an intra-wing robot to operate inside an aircraft and
+                conduct inspection and assembly tasks.
+              </p>
+              <p>
+                <b>
+                  {"DaBuzz Market Sentiment Analyzer"}
+                  <ExternalLink href={"http://stonelinks.org/projects/dabuzz"}>
+                    <FaExternalLinkAlt style={styles.iconStyle} />
+                  </ExternalLink>:{" "}
+                </b>
+                Designed and implemented web crawler / scraper to analyze
+                financial news sources and gauge market sentiment. Gave
+                presentations about DaBuzz and the Rensselaer Center for Open
+                Source Software.
+              </p>
             </div>
           </Section>
         </SectionHeading>
@@ -270,7 +252,7 @@ class Resume extends Component {
           <Section name={"Computer Aided Design (CAD)"}>
             <div>
               <p>
-                Experience with Solidworks. Virtually designed / simulated
+                Experience with Solidworks. Virtually designed and simulated
                 multiple FIRST robots, a Battlebot and vacuum chambers at
                 Harvard-Smithsonian Center for Astrophysics.
               </p>
