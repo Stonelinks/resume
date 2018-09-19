@@ -13,7 +13,6 @@ import Header from "./Header"
 import Section from "./Section"
 import SectionHeading from "./SectionHeading"
 import ExternalLink from "./ExternalLink"
-
 import Styles from "./Styles"
 
 const styles = Styles.Create({
@@ -21,6 +20,13 @@ const styles = Styles.Create({
     marginLeft: Styles.vars.spacing.xs,
     marginRight: Styles.vars.spacing.xs,
     marginBottom: "-2px"
+  },
+  githubCreditsContainer: {
+    opacity: 0.4,
+    marginTop: `${Styles.vars.spacing.xl.raw * 2}px`,
+    width: "100%",
+    textAlign: "center",
+    color: Styles.vars.colors.grey0
   }
 })
 
@@ -256,6 +262,14 @@ class Resume extends Component {
             </div>
           </Section>
         </SectionHeading>
+        <div style={styles.githubCreditsContainer}>
+          <div>This resume was built entirely in react</div>
+          <div>
+            <ExternalLink href={"https://github.com/Stonelinks/resume"}>
+              Fork it on Github
+            </ExternalLink>
+          </div>
+        </div>
       </Page>
     )
   }

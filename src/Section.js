@@ -5,7 +5,6 @@ import { FaExternalLinkAlt } from "react-icons/fa"
 import { Columns, Column } from "./Columns"
 import ExternalLink from "./ExternalLink"
 import Styles from "./Styles"
-import isPDF from "./isPDF"
 
 const styles = Styles.Create({
   root: {
