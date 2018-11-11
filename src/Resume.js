@@ -129,11 +129,11 @@ class Resume extends Component {
                 <b>Cloud front-end:</b> Built fundamental workflows to upload,
                 process and analyze large drone surveys. Developed mapping /
                 GIS-focused UI: authored internal react / redux / leaflet map
-                framework; added support for user-defined coordinate systems;
-                implemented ground control point management (GCP); built tools
-                to annotate, measure and compare layers. Also built many
-                enterprise-focused features like user management, permissions
-                and SSO / authentication.
+                framework; experimental 3D visualizations; added support for
+                user-defined coordinate systems; implemented ground control
+                point management (GCP); built tools to annotate, measure and
+                compare layers. Also built many enterprise-focused features like
+                user management, permissions and SSO / authentication.
               </p>
 
               <p>
