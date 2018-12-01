@@ -23,7 +23,7 @@
   "dependencies": {
     "font-awesome": "4.7.0",
     "inline-style-prefixer": "5.0.1",
-    "mswordcontainer": "0.0.3",
+    "mswordcontainer": "0.0.12",
     "react": "16.5.0",
     "react-dom": "16.5.0",
     "react-ga": "2.5.3",

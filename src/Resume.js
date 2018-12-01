@@ -74,9 +74,9 @@ class Resume extends Component {
 
   render() {
     const { easterEggActive } = this.state
-    const OtherContainer = easterEggActive ? MSWordContainer : React.Fragment
+    const ResumeContainer = easterEggActive ? MSWordContainer : React.Fragment
     return (
-      <OtherContainer title={`leonardo_da_vinci_resume.doc`}>
+      <ResumeContainer title={`leonardo_da_vinci_resume.doc`}>
         <Page>
           <Header
             name={!easterEggActive ? "Lucas Doyle" : leonardo.name}
@@ -326,7 +326,7 @@ class Resume extends Component {
             </div>
           </div>
         </Page>
-      </OtherContainer>
+      </ResumeContainer>
     )
   }
 }
