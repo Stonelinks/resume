@@ -1,12 +1,15 @@
-# [stonelinks.org/resume](http://stonelinks.org/resume)
+# resume
 
-My resume
+To install dependencies:
 
-## Install
-`npm install`
+```bash
+bun install
+```
 
-## Develop
-`npm start`
+To run:
 
-## Deploy
-`npm run deploy`
+```bash
+bun run
+```
+
+This project was created using `bun init` in bun v1.2.4. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

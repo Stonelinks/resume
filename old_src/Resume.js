@@ -86,7 +86,7 @@ class Resume extends Component {
               "http://stonelinks.github.io/resume/lucas_doyle_resume.pdf"
             }
             websiteAddress={"http://stonelinks.org/luke/"}
-            addressLineOne={"737 Hyde Street Apt. 401"}
+            addressLineOne={"380 Alamaba Street #16"}
             addressLineTwo={"San Francisco, CA 94109"}
             socialNetworks={[
               { address: "https://github.com/Stonelinks", Icon: FaGithub },
@@ -100,6 +100,28 @@ class Resume extends Component {
           />
 
           <SectionHeading name={"Professional"}>
+          <Section
+              name={"Samsara"}
+              where={"San Francisco, CA"}
+              start={"2018"}
+              end={"present"}
+              title={"Senior Engineer II"}
+              techStack={
+                "Typescript, react, react-native, golang, Android, Java, Kotlin"
+              }
+            >
+              <div>
+                <ul>
+                  <li>
+                    Developed RN framework for publishing multiple apps out of our monorepo safely, at high speed, and without direct involvement from the mobile team.
+                  </li>
+                  <li>
+                    Honed communication skills by working with a highly
+                    international team and living in Japan for two years.
+                  </li>
+                </ul>
+              </div>
+            </Section>
             <Section
               name={!easterEggActive ? "Airware" : leonardo.jobName}
               where={!easterEggActive ? "San Francisco, CA" : leonardo.where}
@@ -107,7 +129,7 @@ class Resume extends Component {
               end={!easterEggActive ? "2018" : leonardo.end}
               title={
                 !easterEggActive
-                  ? "Senior Staff Software Engineer"
+                  ? "Senior Software Engineer"
                   : leonardo.title
               }
               techStack={
