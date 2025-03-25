@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import ReactMarkdown from 'react-markdown';
 
 // Define TypeScript types for resume data (same as before)
 interface SocialNetwork {
@@ -14,7 +15,7 @@ interface Experience {
   location: string;
   duration: string;
   techStack?: string;
-  responsibilities: string[];
+  responsibilities: string;
 }
 
 interface Project {
@@ -62,10 +63,10 @@ const resumeData: ResumeData = {
       duration: '2018 - Present',
       techStack:
         'Python, Golang, Typescript, React, React Native, Android, Java, Kotlin',
-      responsibilities: [
-        'Developed RN framework for publishing multiple apps from monorepo.',
-        'Worked internationally, including two years in Japan.',
-      ],
+      responsibilities: `
+- Developed RN framework for publishing multiple apps from monorepo.
+- Worked internationally, including two years in Japan.
+`,
     },
     {
       title: 'Senior Software Engineer',
@@ -74,12 +75,12 @@ const resumeData: ResumeData = {
       duration: '2014 - 2018',
       techStack:
         'Javascript (React, Redux, Webpack, Leaflet, THREE.js, React Native), Python, Swift, PHP, Golang',
-      responsibilities: [
-        'Developed drone analytics platform for insurance and mining industries.',
-        'Built mapping UI and enterprise-focused features like authentication and permissions.',
-        'Bootstrapped first mobile app for drone operations with React Native.',
-        'Led engineering initiatives, managed teams, and executed product integrations.',
-      ],
+      responsibilities: `
+- Developed drone analytics platform for insurance and mining industries.
+- Built mapping UI and enterprise-focused features like authentication and permissions.
+- Bootstrapped first mobile app for drone operations with React Native.
+- Led engineering initiatives, managed teams, and executed product integrations.
+`,
     },
     {
       title: 'Software Engineer',
@@ -87,11 +88,11 @@ const resumeData: ResumeData = {
       location: 'San Francisco, CA',
       duration: '2012 - 2014',
       techStack: 'Python, Django, PostgreSQL, JavaScript, React',
-      responsibilities: [
-        'Developed and maintained backend services for ride-hailing platform.',
-        'Implemented real-time tracking and dispatching features.',
-        'Collaborated with cross-functional teams to improve user experience.',
-      ],
+      responsibilities: `
+- Developed and maintained backend services for ride-hailing platform.
+- Implemented real-time tracking and dispatching features.
+- Collaborated with cross-functional teams to improve user experience.
+`,
     },
   ],
   education: {
@@ -150,7 +151,7 @@ const Resume: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-gray-500 hover:text-gray-700"
                 >
-                  <FontAwesomeIcon icon={social.icon} size="2x" />
+                  <FontAwesomeIcon className="" icon={social.icon} size="2x" />
                 </a>
               </li>
             ))}
@@ -174,13 +175,18 @@ const Resume: React.FC = () => {
                   Tech Stack: {job.techStack}
                 </p>
               )}
-              <ul className="list-disc list-inside text-gray-700 mt-2">
-                {job.responsibilities.map((resp, i) => (
-                  <li key={i} className="mb-1">
-                    {resp}
-                  </li>
-                ))}
-              </ul>
+              <ReactMarkdown
+                components={{
+                  p: ({ children }) => (
+                    <p className="text-gray-700">{children}</p>
+                  ),
+                  li: ({ children }) => (
+                    <li className="list-disc list-inside">{children}</li>
+                  ),
+                }}
+              >
+                {job.responsibilities}
+              </ReactMarkdown>
             </div>
           ))}
         </section>
