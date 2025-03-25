@@ -32,6 +32,12 @@ interface Education {
   projects?: Project[];
 }
 
+interface Patent {
+  title: string;
+  number: string;
+  link?: string;
+}
+
 interface ResumeData {
   name: string;
   title: string;
@@ -42,6 +48,7 @@ interface ResumeData {
   socialNetworks: SocialNetwork[];
   experience: Experience[];
   education: Education;
+  patents: Patent[];
 }
 
 const resumeData: ResumeData = {
@@ -92,7 +99,7 @@ Developed core technologies for a drone analytics platform, converting drone ima
       responsibilities: `
 Early employee at a Japanese industrial robotics startup, developing a web interface for an industrial arm planning system used by Canon, Honda, and other integrators.
 - Built customer-facing UI with a WebGL viewer and real-time state streamer for a binpicking system.
-- Collaborated with an international team while living in Japan for two years.`
+- Collaborated with an international team while living in Japan for two years.`,
     },
   ],
   education: {
@@ -113,6 +120,23 @@ Early employee at a Japanese industrial robotics startup, developing a web inter
       },
     ],
   },
+  patents: [
+    {
+      title: 'Lane departure monitoring',
+      number: 'US12165393B1',
+      link: 'https://patents.google.com/patent/US12165393B1/en?inventor=Lucas+Doyle&sort=new',
+    },
+    {
+      title: 'Context based action menu',
+      number: 'US12150007B1',
+      link: 'https://patents.google.com/patent/US12150007B1/en?inventor=Lucas+Doyle&sort=new',
+    },
+    {
+      title: 'Unmanned aerial vehicle privacy controls',
+      number: 'US20220392353A1',
+      link: 'https://patents.google.com/patent/US20220392353A1/en?inventor=Lucas+Doyle&sort=new',
+    },
+  ],
 };
 
 const Resume: React.FC = () => {
@@ -211,6 +235,28 @@ const Resume: React.FC = () => {
                   className="text-blue-500 hover:text-blue-700"
                 >
                   Project Link
+                </a>
+              )}
+            </div>
+          ))}
+        </section>
+
+        <section className="p-6">
+          <h2 className="text-2xl font-bold font-serif border-b pb-2 mb-4">
+            Patents
+          </h2>
+          {resumeData.patents.map((patent, index) => (
+            <div key={index} className="mb-8">
+              <h3 className="text-xl font-semibold">{patent.title}</h3>
+              <p className="text-gray-700 mb-2">{patent.number}</p>
+              {patent.link && (
+                <a
+                  href={patent.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-700"
+                >
+                  Patent Link
                 </a>
               )}
             </div>
