@@ -76,23 +76,23 @@ const resumeData: ResumeData = {
       techStack:
         'Javascript (React, Redux, Webpack, Leaflet, THREE.js, React Native), Python, Swift, PHP, Golang',
       responsibilities: `
-- Developed drone analytics platform for insurance and mining industries.
-- Built mapping UI and enterprise-focused features like authentication and permissions.
-- Bootstrapped first mobile app for drone operations with React Native.
-- Led engineering initiatives, managed teams, and executed product integrations.
+Developed core technologies for a drone analytics platform, converting drone imagery into survey-grade data for insurance and mining industries.
+- Built cloud workflows for survey processing and analysis with a GIS-focused UI using React, Redux, and Leaflet.
+- Developed a mobile app for drone operators using React Native and iOS, enabling geofence editing and on-device photogrammetry.
+- Created a desktop app for configuring autopilot hardware for fixed-wing and multirotor drones.
+- Led feature development, large-scale refactors, product mergers / acquisitions; contributed to hiring, planning, and mentoring engineers.
 `,
     },
     {
       title: 'Software Engineer',
-      company: 'Uber',
-      location: 'San Francisco, CA',
+      company: 'MUJIN Inc.',
+      location: 'Bunkyō-ku, Tokyo, Japan',
       duration: '2012 - 2014',
-      techStack: 'Python, Django, PostgreSQL, JavaScript, React',
+      techStack: 'Python (django, OpenRAVE), Javascript (Backbone / WebGL)',
       responsibilities: `
-- Developed and maintained backend services for ride-hailing platform.
-- Implemented real-time tracking and dispatching features.
-- Collaborated with cross-functional teams to improve user experience.
-`,
+Early employee at a Japanese industrial robotics startup, developing a web interface for an industrial arm planning system used by Canon, Honda, and other integrators.
+- Built customer-facing UI with a WebGL viewer and real-time state streamer for a binpicking system.
+- Collaborated with an international team while living in Japan for two years.`
     },
   ],
   education: {
@@ -117,8 +117,8 @@ const resumeData: ResumeData = {
 
 const Resume: React.FC = () => {
   return (
-    <div className="bg-gray-100 min-h-screen py-12">
-      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-gray-100 min-h-screen py-10">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
         <header className="bg-gray-800 text-white py-8 px-6 flex items-center justify-between">
           <div>
             <h1 className="text-4xl font-bold font-serif mb-2">
