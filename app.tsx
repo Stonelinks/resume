@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom/client';
+import Resume from './resume';
 
 // @ts-ignore
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<h1>Hello, world!</h1>);
+root.render(<Resume />);
