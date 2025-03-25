@@ -21,7 +21,7 @@
   "scripts": {
     "format": "bun run prettier-fix",
     "typecheck": "bun run --bun tsc --noEmit",
-    "prettier-fix": "bun run --bun prettier --write .",
+    "prettier-fix": "bun run --bun prettier --write",
     "build": "bun build ./index.html --minify --outdir=dist"
   }
 }

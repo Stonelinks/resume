@@ -5,5 +5,7 @@ cd $PROJECT_ROOT
 
 source env.sh
 
-bun run format
+# if "$@" is not defined, default to '.'
+format_path=${1:-.}
+bun run format $format_path
 bun run typecheck
