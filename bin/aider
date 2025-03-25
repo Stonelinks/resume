@@ -1,0 +1,37 @@
+#!/bin/bash
+set -e
+
+cwd=$(pwd)
+
+cd $PROJECT_ROOT
+
+source env.sh
+
+aider_bin=$VIRTUAL_ENV/bin/aider
+
+cd $cwd
+
+# export OLLAMA_API_BASE=http://pazuzu-dockge2.routers.stonelinks.org:11434
+# # model=ollama_chat/qwen2.5-coder:32b-instruct-q8_0
+# model=ollama_chat/qwen2.5-coder:14b-instruct-q8_0
+
+export OPENAI_API_BASE=http://pazuzu-dockge2.routers.stonelinks.org:8014/v1
+export OPENAI_API_KEY="a"
+
+MODEL="openai/qwen-2.5-coder"
+
+WEAK_MODEL="openai/qwen-14b-spec"
+
+export AIDER_EDITOR="code --wait"
+
+export AIDER_NOTIFICATIONS=true
+export AIDER_NOTIFICATIONS_COMMAND="spd-say Done"
+
+$aider_bin \
+	--model $MODEL \
+    --weak-model $WEAK_MODEL \
+	--lint-cmd "typescript: format-js" \
+	--lint-cmd "bash: shfmt -l -w" \
+    --no-attribute-author \
+    --no-attribute-committer \
+	"$@"
