@@ -3,10 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import ReactMarkdown from 'react-markdown';
 
-// Define TypeScript types for resume data (same as before)
 interface SocialNetwork {
   address: string;
-  icon: any; // Change the type to any for now, or import specific icons
+  icon: any;
 }
 
 interface Experience {
@@ -53,7 +52,7 @@ interface ResumeData {
 
 const resumeData: ResumeData = {
   name: 'Lucas Doyle',
-  title: 'Senior Software Engineer',
+  title: 'Senior Machine Learning Engineer',
   location: 'San Francisco, CA',
   email: 'lucas.p.doyle@gmail.com',
   website: 'http://stonelinks.org/luke/',
@@ -64,15 +63,16 @@ const resumeData: ResumeData = {
   ],
   experience: [
     {
-      title: 'Senior Engineer II',
+      title: 'Senior Machine Learning Engineer II',
       company: 'Samsara',
       location: 'San Francisco, CA',
       duration: '2018 - Present',
       techStack:
         'Python, Golang, Typescript, React, React Native, Android, Java, Kotlin',
       responsibilities: `
-- Developed RN framework for publishing multiple apps from monorepo.
-- Worked internationally, including two years in Japan.
+- Defined and implemented core workflows for edge deployment of ML models to fleet.
+- Prototyped new products and features for Samsara's fleet management platform.
+- Developed React Native framework for publishing multiple apps from monorepo.
 `,
     },
     {
@@ -92,12 +92,12 @@ Developed core technologies for a drone analytics platform, converting drone ima
     },
     {
       title: 'Software Engineer',
-      company: 'MUJIN Inc.',
+      company: 'MUJIN Inc. (株式会社MUJIN)',
       location: 'Bunkyō-ku, Tokyo, Japan',
       duration: '2012 - 2014',
       techStack: 'Python (django, OpenRAVE), Javascript (Backbone / WebGL)',
       responsibilities: `
-Early employee at a Japanese industrial robotics startup, developing a web interface for an industrial arm planning system used by Canon, Honda, and other integrators.
+Early employee at a Japanese industrial robotics startup, developing a web interface for an arm / workcell planning system used by Canon, Honda, and other integrators.
 - Built customer-facing UI with a WebGL viewer and real-time state streamer for a binpicking system.
 - Collaborated with an international team while living in Japan for two years.`,
     },
@@ -189,7 +189,7 @@ const Resume: React.FC = () => {
           {resumeData.experience.map((job, index) => (
             <div key={index} className="mb-8">
               <h3 className="text-xl font-semibold">
-                {job.title} - {job.company}
+                {job.company} - {job.title}
               </h3>
               <p className="text-sm text-gray-500">
                 {job.location} | {job.duration}

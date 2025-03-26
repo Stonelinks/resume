@@ -7,6 +7,8 @@ cd $PROJECT_ROOT
 
 source env.sh
 
+rm -fr .aider.*
+
 aider_bin=$VIRTUAL_ENV/bin/aider
 
 cd $cwd
@@ -29,9 +31,10 @@ export AIDER_NOTIFICATIONS_COMMAND="spd-say Done"
 
 $aider_bin \
 	--model $MODEL \
-    --weak-model $WEAK_MODEL \
+	--weak-model $WEAK_MODEL \
 	--lint-cmd "typescript: format-js" \
 	--lint-cmd "bash: shfmt -l -w" \
-    --no-attribute-author \
-    --no-attribute-committer \
+	--no-show-model-warnings \
+	--no-attribute-author \
+	--no-attribute-committer \
 	"$@"
