@@ -225,7 +225,9 @@ const Resume: React.FC = () => {
           </p>
           {resumeData.education.projects?.map((project, index) => (
             <div key={index} className="mb-8">
-              <h3 className="text-xl font-semibold font-['Merriweather']">{project.name}</h3>
+              <h3 className="text-xl font-semibold font-['Merriweather']">
+                {project.name}
+              </h3>
               <p className="text-gray-700 mb-2">{project.description}</p>
               {project.link && (
                 <a
@@ -247,7 +249,9 @@ const Resume: React.FC = () => {
           </h2>
           {resumeData.patents.map((patent, index) => (
             <div key={index} className="mb-8">
-              <h3 className="text-xl font-semibold font-['Merriweather']">{patent.title}</h3>
+              <h3 className="text-xl font-semibold font-['Merriweather']">
+                {patent.title}
+              </h3>
               <p className="text-gray-700 mb-2">{patent.number}</p>
               {patent.link && (
                 <a
