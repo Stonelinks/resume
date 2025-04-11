@@ -47,6 +47,7 @@ fi
 PATH=$PATH:$GOPATH/bin
 
 # Node
+
 # bun
 
 # https://github.com/oven-sh/bun/releases

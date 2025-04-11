@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+:root {
+  --font-serif: 'Merriweather', serif;
+  --font-sans-serif: 'Roboto', sans-serif;
+}
