@@ -1,36 +1,61 @@
 @import 'tailwindcss';
 
-:root {
-  --font-serif: 'Playfair Display', serif;
-  --font-sans-serif: 'Montserrat', sans-serif;
+@theme static {
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-serif:
+    'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times,
+    serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+
+  --color-primary: #a2263a; /* Tailwind equivalent: bg-blue-900 */
+  --color-secondary: #f4d1ae; /* Tailwind equivalent: bg-yellow-200 */
+  --color-accent: #06bcc1; /* Tailwind equivalent: bg-teal-500 */
+  --color-muted: #c5d8d1; /* Tailwind equivalent: bg-gray-300 */
+  --color-background: #f4edea; /* Tailwind equivalent: bg-gray-100 */
 }
 
 html {
-  font-family: var(--font-sans-serif);
-  font-size: 16px;
-  line-height: 1.5;
+  /* font-family: var(--font-sans-serif); */
 }
 
 body {
-  font-family: var(--font-sans-serif);
-  color: #333;
+  /* font-family: var(--font-sans-serif); */
+  /* color: var(--text-color); */
+  /* background-color: var(--background-color); */
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-p, ul, ol {
-  margin-bottom: 1.5em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* font-family: var(--font-serif); */
+  /* color: var(--primary-color); */
 }
 
 a {
-  color: #1a73e8;
-  text-decoration: none;
+  /* color: var(--link-color); */
+  /* text-decoration: none; */
 }
 
 a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+}
+
+ul {
+  list-style-position: outside;
+  /* padding-left: 2em;
+  margin-left: 1em; */
+}
+
+li {
+  /* margin-bottom: 0.5em; */
+  display: list-item;
+}
+
+li::marker {
+  /* color: var(--primary-color); */
 }
