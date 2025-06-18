@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import ReactMarkdown from 'react-markdown';
 
+const isPDF = window.location.href.includes('pdf');
+
 interface SocialNetwork {
   address: string;
   icon: any;
@@ -141,29 +143,40 @@ Early employee at a Japanese industrial robotics startup, developing a web inter
 
 const Resume: React.FC = () => {
   return (
-    <div className="bg-background min-h-screen py-8">
-      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className={(!isPDF ? `bg-background` : '') + ' min-h-screen md:py-8'}>
+      <div
+        className={`max-w-3xl mx-auto bg-white ${!isPDF ? 'rounded-lg shadow-lg' : ''} overflow-hidden`}
+      >
         <header className="bg-primary text-white py-6 px-8 flex flex-col md:flex-row items-center justify-between">
           <div className="text-center md:text-left">
-            <h1 className="text-4xl font-bold font-serif mb-1">
+            <h1 className="text-5xl font-bold font-serif mb-1">
               {resumeData.name}
             </h1>
-            <p className="text-xl font-sans">
+            <p className="hidden md:block text-xl font-sans">
               {resumeData.title} | {resumeData.location}
             </p>
+            <p className="block md:hidden text-xl font-sans">
+              {resumeData.title}
+            </p>
+            <p className="block md:hidden text-xl font-sans">
+              {resumeData.location}
+            </p>
+
             <div className="mt-3 flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
               <a
                 href={resumeData.website}
                 className="text-muted hover:text-muted-light"
               >
-                Website
+                {!isPDF ? 'Website' : resumeData.website}
               </a>
-              <a
-                href={resumeData.pdfLink}
-                className="bg-white hover:bg-background text-primary font-bold py-2 px-4 rounded"
-              >
-                Download PDF
-              </a>
+              {!isPDF && (
+                <a
+                  href={resumeData.pdfLink}
+                  className="bg-white hover:bg-background text-primary font-bold py-2 px-4 rounded"
+                >
+                  Download PDF
+                </a>
+              )}
             </div>
           </div>
           <ul className="flex items-center space-x-4 mt-4 md:mt-0">
@@ -187,7 +200,7 @@ const Resume: React.FC = () => {
         </header>
 
         <section className="py-6 px-8">
-          <h2 className="text-2xl font-bold font-serif border-b-2 border-primary pb-1 mb-3">
+          <h2 className="text-2xl font-bold font-serif border-b border-primary pb-1 mb-3">
             Experience
           </h2>
           {resumeData.experience.map((job, index) => (
@@ -220,7 +233,7 @@ const Resume: React.FC = () => {
         </section>
 
         <section className="py-6 px-8">
-          <h2 className="text-2xl font-bold font-serif border-b-2 border-primary pb-1 mb-3">
+          <h2 className="text-2xl font-bold font-serif border-b border-primary pb-1 mb-3">
             Education
           </h2>
           <p className="text-muted mb-3">
@@ -248,7 +261,7 @@ const Resume: React.FC = () => {
         </section>
 
         <section className="py-6 px-8">
-          <h2 className="text-2xl font-bold font-serif border-b-2 border-primary pb-1 mb-3">
+          <h2 className="text-2xl font-bold font-serif border-b border-primary pb-1 mb-3">
             Patents
           </h2>
           {resumeData.patents.map((patent, index) => (

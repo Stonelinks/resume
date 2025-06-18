@@ -9,7 +9,7 @@
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
 
-  --color-primary: #12263a; /* Tailwind equivalent: bg-blue-900 */
+  --color-primary: #087f8c; /* Tailwind equivalent: bg-blue-900 */
   --color-secondary: #f4d1ae; /* Tailwind equivalent: bg-yellow-200 */
   --color-accent: #06bcc1; /* Tailwind equivalent: bg-teal-500 */
   --color-muted: #c5d8d1; /* Tailwind equivalent: bg-gray-300 */

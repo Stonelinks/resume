@@ -15,11 +15,12 @@ SERVER_PID=$!
 trap "echo 'Killing server process'; kill -9 $SERVER_PID; exit" EXIT
 
 # Run the build process
-rm -rf dist
-bun run save.ts
+rm -rf dist && mkdir dist
+bun run single-file http://localhost:3001 dist/index.html
 
-# # echo "compiling PDF"
-# wkhtmltopdf --page-size A4 dist/index.html lucas-doyle-resume.pdf
+# Build the PDF
+bun run single-file http://localhost:3001?pdf dist/pdf.html
+bun run pdf.ts
 
 # Exit immediately without waiting for the server process
 exit
