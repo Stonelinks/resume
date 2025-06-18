@@ -6,4 +6,20 @@ cd $PROJECT_ROOT
 source env.sh
 
 format
-bun run build
+
+# Start the server process and store its PID
+bun run server.ts &
+SERVER_PID=$!
+
+# Set up a trap to kill the server process when the script exits
+trap "echo 'Killing server process'; kill -9 $SERVER_PID; exit" EXIT
+
+# Run the build process
+rm -rf dist
+bun run save.ts
+
+# # echo "compiling PDF"
+# wkhtmltopdf --page-size A4 dist/index.html lucas-doyle-resume.pdf
+
+# Exit immediately without waiting for the server process
+exit
