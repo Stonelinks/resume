@@ -33,7 +33,7 @@ esac
 export ARCH
 
 # Go
-export GO_VERSION=1.24.0
+export GO_VERSION=1.24.4
 
 # Add go to PATH and configure GOROOT and GOPATH.
 export GOROOT=$OPT_DIR/goroot
@@ -51,7 +51,7 @@ PATH=$PATH:$GOPATH/bin
 # bun
 
 # https://github.com/oven-sh/bun/releases
-export BUN_VERSION=1.2.4
+export BUN_VERSION=1.2.16
 
 export BUN_INSTALL="$OPT_DIR/bun"
 PATH=$BUN_INSTALL/bin:$PATH
