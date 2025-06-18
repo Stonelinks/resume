@@ -182,7 +182,7 @@ const Resume: React.FC = () => {
           </ul>
         </header>
 
-        <section className="p-6">
+        <section className="pt-6 px-6">
           <h2 className="text-2xl font-bold font-serif border-b pb-2 mb-4">
             Experience
           </h2>
@@ -215,7 +215,7 @@ const Resume: React.FC = () => {
           ))}
         </section>
 
-        <section className="p-6">
+        <section className="px-6">
           <h2 className="text-2xl font-bold font-serif border-b pb-2 mb-4">
             Education
           </h2>
@@ -243,7 +243,7 @@ const Resume: React.FC = () => {
           ))}
         </section>
 
-        <section className="p-6">
+        <section className="px-6">
           <h2 className="text-2xl font-bold font-serif border-b pb-2 mb-4">
             Patents
           </h2>
