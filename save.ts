@@ -1,95 +1,98 @@
 import puppeteer from 'puppeteer';
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
-import { dirname, join } from 'path';
-import * as fs from 'fs/promises';
+import { join } from 'path';
+import * as cheerio from 'cheerio';
+import mime from 'mime';
+import { encode } from 'he';
 
-const TARGET_URLS = ['http://localhost:3001'];
-
+const TARGET_URL = 'http://localhost:3001';
 const OUTPUT_DIR = 'dist';
 
-const downloadResource = async (
-  url: string,
-  basePath: string,
-): Promise<string | null> => {
+// Generic escape for any inlined content
+const escapeContent = (str: string): string =>
+  encode(str, { useNamedReferences: true });
+
+const fetchAndEncode = async (url: string): Promise<string | null> => {
   try {
     const res = await fetch(url);
-    const buffer = await res.arrayBuffer();
-    const parsedUrl = new URL(url);
-    const filePath = join(basePath, parsedUrl.pathname);
+    const buffer = Buffer.from(await res.arrayBuffer());
+    const mimeType = mime.getType(url) || 'application/octet-stream';
 
-    // Ensure the directory exists
-    const dir = dirname(filePath);
-    mkdirSync(dir, { recursive: true });
+    if (mimeType.startsWith('text/') || mimeType.includes('javascript')) {
+      return buffer.toString('utf-8');
+    }
 
-    // Write the file
-    await fs.writeFile(filePath, Buffer.from(buffer));
-    return filePath;
+    return `data:${mimeType};base64,${buffer.toString('base64')}`;
   } catch (e) {
-    console.warn('Failed to download:', url);
+    console.warn('Failed to fetch:', url);
     return null;
   }
 };
 
-const makeRelativePath = (url: string) => {
-  const u = new URL(url);
-  return `./${u.pathname}`;
-};
-
 const savePage = async (url: string) => {
-  const browser = await puppeteer.launch({
-    args: ['--no-sandbox'],
-  });
-
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   const page = await browser.newPage();
 
-  const requests = new Set<string>();
-
-  page.on('request', (req) => {
-    const resourceUrl = req.url();
-    const type = req.resourceType();
-    if (['stylesheet', 'script', 'image', 'font'].includes(type)) {
-      requests.add(resourceUrl);
-    }
-  });
-
   await page.goto(url, { waitUntil: 'networkidle2' });
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((r) => setTimeout(r, 2000));
+  await page.pdf({ path: 'output.pdf', format: 'A4' });
 
-  // Download resources
-  const downloadedPaths = new Map<string, string>();
+  const html = await page.content();
+  const $ = cheerio.load(html);
 
-  for (const resourceUrl of requests) {
-    const localPath = await downloadResource(resourceUrl, OUTPUT_DIR);
-    if (localPath) {
-      downloadedPaths.set(resourceUrl, makeRelativePath(resourceUrl));
-    }
-  }
+  // Inline stylesheets
+  await Promise.all(
+    $('link[rel="stylesheet"]')
+      .map(async (_, el) => {
+        const href = $(el).attr('href');
+        if (!href) return;
+        const absUrl = new URL(href, url).href;
+        const css = await fetchAndEncode(absUrl);
+        if (css) {
+          $(el).replaceWith(`<style>${escapeContent(css)}</style>`);
+        }
+      })
+      .get(),
+  );
 
-  // Replace resource URLs in HTML
-  let html = await page.content();
-  for (const [remoteUrl, localRelPath] of downloadedPaths.entries()) {
-    html = html.replaceAll(remoteUrl, localRelPath);
-  }
+  // Inline scripts
+  await Promise.all(
+    $('script[src]')
+      .map(async (_, el) => {
+        const src = $(el).attr('src');
+        if (!src) return;
+        const absUrl = new URL(src, url).href;
+        const js = await fetchAndEncode(absUrl);
+        if (js) {
+          $(el).replaceWith(`<script>${escapeContent(js)}</script>`);
+        }
+      })
+      .get(),
+  );
 
-  // Save HTML
-  const filename =
-    url === TARGET_URLS[0]
-      ? 'index.html'
-      : url.replace(/[^a-z0-9]/gi, '_') + '.html';
-  writeFileSync(join(OUTPUT_DIR, filename), html);
+  // Inline images
+  await Promise.all(
+    $('img[src]')
+      .map(async (_, el) => {
+        const src = $(el).attr('src');
+        if (!src) return;
+        const absUrl = new URL(src, url).href;
+        const dataUri = await fetchAndEncode(absUrl);
+        if (dataUri) {
+          $(el).attr('src', dataUri);
+        }
+      })
+      .get(),
+  );
+
+  // Inline fonts and other assets in <style> blocks (optional/advanced)
+
+  // Save final HTML
+  if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR);
+  writeFileSync(join(OUTPUT_DIR, 'index.html'), $.html());
+  console.log('Saved page to dist/index.html');
 
   await browser.close();
-  console.log(`Saved ${url} as ${filename}`);
 };
 
-const main = async () => {
-  if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR);
-
-  for (const url of TARGET_URLS) {
-    await savePage(url);
-  }
-
-  console.log('Done');
-};
-
-main();
+savePage(TARGET_URL);
