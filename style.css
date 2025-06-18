@@ -1,6 +1,36 @@
 @import 'tailwindcss';
 
 :root {
-  --font-serif: 'Merriweather', serif;
-  --font-sans-serif: 'Roboto', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans-serif: 'Montserrat', sans-serif;
+}
+
+html {
+  font-family: var(--font-sans-serif);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  font-family: var(--font-sans-serif);
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+p, ul, ol {
+  margin-bottom: 1.5em;
+}
+
+a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

@@ -4,6 +4,8 @@
     "": {
       "name": "resume",
       "dependencies": {
+        "@fontsource/montserrat": "^5.2.6",
+        "@fontsource/playfair-display": "^5.2.6",
         "@fortawesome/free-brands-svg-icons": "^5.15.4",
         "@fortawesome/react-fontawesome": "^0.1.14",
         "react": "^19.0.0",
@@ -24,6 +26,10 @@
     },
   },
   "packages": {
+    "@fontsource/montserrat": ["@fontsource/montserrat@5.2.6", "", {}, "sha512-AfFxq1q5tgkOsjQfMFsh95uMXh39VbGOuBLlHLFg16/txv93lqK7Sr6jev0neuJzZy1kqRG16SH6xpUYnk4cZg=="],
+
+    "@fontsource/playfair-display": ["@fontsource/playfair-display@5.2.6", "", {}, "sha512-hWfFm2j+Dlg+UwabNJu5vi45otmLSG64hUzNFJ8pIDBgqWBviEPpVaDIZWHm2RYyIxhg9YXTPsZWdpvsu7fkqQ=="],
+
     "@fortawesome/fontawesome-common-types": ["@fortawesome/fontawesome-common-types@0.2.36", "", {}, "sha512-a/7BiSgobHAgBWeN7N0w+lAhInrGxksn13uK7231n2m8EDPE3BMCl9NZLTGrj9ZXfCmC6LM0QLqXidIizVQ6yg=="],
 
     "@fortawesome/fontawesome-svg-core": ["@fortawesome/fontawesome-svg-core@6.7.2", "", { "dependencies": { "@fortawesome/fontawesome-common-types": "6.7.2" } }, "sha512-yxtOBWDrdi5DD5o1pmVdq3WMCvnobT0LU6R8RyyVXPvFRd2o79/0NCuQoCjNTeZz9EzA9xS3JxNWfv54RIHFEA=="],
