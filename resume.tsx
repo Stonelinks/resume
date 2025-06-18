@@ -141,71 +141,75 @@ Early employee at a Japanese industrial robotics startup, developing a web inter
 
 const Resume: React.FC = () => {
   return (
-    <div className="bg-gray-100 min-h-screen py-10">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-        <header className="bg-gray-800 text-white py-8 px-6 flex items-center justify-between">
-          <div>
-            <h1 className="text-4xl font-bold font-serif mb-2">
+    <div className="bg-background min-h-screen py-8">
+      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+        <header className="bg-primary text-white py-6 px-8 flex flex-col md:flex-row items-center justify-between">
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl font-bold font-serif mb-1">
               {resumeData.name}
             </h1>
-            <p className="text-xl font-semibold font-serif">
+            <p className="text-xl font-sans">
               {resumeData.title} | {resumeData.location}
             </p>
-            <div className="mt-4 flex items-center space-x-4">
+            <div className="mt-3 flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
               <a
                 href={resumeData.website}
-                className="text-gray-300 hover:text-white mr-4"
+                className="text-muted hover:text-muted-light"
               >
                 Website
               </a>
               <a
                 href={resumeData.pdfLink}
-                className="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded"
+                className="bg-white hover:bg-background text-primary font-bold py-2 px-4 rounded"
               >
                 Download PDF
               </a>
             </div>
           </div>
-          <ul className="flex items-center space-x-4">
+          <ul className="flex items-center space-x-4 mt-4 md:mt-0">
             {resumeData.socialNetworks.map((social, index) => (
               <li key={index} className="cursor-pointer">
                 <a
                   href={social.address}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-gray-700"
+                  className="text-muted-dark hover:text-primary"
                 >
-                  <FontAwesomeIcon className="" icon={social.icon} size="2x" />
+                  <FontAwesomeIcon
+                    className="transition-transform transform hover:scale-110"
+                    icon={social.icon}
+                    size="2x"
+                  />
                 </a>
               </li>
             ))}
           </ul>
         </header>
 
-        <section className="pt-6 px-6">
-          <h2 className="text-2xl font-bold font-serif border-b pb-2 mb-4">
+        <section className="py-6 px-8">
+          <h2 className="text-2xl font-bold font-serif border-b-2 border-primary pb-1 mb-3">
             Experience
           </h2>
           {resumeData.experience.map((job, index) => (
-            <div key={index} className="mb-8">
-              <h3 className="text-xl font-semibold font-serif">
+            <div key={index} className="mb-6">
+              <h3 className="text-lg font-semibold font-serif">
                 {job.company} - {job.title}
               </h3>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-muted-dark">
                 {job.location} | {job.duration}
               </p>
               {job.techStack && (
-                <p className="text-xs text-gray-600 mt-1">
-                  Tech Stack: {job.techStack}
+                <p className="text-sm font-mono text-muted-darker mt-1">
+                  {job.techStack}
                 </p>
               )}
               <ReactMarkdown
                 components={{
                   p: ({ children }) => (
-                    <p className="text-gray-700">{children}</p>
+                    <p className="text-muted mt-2">{children}</p>
                   ),
                   li: ({ children }) => (
-                    <li className="list-disc list-inside">{children}</li>
+                    <li className="list-disc ml-6">{children}</li>
                   ),
                 }}
               >
@@ -215,26 +219,26 @@ const Resume: React.FC = () => {
           ))}
         </section>
 
-        <section className="px-6">
-          <h2 className="text-2xl font-bold font-serif border-b pb-2 mb-4">
+        <section className="py-6 px-8">
+          <h2 className="text-2xl font-bold font-serif border-b-2 border-primary pb-1 mb-3">
             Education
           </h2>
-          <p className="text-gray-700">
+          <p className="text-muted mb-3">
             <strong>{resumeData.education.degree}</strong>,{' '}
             {resumeData.education.institution} ({resumeData.education.years})
           </p>
           {resumeData.education.projects?.map((project, index) => (
-            <div key={index} className="mb-8">
-              <h3 className="text-xl font-semibold font-serif">
+            <div key={index} className="mb-6">
+              <h3 className="text-lg font-semibold font-serif">
                 {project.name}
               </h3>
-              <p className="text-gray-700 mb-2">{project.description}</p>
+              <p className="text-muted mb-2">{project.description}</p>
               {project.link && (
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-700"
+                  className="text-primary hover:text-primary-dark"
                 >
                   Project Link
                 </a>
@@ -243,22 +247,22 @@ const Resume: React.FC = () => {
           ))}
         </section>
 
-        <section className="px-6">
-          <h2 className="text-2xl font-bold font-serif border-b pb-2 mb-4">
+        <section className="py-6 px-8">
+          <h2 className="text-2xl font-bold font-serif border-b-2 border-primary pb-1 mb-3">
             Patents
           </h2>
           {resumeData.patents.map((patent, index) => (
-            <div key={index} className="mb-8">
-              <h3 className="text-xl font-semibold font-serif">
+            <div key={index} className="mb-6">
+              <h3 className="text-lg font-semibold font-serif">
                 {patent.title}
               </h3>
-              <p className="text-gray-700 mb-2">{patent.number}</p>
+              <p className="text-muted mb-2">{patent.number}</p>
               {patent.link && (
                 <a
                   href={patent.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-700"
+                  className="text-primary hover:text-primary-dark"
                 >
                   Patent Link
                 </a>
