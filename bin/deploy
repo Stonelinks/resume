@@ -1,0 +1,10 @@
+#!/bin/bash
+# set -ex
+
+cd $PROJECT_ROOT
+
+source env.sh
+
+build
+
+gh-pages -d dist -b gh-pages --nojekyll
