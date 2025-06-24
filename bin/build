@@ -14,12 +14,19 @@ SERVER_PID=$!
 # Set up a trap to kill the server process when the script exits
 trap "echo 'Killing server process'; kill -9 $SERVER_PID; exit" EXIT
 
+BROWSER_HEADLESS=true
+
 # Run the build process
 rm -rf dist && mkdir dist
-bun run single-file http://localhost:3001 dist/index.html
+bun run single-file \
+	--browser-headless $BROWSER_HEADLESS \
+	http://localhost:3001 dist/index.html
 
 # Build the PDF
-bun run single-file http://localhost:3001?pdf dist/pdf.html
+bun run single-file \
+	--browser-headless $BROWSER_HEADLESS \
+	http://localhost:3001?pdf dist/pdf.html
+
 bun run pdf.ts
 
 # Exit immediately without waiting for the server process

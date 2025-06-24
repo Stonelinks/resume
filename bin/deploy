@@ -8,3 +8,4 @@ source env.sh
 build
 
 gh-pages -d dist -b gh-pages --nojekyll
+# python3 -m http.server -d dist
