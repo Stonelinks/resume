@@ -4,6 +4,9 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import ReactMarkdown from 'react-markdown';
 
 const isPDF = window.location.href.includes('pdf');
+console.log(`isPDF: ${isPDF}`);
+
+const SECTION_SPACING = 2;
 
 interface SocialNetwork {
   address: string;
@@ -53,14 +56,14 @@ interface ResumeData {
   patents: Patent[];
 }
 
-const resumeData: ResumeData = {
+const RESUME_DATA: ResumeData = {
   name: 'Lucas Doyle',
   title: 'Senior Machine Learning Engineer',
   location: 'San Francisco, CA',
   email: 'lucas.p.doyle@gmail.com',
   website: 'http://stonelinks.org/luke/',
   pdfLink: 'http://stonelinks.github.io/resume/lucas_doyle_resume.pdf',
-  introduction: `My superpower is solving hard zero-to-one problems, delivering prototypes that seem impossible and giving last second live demos. I've shipped major features across firmware, mobile, cloud backend, frontend, and ML infrastructure, but I like it best when I can see the real, physical impact of my work (e.g. robotics, smart hardware, autonomous systems, etc.).`,
+  introduction: `My superpowers are zero-to-one problem solving, delivering prototypes and last second demos that seem impossible. I've shipped at-scale across firmware, mobile, backend, frontend and ML infrastructure. Most excited when I can see the real, physical impact of my work at scale (e.g. smart hardware, intelligent systems, robotics).`,
   socialNetworks: [
     { address: 'https://github.com/Stonelinks', icon: faGithub },
     { address: 'https://linkedin.com/in/stonelinks/', icon: faLinkedin },
@@ -76,7 +79,7 @@ const resumeData: ResumeData = {
       responsibilities: `
 **ML Infrastructure**
 
-Led the infrastructure and product features behind Samsara's core safety product (e.g. tailgating, rolling stop sign detection, etc.) that run on the edge across 2M+ of Samsara's AI dashcams, improving the safety of our roads and drivers.
+Led the infrastructure and product features behind Samsara's core safety product (e.g. tailgating, rolling stop sign detection, lane departure) that run on the edge across 2M+ of Samsara's AI dashcams, improving the safety of our roads and drivers.
 
 - Led end-to-end development and deployment of multiple edge pipelines, including device farm QA automation, shadow testing, and firmware infrastructure/feature development.
 - Built internal tools for debugging, continuous evaluation, and telemetry replay; enabled scalable model iteration and observability across firmware and cloud.
@@ -175,7 +178,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({
   title,
   children,
 }) => (
-  <section className="py-4 px-8">
+  <section className={`py-${SECTION_SPACING} px-8`}>
     <SectionHeader title={title} />
     {children}
   </section>
@@ -200,18 +203,18 @@ const MarkdownContent: React.FC<{ content: string }> = ({ content }) => (
 const Resume: React.FC = () => {
   const websiteButton = (
     <a
-      href={resumeData.website}
+      href={RESUME_DATA.website}
       target="_blank"
       rel="noopener noreferrer"
       className="bg-white hover:bg-background text-primary font-bold py-2 px-4 rounded"
     >
-      {!isPDF ? 'Website' : resumeData.website?.replace('http://', '')}
+      {!isPDF ? 'Website' : RESUME_DATA.website?.replace('http://', '')}
     </a>
   );
 
   const pdfButton = !isPDF && (
     <a
-      href={resumeData.pdfLink}
+      href={RESUME_DATA.pdfLink}
       target="_blank"
       rel="noopener noreferrer"
       className="bg-white hover:bg-background text-primary font-bold py-2 px-4 rounded"
@@ -220,124 +223,151 @@ const Resume: React.FC = () => {
     </a>
   );
 
-  return (
-    <div
-      className={`min-h-screen md:py-${!isPDF ? '1' : '8'} ${!isPDF ? 'bg-background' : ''}`}
+  const emailButton = (
+    <a
+      href={`mailto:${RESUME_DATA.email}`}
+      className="hover:bg-background text-white font-bold py-2 px-4 rounded border-2 border-white"
     >
-      <div
-        className={`max-w-3xl mx-auto bg-white ${!isPDF ? 'md:rounded-lg md:shadow-lg' : ''} overflow-hidden`}
-      >
-        <header className="bg-primary text-white py-6 px-8 flex flex-col md:flex-row items-center justify-between">
-          <div className="text-center md:text-left">
-            <h1 className="text-5xl font-serif mb-1">{resumeData.name}</h1>
-            <p className="hidden md:block text-xl font-sans">
-              {resumeData.title} | {resumeData.location}
-            </p>
-            <p className="block md:hidden text-xl font-sans">
-              {resumeData.title}
-            </p>
-            <p className="block md:hidden text-xl font-sans">
-              {resumeData.location}
-            </p>
+      <div className="inline-block md:hidden ">
+        {!isPDF ? 'Email' : RESUME_DATA.email}
+      </div>
+      <div className="hidden md:inline-block">{RESUME_DATA.email}</div>
+    </a>
+  );
 
-            <div className="hidden md:block">
-              <div className="mt-4 flex flex-row items-center">
-                <span className="space-x-4">
-                  {websiteButton}
-                  {pdfButton}
-                </span>
+  return (
+    <div className={`min-h-screen ${!isPDF ? 'bg-background' : ''}`}>
+      <div className={`${!isPDF ? 'md:pt-4' : ''}`}>
+        <div
+          className={`mx-auto bg-white ${!isPDF ? 'max-w-3xl md:rounded-lg md:shadow-lg' : ''} overflow-hidden`}
+        >
+          <header className="bg-primary text-white py-6 px-8 flex flex-col md:flex-row items-center justify-between">
+            <div className="text-center md:text-left">
+              <h1 className="text-5xl font-serif mb-1">{RESUME_DATA.name}</h1>
+              <p className="hidden md:block text-xl font-sans">
+                {RESUME_DATA.title} | {RESUME_DATA.location}
+              </p>
+              <p className="block md:hidden text-xl font-sans">
+                {RESUME_DATA.title}
+              </p>
+              <p className="block md:hidden text-xl font-sans">
+                {RESUME_DATA.location}
+              </p>
+              <div className="hidden md:block">
+                <div className="mt-4 flex flex-row items-center">
+                  <span className="space-x-4">
+                    {emailButton}
+                    {websiteButton}
+                    {pdfButton}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-          <span className="flex items-center space-x-4 mt-4 md:mt-0">
-            {resumeData.socialNetworks.map((social, index) => (
-              <div key={`s-${index}`} className="inline-block">
-                <a
-                  href={social.address}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className=""
-                >
-                  <FontAwesomeIcon
-                    className="transition-transform transform hover:scale-110"
-                    icon={social.icon}
-                    size="2x"
-                  />
-                </a>
+            <span className="flex items-center space-x-4 mt-4 md:mt-0">
+              {RESUME_DATA.socialNetworks.map((social, index) => (
+                <div key={`s-${index}`} className="inline-block">
+                  <a
+                    href={social.address}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon
+                      className="transition-transform transform hover:scale-110"
+                      icon={social.icon}
+                      size="2x"
+                    />
+                  </a>
+                </div>
+              ))}
+              <div className="inline-block md:hidden" key="website">
+                {emailButton}
+              </div>
+              <div className="inline-block md:hidden" key="website">
+                {websiteButton}
+              </div>
+              <div className="inline-block md:hidden" key="pdf">
+                {pdfButton}
+              </div>
+            </span>
+          </header>
+
+          <section className={`py-${SECTION_SPACING} px-8`}>
+            <MarkdownContent content={RESUME_DATA.introduction} />
+          </section>
+
+          <Section title="Experience">
+            {RESUME_DATA.experience.map((job, index) => (
+              <div key={index} className="mb-6">
+                <h3 className="text-lg font-bold font-serif">
+                  {job.company} - {job.title}
+                </h3>
+                <p className="text-sm text-gray-700">
+                  {job.location} | {job.duration}
+                </p>
+                {job.techStack && (
+                  <p className="text-sm font-mono text-gray-400 mt-1">
+                    {job.techStack}
+                  </p>
+                )}
+                <MarkdownContent content={job.responsibilities} />
               </div>
             ))}
-            <div className="inline-block md:hidden" key="website">
-              {websiteButton}
-            </div>
-            <div className="inline-block md:hidden" key="pdf">
-              {pdfButton}
-            </div>
-          </span>
-        </header>
+          </Section>
 
-        <section className="py-4 px-8">
-          <MarkdownContent content={resumeData.introduction} />
-        </section>
+          <Section title="Education">
+            <h3 className="text-lg font-bold font-serif">
+              {RESUME_DATA.education.institution}
+            </h3>
+            <p className="mb-3 text-gray-700">
+              {RESUME_DATA.education.degree} | {RESUME_DATA.education.years}
+            </p>
+            {RESUME_DATA.education.projects?.map((project, index) => (
+              <div key={index} className="mb-6">
+                <b className="font-sans">{project.name}</b>
+                <p className="text-gray-700 mb-2">{project.description}</p>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary-dark"
+                  >
+                    Project Link
+                  </a>
+                )}
+              </div>
+            ))}
+          </Section>
 
-        <Section title="Experience">
-          {resumeData.experience.map((job, index) => (
-            <div key={index} className="mb-6">
-              <h3 className="text-lg font-bold font-serif">
-                {job.company} - {job.title}
-              </h3>
-              <p className="text-sm text-gray-700">
-                {job.location} | {job.duration}
-              </p>
-              {job.techStack && (
-                <p className="text-sm font-mono text-gray-400 mt-1">
-                  {job.techStack}
-                </p>
-              )}
-              <MarkdownContent content={job.responsibilities} />
-            </div>
-          ))}
-        </Section>
-
-        <Section title="Education">
-          <h3 className="text-lg font-bold font-serif">
-            {resumeData.education.institution}
-          </h3>
-          <p className="mb-3 text-gray-700">
-            {resumeData.education.degree} | {resumeData.education.years}
-          </p>
-          {resumeData.education.projects?.map((project, index) => (
-            <div key={index} className="mb-6">
-              <b className="font-sans">{project.name}</b>
-              <p className="text-gray-700 mb-2">{project.description}</p>
-              {project.link && (
+          <Section title="Patents">
+            {RESUME_DATA.patents.map((patent, index) => (
+              <div key={index} className="mb-6">
+                <h3 className="text-lg font-bold font-serif">{patent.title}</h3>
                 <a
-                  href={project.link}
+                  href={patent.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:text-primary-dark"
                 >
-                  Project Link
+                  {patent.number}
                 </a>
-              )}
-            </div>
-          ))}
-        </Section>
+              </div>
+            ))}
+          </Section>
 
-        <Section title="Patents">
-          {resumeData.patents.map((patent, index) => (
-            <div key={index} className="mb-6">
-              <h3 className="text-lg font-bold font-serif">{patent.title}</h3>
-              <a
-                href={patent.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary-dark"
-              >
-                {patent.number}
-              </a>
-            </div>
-          ))}
-        </Section>
+          <Section title="Miscellany">
+            <MarkdownContent
+              content={`
+Significant skills or things that don't neatly fit into the other sections:
+
+- Mechanical design / CAD / 3d printing
+- Homelab / VPN / extensive self-hosting experience
+- Occasional paid and pro-bono consulting
+- Cat lover, marathon runner (Boston 2023), climbing
+                `}
+            />
+          </Section>
+        </div>
       </div>
     </div>
   );
