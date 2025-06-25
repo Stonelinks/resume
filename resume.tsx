@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import ReactMarkdown from 'react-markdown';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const isPDF = window.location.href.includes('pdf');
 console.log(`isPDF: ${isPDF}`);
@@ -28,6 +29,7 @@ interface Project {
 
 interface Education {
   degree: string;
+  activities: string;
   institution: string;
   location: string;
   years: string;
@@ -59,7 +61,7 @@ const RESUME_DATA: ResumeData = {
   title: 'Senior Machine Learning Engineer',
   location: 'San Francisco, CA',
   email: 'lucas.p.doyle@gmail.com',
-  website: 'http://stonelinks.org/luke/',
+  website: 'http://stonelinks.org/luke',
   pdfLink: 'http://stonelinks.github.io/resume/lucas_doyle_resume.pdf',
   introduction: `Sounds cliché, but making code do something in the real world is what excites me. My superpowers are zero-to-one problem-solving, prototypes and last second demos that seem impossible. I've shipped at-scale across firmware, mobile, backend, frontend and ML infrastructure.`,
   socialNetworks: [
@@ -125,19 +127,17 @@ Fourth employee at a Japanese industrial robotics startup:
   ],
   education: {
     degree: 'B.S. Computer and Systems Engineering',
+    activities:
+      'Rensselaer Center for Open Source, Red & White Alumni Organization',
     institution: 'Rensselaer Polytechnic Institute',
     location: 'Troy, NY',
     years: '2008 - 2012',
     projects: [
       {
         name: 'Boeing Robotic Wingbox',
-        description: 'Simulated intra-wing robot for aircraft inspection.',
+        description:
+          'Capstone - simulated intra-wing robot for aircraft inspection.',
         link: 'http://stonelinks.org/projects/boeing',
-      },
-      {
-        name: 'DaBuzz Market Sentiment Analyzer',
-        description: 'Web crawler for financial news sentiment analysis.',
-        link: 'http://stonelinks.org/projects/dabuzz',
       },
     ],
   },
@@ -225,10 +225,14 @@ const Resume: React.FC = () => {
   const emailButton = (
     <a
       href={`mailto:${RESUME_DATA.email}`}
-      className="hover:bg-background text-white font-bold py-2 px-4 rounded border-2 border-white"
+      className="hover:bg-background text-white font-bold py-2 md:px-4 md:rounded md:border-2 md:border-white"
     >
-      <div className="inline-block md:hidden ">
-        {!isPDF ? 'Email' : RESUME_DATA.email}
+      <div className="inline-block md:hidden">
+        {!isPDF ? (
+          <FontAwesomeIcon size="2x" icon={faEnvelope} />
+        ) : (
+          RESUME_DATA.email
+        )}
       </div>
       <div className="hidden md:inline-block">{RESUME_DATA.email}</div>
     </a>
@@ -248,7 +252,7 @@ const Resume: React.FC = () => {
                 {RESUME_DATA.title} | {RESUME_DATA.location}
               </p>
               <p className="block md:hidden text-xl font-sans">
-                {RESUME_DATA.title}
+                {RESUME_DATA.title.replace('Senior', 'Sr.')}
               </p>
               <p className="block md:hidden text-xl font-sans">
                 {RESUME_DATA.location}
@@ -318,8 +322,11 @@ const Resume: React.FC = () => {
             <h3 className="text-lg font-bold font-serif">
               {RESUME_DATA.education.institution}
             </h3>
-            <p className="mb-3 text-gray-700">
+            <p className="mb-1 text-gray-700">
               {RESUME_DATA.education.degree} | {RESUME_DATA.education.years}
+            </p>
+            <p className="mb-3 text-sm text-gray-700">
+              {RESUME_DATA.education.activities}
             </p>
             {RESUME_DATA.education.projects?.map((project, index) => (
               <div key={index} className="mb-2">
@@ -358,14 +365,14 @@ const Resume: React.FC = () => {
           </Section>
 
           {!isPDF && (
-            <Section title="Miscellany">
+            <Section title="Miscellaneous">
               <MarkdownContent
                 content={`
 - Mechanical design / CAD / 3d printing
 - Electronics / microcontrollers / remote control / robotics
 - Homelab / VPN / extensive self-hosting experience
-- Cat lover, marathon runner (Boston 2023), climbing
 - Occasional paid and pro-bono consulting
+- Cat lover, marathon runner (BQ 2023), mixologist, climbing
                 `}
               />
             </Section>
