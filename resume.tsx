@@ -369,7 +369,7 @@ const Resume: React.FC = () => {
               content={`
 - Mechanical design / CAD / 3d printing
 - Electronics / microcontrollers / remote control / robotics
-- Homelab / VPN / extensive self-hosting experience
+- Homelab / VPN / LocalLlama / extensive self-hosting experience
 - Occasional paid and pro-bono consulting
 - Cat lover, marathon runner (BQ 2023), mixologist, climbing
                 `}
