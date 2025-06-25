@@ -6,8 +6,6 @@ import ReactMarkdown from 'react-markdown';
 const isPDF = window.location.href.includes('pdf');
 console.log(`isPDF: ${isPDF}`);
 
-const SECTION_SPACING = 2;
-
 interface SocialNetwork {
   address: string;
   icon: any;
@@ -63,7 +61,7 @@ const RESUME_DATA: ResumeData = {
   email: 'lucas.p.doyle@gmail.com',
   website: 'http://stonelinks.org/luke/',
   pdfLink: 'http://stonelinks.github.io/resume/lucas_doyle_resume.pdf',
-  introduction: `My superpowers are zero-to-one problem solving, delivering prototypes and last second demos that seem impossible. I've shipped at-scale across firmware, mobile, backend, frontend and ML infrastructure. Most excited when I can see the real, physical impact of my work at scale (e.g. smart hardware, intelligent systems, robotics).`,
+  introduction: `Sounds cliché, but making code do something in the real world is what excites me. My superpowers are zero-to-one problem-solving, prototypes and last second demos that seem impossible. I've shipped at-scale across firmware, mobile, backend, frontend and ML infrastructure.`,
   socialNetworks: [
     { address: 'https://github.com/Stonelinks', icon: faGithub },
     { address: 'https://linkedin.com/in/stonelinks/', icon: faLinkedin },
@@ -79,11 +77,11 @@ const RESUME_DATA: ResumeData = {
       responsibilities: `
 **ML Infrastructure**
 
-Led the infrastructure and product features behind Samsara's core safety product (e.g. tailgating, rolling stop sign detection, lane departure) that run on the edge across 2M+ of Samsara's AI dashcams, improving the safety of our roads and drivers.
+Led edge infrastructure / end-to-end implementation and deployment of video pipelines for Samsara's video-based safety products. These run on 2M+ of Samsara's AI dashcams, improving driver safety, engagement, and trust at scale.
 
-- Led end-to-end development and deployment of multiple edge pipelines, including device farm QA automation, shadow testing, and firmware infrastructure/feature development.
-- Built internal tools for debugging, continuous evaluation, and telemetry replay; enabled scalable model iteration and observability across firmware and cloud.
-- Spearheaded offline evaluation pipelines for quantized models and integrated support for multimodal data (video, IMU, GPS, hardware emulation, etc.).
+- Developed and deployed pipelines (e.g. tailgating, rolling stop sign detection, lane departure), including device farm QA automation, shadow testing, and firmware infrastructure / feature development.
+- Built internal tools for debugging, evaluation, and telemetry replay; enabled scalable model iteration and observability across firmware and cloud.
+- Spearheaded offline evaluation pipelines for quantized models and integrated support for multimodal data (e.g. video, IMU, GPS, hardware emulation).
 - Mentored interns and collaborated cross-functionally with product, firmware, science and data teams to streamline ML deployment and validation processes.
 
 **Mobile**
@@ -120,7 +118,7 @@ Developed core technologies for a drone platform to capture, upload and process 
 Fourth employee at a Japanese industrial robotics startup:
 
 - Designed and implemented the web interface for the MUJIN Controller, a robotic arm workcell planning system used by Canon, Honda, and other system integrators.
-- Developed customer-facing UIs featuring a real-time, WebSocket-based WebGL viewer for a bin-picking system.
+- Developed customer-facing UIs featuring a real-time WebSocket-based WebGL viewer for a bin-picking system.
 - Collaborated with an international team while living in Japan for two years.
 `,
     },
@@ -174,12 +172,12 @@ const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
 /**
  * Section component for consistent section layout
  */
-const Section: React.FC<{ title: string; children: React.ReactNode }> = ({
+const Section: React.FC<{ title?: string; children: React.ReactNode }> = ({
   title,
   children,
 }) => (
-  <section className={`py-${SECTION_SPACING} px-8`}>
-    <SectionHeader title={title} />
+  <section className={`mt-6 px-8 mb-6`}>
+    {title && <SectionHeader title={title} />}
     {children}
   </section>
 );
@@ -191,7 +189,8 @@ const MarkdownContent: React.FC<{ content: string }> = ({ content }) => (
   <div className="text-gray-700">
     <ReactMarkdown
       components={{
-        p: ({ children }) => <p className="mt-2">{children}</p>,
+        p: ({ children }) => <p className="mb-2">{children}</p>,
+        ul: ({ children }) => <ul className="mb-2">{children}</ul>,
         li: ({ children }) => <li className="list-disc ml-6">{children}</li>,
       }}
     >
@@ -237,11 +236,12 @@ const Resume: React.FC = () => {
 
   return (
     <div className={`min-h-screen ${!isPDF ? 'bg-background' : ''}`}>
-      <div className={`${!isPDF ? 'md:pt-4' : ''}`}>
+      <div className={`${!isPDF ? 'md:py-6' : ''}`}>
+        {/* sweet jesus this is a mess */}
         <div
-          className={`mx-auto bg-white ${!isPDF ? 'max-w-3xl md:rounded-lg md:shadow-lg' : ''} overflow-hidden`}
+          className={`mx-auto bg-white overflow-hidden ${!isPDF ? 'max-w-3xl md:rounded-lg md:shadow-lg' : ''}`}
         >
-          <header className="bg-primary text-white py-6 px-8 flex flex-col md:flex-row items-center justify-between">
+          <header className="bg-gradient-to-r from-primary to-secondary text-white py-8 px-8 mb-3 flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left">
               <h1 className="text-5xl font-serif mb-1">{RESUME_DATA.name}</h1>
               <p className="hidden md:block text-xl font-sans">
@@ -291,9 +291,9 @@ const Resume: React.FC = () => {
             </span>
           </header>
 
-          <section className={`py-${SECTION_SPACING} px-8`}>
+          <Section>
             <MarkdownContent content={RESUME_DATA.introduction} />
-          </section>
+          </Section>
 
           <Section title="Experience">
             {RESUME_DATA.experience.map((job, index) => (
@@ -305,7 +305,7 @@ const Resume: React.FC = () => {
                   {job.location} | {job.duration}
                 </p>
                 {job.techStack && (
-                  <p className="text-sm font-mono text-gray-400 mt-1">
+                  <p className="text-sm font-mono text-gray-400 pt-2 pb-2">
                     {job.techStack}
                   </p>
                 )}
@@ -322,51 +322,54 @@ const Resume: React.FC = () => {
               {RESUME_DATA.education.degree} | {RESUME_DATA.education.years}
             </p>
             {RESUME_DATA.education.projects?.map((project, index) => (
-              <div key={index} className="mb-6">
+              <div key={index} className="mb-2">
                 <b className="font-sans">{project.name}</b>
-                <p className="text-gray-700 mb-2">{project.description}</p>
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary-dark"
-                  >
-                    Project Link
-                  </a>
-                )}
+                <p className="text-gray-700 mb-2">
+                  {project.description}{' '}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent text-sm hover:text-primary-dark"
+                    >
+                      (project link)
+                    </a>
+                  )}
+                </p>
               </div>
             ))}
           </Section>
 
           <Section title="Patents">
             {RESUME_DATA.patents.map((patent, index) => (
-              <div key={index} className="mb-6">
-                <h3 className="text-lg font-bold font-serif">{patent.title}</h3>
+              <div key={index} className="mb-2">
+                <b className="inline-block text-lg font-sans">{patent.title}</b>
                 <a
                   href={patent.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:text-primary-dark"
+                  className="ml-2 text-accent text-sm hover:text-primary-dark"
                 >
-                  {patent.number}
+                  ({patent.number})
                 </a>
               </div>
             ))}
           </Section>
 
-          <Section title="Miscellany">
-            <MarkdownContent
-              content={`
-Significant skills or things that don't neatly fit into the other sections:
-
+          {!isPDF && (
+            <Section title="Miscellany">
+              <MarkdownContent
+                content={`
 - Mechanical design / CAD / 3d printing
+- Electronics / microcontrollers / remote control / robotics
 - Homelab / VPN / extensive self-hosting experience
-- Occasional paid and pro-bono consulting
 - Cat lover, marathon runner (Boston 2023), climbing
+- Occasional paid and pro-bono consulting
                 `}
-            />
-          </Section>
+              />
+            </Section>
+          )}
         </div>
       </div>
     </div>
