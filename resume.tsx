@@ -364,19 +364,17 @@ const Resume: React.FC = () => {
             ))}
           </Section>
 
-          {!isPDF && (
-            <Section title="Miscellaneous">
-              <MarkdownContent
-                content={`
+          <Section title="Miscellaneous">
+            <MarkdownContent
+              content={`
 - Mechanical design / CAD / 3d printing
 - Electronics / microcontrollers / remote control / robotics
 - Homelab / VPN / extensive self-hosting experience
 - Occasional paid and pro-bono consulting
 - Cat lover, marathon runner (BQ 2023), mixologist, climbing
                 `}
-              />
-            </Section>
-          )}
+            />
+          </Section>
         </div>
       </div>
     </div>
