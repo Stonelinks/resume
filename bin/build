@@ -20,11 +20,39 @@ BROWSER_HEADLESS=true
 rm -rf dist && mkdir dist
 bun run single-file \
 	--browser-headless $BROWSER_HEADLESS \
+	--block-scripts false \
+	--compress-HTML false \
+	--group-duplicate-images false \
+	--insert-meta-CSP false \
+	--load-deferred-images false \
+	--remove-hidden-elements false \
+	--remove-unused-styles false \
+	--remove-unused-fonts false \
+	--remove-alternative-fonts false \
+	--remove-alternative-medias false \
+	--remove-alternative-images false \
+	--self-extracting-archive false \
+	--extract-data-from-page false \
+	--insert-single-file-comment false \
 	http://localhost:3001 dist/index.html
 
 # Build the PDF
 bun run single-file \
 	--browser-headless $BROWSER_HEADLESS \
+	--block-scripts false \
+	--compress-HTML false \
+	--group-duplicate-images false \
+	--insert-meta-CSP false \
+	--load-deferred-images false \
+	--remove-hidden-elements false \
+	--remove-unused-styles false \
+	--remove-unused-fonts false \
+	--remove-alternative-fonts false \
+	--remove-alternative-medias false \
+	--remove-alternative-images false \
+	--self-extracting-archive false \
+	--extract-data-from-page false \
+	--insert-single-file-comment false \
 	http://localhost:3001?pdf dist/pdf.html
 
 bun run pdf.ts
