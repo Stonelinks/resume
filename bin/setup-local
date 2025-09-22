@@ -5,6 +5,5 @@ cd $PROJECT_ROOT
 
 source env.sh
 
-install-python
 install-go
 install-node
