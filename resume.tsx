@@ -63,7 +63,7 @@ const RESUME_DATA: ResumeData = {
   email: 'lucas.p.doyle@gmail.com',
   website: 'http://stonelinks.org/luke',
   pdfLink: 'http://stonelinks.github.io/resume/lucas_doyle_resume.pdf',
-  introduction: `Sounds cliché, but making code do something in the real world is what excites me. My superpowers are zero-to-one problem-solving, prototypes and last second demos that seem impossible. I've shipped at-scale across firmware, mobile, backend, frontend and ML infrastructure.`,
+  introduction: `Sounds cliché, but making software do something in the real world is what excites me. I specialize in zero-to-one problem solving, building prototypes that evolve into scalable systems, and shipping robotics and ML products that operate reliably in the field. Experience spans robotic arms, drones, autonomous systems, and embedded ML at scale.`,
   socialNetworks: [
     { address: 'https://github.com/Stonelinks', icon: faGithub },
     { address: 'https://linkedin.com/in/stonelinks/', icon: faLinkedin },
@@ -77,19 +77,17 @@ const RESUME_DATA: ResumeData = {
       techStack:
         'Python, Golang, Typescript (React, Redux, React Native), Android (Java, Kotlin)',
       responsibilities: `
-**ML Infrastructure**
+**Edge ML Infrastructure**
 
-Led edge infrastructure / end-to-end implementation and deployment of video pipelines for Samsara's video-based safety products. These run on 2M+ of Samsara's AI dashcams, improving driver safety, engagement, and trust at scale.
+- Led end-to-end design and deployment of embedded video ML pipelines powering Samsara’s AI dashcams (2M+ devices in the field).
 
-- Developed and deployed pipelines (e.g. tailgating, rolling stop sign detection, lane departure), including device farm QA automation, shadow testing, and firmware infrastructure / feature development.
-- Built internal tools for debugging, evaluation, and telemetry replay; enabled scalable model iteration and observability across firmware and cloud.
-- Spearheaded offline evaluation pipelines for quantized models and integrated support for multimodal data (e.g. video, IMU, GPS, hardware emulation).
-- Mentored interns and collaborated cross-functionally with product, firmware, science and data teams to streamline ML deployment and validation processes.
+- Shipped safety-critical features (e.g. tailgating, rolling stop, lane departure) running on resource-constrained hardware.
 
-**Mobile**
+- Built QA device farms, shadow testing systems, and firmware infrastructure for rapid iteration of on-device ML.
 
-- Led performance and infrastructure efforts for mobile applications with 500k+ DAU, driving major improvements in responsiveness, reliability, and developer velocity.
-- Helped bootstrap new apps, products and the company’s first native Android systems and mobile device management (MDM) stack.
+- Spearheaded offline evaluation pipelines with multimodal inputs (video, IMU, GPS, hardware-in-the-loop simulation / emulation).
+
+- Designed debugging and telemetry tools to improve observability across firmware and cloud systems.
 `,
     },
     {
@@ -100,13 +98,12 @@ Led edge infrastructure / end-to-end implementation and deployment of video pipe
       techStack:
         'Javascript (React, Redux, Leaflet, React Native), Python, Swift, PHP, Golang',
       responsibilities: `
-Developed core technologies for a drone platform to capture, upload and process large-scale imagery into survey-grade data for insurance and mining industries.
+**Drone Platforms & Aerial Robotics**
 
-- Created a desktop app for flashing and configuring fixed-wing and multirotor drone avionics hardware.
-- Built cloud workflows for large-scale survey processing and analysis with a GIS/geospatial-focused UI.
-- Developed a mobile app for drone operators using React Native and iOS, enabling geofence editing and on-device photogrammetry processing.
-
-- Led feature development, large-scale refactors, product mergers / acquisitions; contributed to hiring, planning, and mentoring engineers.
+- Built core technologies for autonomous drone systems used in insurance and mining industries.
+- Developed applications for configuring and flashing avionics on fixed-wing and multirotor drones.
+- Built geospatial data processing pipelines and survey-grade mapping workflows for large-scale aerial datasets.
+- Contributed to system-level integrations during M&A, driving engineering alignment across platforms.
 `,
     },
     {
@@ -117,11 +114,11 @@ Developed core technologies for a drone platform to capture, upload and process 
       techStack:
         'Python (django, OpenRAVE), Javascript (Backbone/Marionette, WebGL)',
       responsibilities: `
-Fourth employee at a Japanese industrial robotics startup:
+**Industrial Robotics**
 
-- Designed and implemented the web interface for the MUJIN Controller, a robotic arm workcell planning system used by Canon, Honda, and other system integrators.
-- Developed customer-facing UIs featuring a real-time WebSocket-based WebGL viewer for a bin-picking system.
-- Collaborated with an international team while living in Japan for two years.
+- Early engineer at a Japanese robotics startup, developing the MUJIN Controller for robotic arm workcell planning and optimization.
+- Built real-time customer UIs with WebGL and WebSockets for bin-picking and industrial automation systems.
+- Collaborated with multinational robotics engineers and deployed solutions for clients including Canon and Honda.
 `,
     },
   ],
