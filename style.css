@@ -16,48 +16,12 @@
   --color-background: #d7d9ce; /* Tailwind equivalent: bg-gray-100 */
 }
 
-html {
-  /* font-family: var(--font-sans-serif); */
-}
-
-body {
-  /* font-family: var(--font-sans-serif); */
-  /* color: var(--text-color); */
-  /* background-color: var(--background-color); */
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  /* font-family: var(--font-serif); */
-  /* color: var(--primary-color); */
-}
-
-a {
-  /* color: var(--link-color); */
-  /* text-decoration: none; */
-}
-
-a:hover {
-  /* text-decoration: underline; */
-}
-
 ul {
   list-style-position: outside;
-  /* padding-left: 2em;
-  margin-left: 1em; */
 }
 
 li {
-  /* margin-bottom: 0.5em; */
   display: list-item;
-}
-
-li::marker {
-  /* color: var(--primary-color); */
 }
 
 /*
