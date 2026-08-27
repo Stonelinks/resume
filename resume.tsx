@@ -63,8 +63,8 @@ const RESUME_DATA: ResumeData = {
   title: 'Senior Machine Learning Engineer',
   location: 'San Francisco, CA',
   email: 'lucas.p.doyle@gmail.com',
-  website: 'http://stonelinks.org/luke',
-  pdfLink: 'http://stonelinks.github.io/resume/lucas_doyle_resume.pdf',
+  website: 'https://stonelinks.org/luke',
+  pdfLink: 'https://stonelinks.github.io/resume/lucas_doyle_resume.pdf',
   introduction: `Sounds cliché, but making software do something in the real world is what excites me. I specialize in zero-to-one problem solving, building prototypes that evolve into scalable systems, and shipping robotics and ML products that operate reliably in the field. Experience spans robotic arms, drones, autonomous systems, and embedded ML at scale.`,
   socialNetworks: [
     { address: 'https://github.com/Stonelinks', icon: faGithub },
@@ -156,7 +156,7 @@ const RESUME_DATA: ResumeData = {
         name: 'Boeing Robotic Wingbox',
         description:
           'Capstone - simulated intra-wing robot for aircraft inspection.',
-        link: 'http://stonelinks.org/projects/boeing',
+        link: 'https://stonelinks.org/projects/boeing',
       },
     ],
   },
@@ -226,7 +226,7 @@ const Resume: React.FC = () => {
       rel="noopener noreferrer"
       className="bg-white hover:bg-background text-primary font-bold py-2 px-4 rounded"
     >
-      {!isPDF ? 'Website' : RESUME_DATA.website?.replace('http://', '')}
+      {!isPDF ? 'Website' : RESUME_DATA.website?.replace(/^https?:\/\//, '')}
     </a>
   );
 
