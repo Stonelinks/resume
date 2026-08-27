@@ -70,7 +70,7 @@ export const RESUME_DATA: ResumeData = {
       company: 'Medra',
       location: 'San Francisco, CA',
       duration: '2026 - Present',
-      techStack: 'Python, TypeScript (React), Go, C# (.NET), Claude agents',
+      techStack: 'Python, TypeScript (React), Go, C# (.NET)',
       responsibilities: `
 **Autonomous Robotic Laboratory & AI Agents**
 
