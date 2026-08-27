@@ -1,10 +1,11 @@
 // Resume content, kept apart from the layout in resume.tsx: this is the file
 // that actually changes.
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import type { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 
 export interface SocialNetwork {
   address: string;
-  icon: any;
+  icon: IconDefinition;
 }
 
 export interface Experience {

@@ -12,7 +12,11 @@ import '@fontsource/playfair-display/latin-700.css';
 import '@fontsource/montserrat/latin-400.css';
 import '@fontsource/montserrat/latin-700.css';
 
-// @ts-ignore
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const container = document.getElementById('root');
+if (!container) {
+  throw new Error('#root is missing from index.html');
+}
+
+const root = ReactDOM.createRoot(container);
 
 root.render(<Resume />);

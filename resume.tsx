@@ -132,15 +132,9 @@ const Resume: React.FC = () => {
                   </a>
                 </div>
               ))}
-              <div className="inline-block md:hidden" key="website">
-                {emailButton}
-              </div>
-              <div className="inline-block md:hidden" key="website">
-                {websiteButton}
-              </div>
-              <div className="inline-block md:hidden" key="pdf">
-                {pdfButton}
-              </div>
+              <div className="inline-block md:hidden">{emailButton}</div>
+              <div className="inline-block md:hidden">{websiteButton}</div>
+              <div className="inline-block md:hidden">{pdfButton}</div>
             </span>
           </header>
 
