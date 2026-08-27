@@ -56,7 +56,7 @@ is the only way the site is published.
 
 ## Editing
 
-- **Content** — `RESUME_DATA` in `resume.tsx`. Bullet lists are markdown.
+- **Content** — `RESUME_DATA` in `resume-data.ts`. Bullet lists are markdown.
 - **Layout** — the components in `resume.tsx`.
 - **Styling** — Tailwind classes, with the theme and the print rules in
   `style.css`.

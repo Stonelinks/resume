@@ -38,7 +38,7 @@ capture.
 
 ## Editing
 
-- Content: `RESUME_DATA` in `resume.tsx`. Responsibilities are markdown.
+- Content: `RESUME_DATA` in `resume-data.ts`. Responsibilities are markdown.
 - Styling: Tailwind utilities; theme tokens and the `@media print` rules live in
   `style.css`.
 - Print layout is easy to break. After changing anything that affects it, render
