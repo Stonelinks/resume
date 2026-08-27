@@ -36,6 +36,16 @@ export ARCH
 # Go
 export GO_VERSION=1.24.4
 
+# shfmt, the only thing go is here for.
+#
+# https://github.com/mvdan/sh/releases
+#
+# Pinned, and pinned to the newest release that still builds with GO_VERSION
+# above: v3.13.0 and later declare `go 1.25.0`, so the go toolchain quietly
+# downloads a newer one to satisfy them and GO_VERSION stops meaning anything.
+# Bump both together if you want a newer shfmt.
+export SHFMT_VERSION=v3.12.0
+
 # Add go to PATH and configure GOROOT and GOPATH.
 export GOROOT=$OPT_DIR/goroot
 PATH=$GOROOT/bin:$PATH

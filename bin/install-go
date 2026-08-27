@@ -32,4 +32,4 @@ if [ ! -L "$OPT_DIR/goroot" ] || [ "$(readlink -- $OPT_DIR/goroot)" != "go$GO_VE
 	ln -sfn "go$GO_VERSION" $OPT_DIR/goroot
 fi
 
-go install mvdan.cc/sh/v3/cmd/shfmt@latest
+go install mvdan.cc/sh/v3/cmd/shfmt@$SHFMT_VERSION
