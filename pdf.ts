@@ -6,6 +6,8 @@ const outputPath = './dist/lucas_doyle_resume.pdf';
 
 const browser = await puppeteer.launch({
   args: ['--no-sandbox'],
+  // Set by bin/build; falls back to puppeteer's own lookup in $PUPPETEER_CACHE_DIR.
+  executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
 });
 const page = await browser.newPage();
 

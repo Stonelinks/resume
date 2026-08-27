@@ -58,6 +58,13 @@ PATH=$BUN_INSTALL/bin:$PATH
 
 PATH=$PROJECT_ROOT/node_modules/.bin:$PATH
 
+# puppeteer
+
+# Keep the browser download in this project's store instead of the global
+# ~/.cache/puppeteer, so builds never depend on machine state. Both single-file
+# and pdf.ts use the browser installed here by bin/install-chrome.
+export PUPPETEER_CACHE_DIR=$OPT_DIR/puppeteer
+
 chmod +x $PROJECT_ROOT/bin/*
 PATH=$PROJECT_ROOT/bin:$PATH
 export PATH

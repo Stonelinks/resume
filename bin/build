@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -ex
+set -e
 
 cd $PROJECT_ROOT
 
@@ -7,18 +7,40 @@ source env.sh
 
 format
 
+# Use the browser this project installs rather than whatever chrome happens to
+# be on the machine, so the build is reproducible anywhere setup-local ran.
+CHROME_PATH=$(install-chrome)
+export PUPPETEER_EXECUTABLE_PATH=$CHROME_PATH
+
 # Start the server process and store its PID
 bun run server.ts &
 SERVER_PID=$!
 
-# Set up a trap to kill the server process when the script exits
-trap "echo 'Killing server process'; kill -9 $SERVER_PID; exit" EXIT
+# Kill the server on exit, preserving the failing command's status so callers
+# like bin/deploy don't mistake a broken build for a successful one.
+cleanup() {
+	status=$?
+	echo 'Killing server process'
+	kill -9 $SERVER_PID 2>/dev/null || true
+	exit $status
+}
+trap cleanup EXIT
+
+# Wait for the server to accept connections before pointing a browser at it.
+for _ in $(seq 50); do
+	if curl -fsS -o /dev/null http://localhost:3001; then
+		break
+	fi
+	sleep 0.2
+done
+curl -fsS -o /dev/null http://localhost:3001
 
 BROWSER_HEADLESS=true
 
 # Run the build process
 rm -rf dist && mkdir dist
 bun run single-file \
+	--browser-executable-path "$CHROME_PATH" \
 	--browser-headless $BROWSER_HEADLESS \
 	--block-scripts false \
 	--compress-HTML false \
@@ -38,6 +60,7 @@ bun run single-file \
 
 # Build the PDF
 bun run single-file \
+	--browser-executable-path "$CHROME_PATH" \
 	--browser-headless $BROWSER_HEADLESS \
 	--block-scripts false \
 	--compress-HTML false \
@@ -56,6 +79,15 @@ bun run single-file \
 	http://localhost:3001?pdf dist/pdf.html
 
 bun run pdf.ts
+
+# single-file writes empty output on some failures, so make sure the deploy
+# artifacts actually exist before anyone publishes them.
+for artifact in dist/index.html dist/pdf.html dist/lucas_doyle_resume.pdf; do
+	if [ ! -s "$artifact" ]; then
+		echo "Build failed: $artifact is missing or empty" >&2
+		exit 1
+	fi
+done
 
 # Exit immediately without waiting for the server process
 exit

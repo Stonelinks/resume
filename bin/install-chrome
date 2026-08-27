@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+cd $PROJECT_ROOT
+
+source env.sh
+
+# Installs chrome into $PUPPETEER_CACHE_DIR and prints its executable path.
+# Idempotent: if the browser is already there this returns the path without
+# downloading, so it is cheap enough to call on every build.
+install_output=$(bun run puppeteer browsers install chrome | tee /dev/stderr | tail -n 1)
+
+# The last line is "chrome@<version> <path>"; strip the version prefix.
+echo "${install_output#* }"
