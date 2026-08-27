@@ -5,7 +5,6 @@ import ReactMarkdown from 'react-markdown';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const isPDF = window.location.href.includes('pdf');
-console.log(`isPDF: ${isPDF}`);
 
 interface SocialNetwork {
   address: string;
