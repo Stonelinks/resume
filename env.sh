@@ -16,8 +16,9 @@ case $(uname -s) in
 Darwin) OS=darwin ;;
 Linux) OS=linux ;;
 *)
+	# This file is sourced, so exit here would kill the caller's shell.
 	echo "Unsupported OS $(uname -s)"
-	exit 1
+	return 1
 	;;
 esac
 
