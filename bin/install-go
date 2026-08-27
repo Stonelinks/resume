@@ -1,7 +1,10 @@
 #!/bin/bash
 # set -e
 
-cd $PROJECT_ROOT
+# Resolve the repo from this script's own location, before env.sh has had a
+# chance to define PROJECT_ROOT. Going the other way round means an unset
+# PROJECT_ROOT sends cd to $HOME and env.sh is sourced from wherever that lands.
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 source env.sh
 
