@@ -70,10 +70,30 @@ const RESUME_DATA: ResumeData = {
   ],
   experience: [
     {
+      title: 'Team Lead, AI Scientist',
+      company: 'Medra',
+      location: 'San Francisco, CA',
+      duration: '2026 - Present',
+      techStack: 'Python, TypeScript (React), Go, C# (.NET), Claude agents',
+      responsibilities: `
+**Autonomous Robotic Laboratory & AI Agents**
+
+- Lead the AI scientist pod at an AI-run robotic lab startup; DRI for the AI experimentalist on a major pharma customer engagement; co-designed the lab's three-tier software architecture.
+
+- Built Medra OS: fully unattended bare-metal provisioning that scaled the lab from 10 to 100+ robotic workstations; absorbed an overnight pivot to consumer mini PCs, standing up 60 decks in 4 days.
+
+- Integrated lab instruments (thermocycler, qPCR, plate-handoff rail electronics and firmware) in days each, then packaged the process as an agent skill teammates used to bring up more instruments unaided.
+
+- Created a company-wide autonomous SWE agent used by 50+ engineers; most of its work is self-initiated (PR triage, fleet-alarm first response, bug-report dedup) and most automations on it were built by others.
+
+- Own the monorepo developer environment (4 languages) and an internal apps hub hosting 11 apps in regular use across the company.
+`,
+    },
+    {
       title: 'Senior Machine Learning Engineer II',
       company: 'Samsara',
       location: 'San Francisco, CA',
-      duration: '2018 - Present',
+      duration: '2018 - 2026',
       techStack:
         'Python, Golang, Typescript (React, Redux, React Native), Android (Java, Kotlin)',
       responsibilities: `
