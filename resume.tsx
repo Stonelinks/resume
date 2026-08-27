@@ -4,7 +4,10 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import ReactMarkdown from 'react-markdown';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-const isPDF = window.location.href.includes('pdf');
+// The print build is served at ?pdf. Match the query parameter exactly rather
+// than searching the whole href, which would also match a path or any other
+// parameter that happens to contain "pdf".
+const isPDF = new URLSearchParams(window.location.search).has('pdf');
 
 interface SocialNetwork {
   address: string;
