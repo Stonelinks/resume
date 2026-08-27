@@ -193,7 +193,7 @@ const Section: React.FC<{ title?: string; children: React.ReactNode }> = ({
   title,
   children,
 }) => (
-  <section className={`mt-6 px-8 mb-6`}>
+  <section className={`resume-section mt-6 px-8 mb-6`}>
     {title && <SectionHeader title={title} />}
     {children}
   </section>
@@ -318,7 +318,7 @@ const Resume: React.FC = () => {
 
           <Section title="Experience">
             {RESUME_DATA.experience.map((job, index) => (
-              <div key={index} className="mb-6">
+              <div key={index} className="resume-job mb-6">
                 <h3 className="text-lg font-bold font-serif">
                   {job.company} - {job.title}
                 </h3>

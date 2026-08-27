@@ -59,3 +59,36 @@ li {
 li::marker {
   /* color: var(--primary-color); */
 }
+
+/*
+ * Print / PDF layout.
+ *
+ * bin/build renders dist/pdf.html through headless chrome, which applies these
+ * rules. Vertical page margins only -- the header gradient is full bleed and
+ * the content already carries its own horizontal padding -- and no top margin
+ * on page one so that gradient still reaches the top edge.
+ */
+@media print {
+  @page {
+    margin: 0.4in 0;
+  }
+
+  @page :first {
+    margin-top: 0;
+  }
+
+  /* Keep a job entry or a bullet from straddling a page boundary. Deliberately
+   * not applied to .resume-section: Experience is taller than a page, and
+   * chrome honours the avoid by pushing the whole section to a fresh page
+   * rather than ignoring it, which leaves page one nearly empty. */
+  .resume-job,
+  li {
+    break-inside: avoid;
+  }
+
+  /* Never strand a section header at the bottom of a page. */
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}
