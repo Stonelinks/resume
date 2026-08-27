@@ -55,7 +55,10 @@ if [ ! -d $GOPATH ]; then
 	mkdir -p $GOPATH
 fi
 
-PATH=$PATH:$GOPATH/bin
+# Prepended, not appended. Appending puts /usr/bin first, so a system-wide shfmt
+# shadows the pinned one this project just installed -- which defeats the point
+# of installing it, and silently formats with whatever version the machine has.
+PATH=$GOPATH/bin:$PATH
 
 # Node
 
